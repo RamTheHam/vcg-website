@@ -1,0 +1,6 @@
+Dockerfile
+Caddyfile
+railway.json
+.dockerignore
+.git
+.DS_Store

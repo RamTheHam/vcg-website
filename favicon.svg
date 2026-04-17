@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="VCG favicon">
+  <title>Value Catalyst Group — Favicon</title>
+  <rect width="32" height="32" fill="#1C1C2E"/>
+  <g transform="translate(5 6)">
+    <path d="M0,9 L11,-2 L22,9 L20,11 L11,2 L2,11 Z" fill="#F7F5F1"/>
+    <path d="M0,22 L11,11 L22,22 L20,24 L11,15 L2,24 Z" fill="#2B8C7F"/>
+  </g>
+</svg>
