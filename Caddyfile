@@ -1,19 +1,25 @@
-:{$PORT:80}
-
-root * /usr/share/caddy
-file_server
-try_files {path} /index.html
-
-encode gzip
-
-header {
-	# security + caching
-	Strict-Transport-Security "max-age=31536000; includeSubDomains"
-	X-Content-Type-Options "nosniff"
-	Referrer-Policy "strict-origin-when-cross-origin"
-	Cache-Control "public, max-age=3600"
+{
+	# Disable auto-HTTPS — Railway terminates TLS at its edge proxy.
+	auto_https off
+	# Silence the admin API (not needed for a static site, reduces attack surface).
+	admin off
 }
 
-# Long cache for logo assets
-@assets path /*.svg /*.png /*.ico /*.webp /*.woff /*.woff2
-header @assets Cache-Control "public, max-age=2592000, immutable"
+:{$PORT:8080} {
+	root * /usr/share/caddy
+	file_server
+	try_files {path} /index.html
+
+	encode gzip zstd
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Cache-Control "public, max-age=3600"
+	}
+
+	# Long cache for immutable-ish assets.
+	@assets path *.svg *.png *.ico *.webp *.woff *.woff2
+	header @assets Cache-Control "public, max-age=2592000, immutable"
+}
