@@ -621,6 +621,19 @@
       color: var(--ink-soft);
       line-height: 1.5;
     }
+    .about__linkedin {
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+    }
+    .about__linkedin a {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      transition: opacity 180ms var(--ease);
+    }
+    .about__linkedin a:hover { opacity: 0.7; }
     .about__body p {
       font-size: 19px;
       line-height: 1.62;
@@ -1056,6 +1069,7 @@
           <p class="eyebrow" style="margin-bottom: 28px;">About</p>
           <p class="about__name">Henrik Rammer</p>
           <p class="about__role">Founder<br>Stockholm, Sweden</p>
+          <p class="about__linkedin"><a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer →</a></p>
         </aside>
         <div class="about__body reveal d1">
           <h2 class="section__title" id="about-heading" style="margin-bottom: 40px;">Built for executives across a career, <em>not one transaction.</em></h2>
@@ -1078,7 +1092,7 @@
         <p class="contact__para reveal d2"><strong style="color: var(--paper); font-weight: 500;">For PE firms:</strong> a 20-minute call to walk through the model, see a recent thesis, and discuss which of your mandates might fit.</p>
         <div class="contact__email-wrap reveal d3">
           <a href="mailto:henrik@valuecatalyst.group" class="contact__email">henrik@valuecatalyst.group</a>
-          <p class="contact__meta">Henrik Rammer · Stockholm</p>
+          <p class="contact__meta">Henrik Rammer · Stockholm · <a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener" style="color: #B8C7BC; border-bottom: 1px solid rgba(184,199,188,0.5); padding-bottom: 1px;">linkedin.com/in/henrikrammer</a></p>
         </div>
       </div>
     </div>
