@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Value Catalyst Group</title>
-  <meta name="description" content="VCG advances driven senior executives into PE-backed ownership. We originate the deal together and bring the thesis to the most relevant PE firm. As a sign of the close partnership formed, VCG co-invests alongside the executive at close.">
+  <meta name="description" content="Operator-led deal origination for European PE. VCG builds the thesis with the executive and brings it to the PE firm whose mandate fits. VCG co-invests at close.">
   <link rel="canonical" href="https://valuecatalyst.group/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta property="og:title" content="Value Catalyst Group">
-  <meta property="og:description" content="VCG advances driven senior executives into PE-backed ownership. We originate the deal together and bring the thesis to the most relevant PE firm. As a sign of the close partnership formed, VCG co-invests alongside the executive at close.">
+  <meta property="og:title" content="Value Catalyst Group — Operator-led deal origination for European PE">
+  <meta property="og:description" content="Operator-led deal origination for European PE. VCG builds the thesis with the executive and brings it to the PE firm whose mandate fits. VCG co-invests at close.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://valuecatalyst.group/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -158,13 +158,13 @@
     }
     .hero__eyebrow { margin-bottom: 40px; }
     .hero h1 {
-      font-size: clamp(42px, 6vw, 76px);
-      line-height: 1.02;
-      letter-spacing: -0.028em;
+      font-size: clamp(48px, 7.2vw, 92px);
+      line-height: 1.0;
+      letter-spacing: -0.034em;
       font-weight: 400;
-      font-variation-settings: "opsz" 144, "SOFT" 20;
-      max-width: 18ch;
-      margin-bottom: 40px;
+      font-variation-settings: "opsz" 144, "SOFT" 10;
+      max-width: 16ch;
+      margin-bottom: 32px;
       color: var(--ink);
     }
     .hero h1 em {
@@ -173,12 +173,17 @@
       color: var(--accent);
     }
     .hero__sub {
-      font-size: 21px;
-      line-height: 1.55;
+      font-size: 22px;
+      line-height: 1.5;
       color: var(--ink-soft);
-      max-width: 58ch;
+      max-width: 56ch;
       margin-bottom: 56px;
       font-weight: 400;
+      font-variation-settings: "opsz" 72, "SOFT" 30;
+    }
+    .hero__sub strong {
+      color: var(--ink);
+      font-weight: 500;
     }
     .hero__entry {
       display: flex; flex-wrap: wrap; gap: 40px; align-items: baseline;
@@ -432,6 +437,165 @@
       margin: 0;
     }
 
+    /* ── Pull quote ── */
+    .pullquote {
+      margin: 40px 0;
+      padding: 32px 0 32px 32px;
+      border-left: 2px solid var(--accent);
+      max-width: 60ch;
+    }
+    .pullquote p {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 26px;
+      line-height: 1.32;
+      letter-spacing: -0.012em;
+      font-style: italic;
+      color: var(--ink);
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+    }
+    .pullquote p em { font-style: italic; color: var(--accent); }
+    .section--paper-soft .pullquote { border-left-color: var(--accent); }
+
+    /* ── Pillars (Access / Alignment / Execution) ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 8px;
+    }
+    .pillar {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+    .pillar__name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.012em;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+    }
+    .pillar__text {
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    /* ── Dual-flow diagram ── */
+    .flow {
+      background: var(--paper);
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 88px 0;
+    }
+    .flow__head {
+      max-width: var(--max-narrow);
+      margin: 0 auto 56px;
+      padding: 0 32px;
+    }
+    .flow__title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(26px, 3vw, 36px);
+      line-height: 1.15;
+      letter-spacing: -0.018em;
+      font-weight: 400;
+      color: var(--ink);
+      margin-top: 18px;
+      max-width: 28ch;
+      font-variation-settings: "opsz" 144, "SOFT" 20;
+    }
+    .flow__title em { font-style: italic; color: var(--accent); }
+    .flow__diagram {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+    .flow__lane {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      gap: 32px;
+      align-items: center;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .flow__lane:last-child { border-bottom: none; }
+    .flow__lane-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .flow__lane--vcg .flow__lane-label { color: var(--accent); }
+    .flow__steps {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      align-items: stretch;
+    }
+    .flow__step {
+      padding: 18px 14px;
+      background: var(--paper-soft);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 14.5px;
+      line-height: 1.35;
+      color: var(--ink);
+      letter-spacing: -0.005em;
+      font-variation-settings: "opsz" 36;
+      position: relative;
+    }
+    .flow__lane--vcg .flow__step {
+      background: var(--accent-faint);
+      border-color: var(--accent);
+      color: var(--ink);
+    }
+    .flow__step strong {
+      display: block;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 6px;
+    }
+    .flow__lane--vcg .flow__step strong { color: var(--accent); }
+    .flow__outcome {
+      grid-column: 1 / -1;
+      margin-top: 36px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--rule);
+      display: grid;
+      grid-template-columns: 180px 1fr 1fr;
+      gap: 32px;
+      align-items: baseline;
+    }
+    .flow__outcome-label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .flow__outcome p {
+      font-size: 15.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .flow__outcome p strong {
+      display: block;
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      font-size: 17px;
+      color: var(--ink);
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+    .flow__outcome--vcg p strong { color: var(--accent); }
+
     /* ── About ── */
     .about__grid {
       display: grid;
@@ -597,6 +761,14 @@
     @supports not (backdrop-filter: blur(10px)) {
       .nav { background: var(--paper); }
     }
+    @media (max-width: 900px) {
+      .pillars { grid-template-columns: 1fr; gap: 24px; }
+      .flow__lane { grid-template-columns: 1fr; gap: 14px; }
+      .flow__steps { grid-template-columns: 1fr 1fr; }
+      .flow__outcome { grid-template-columns: 1fr; gap: 16px; }
+      .pullquote { padding-left: 20px; }
+      .pullquote p { font-size: 22px; }
+    }
     @media (max-width: 760px) {
       .nav__links { display: none; }
       .nav__links.open {
@@ -644,16 +816,16 @@
   <header class="hero" id="top">
     <div class="container">
       <p class="eyebrow hero__eyebrow reveal">Value Catalyst Group · Stockholm</p>
-      <h1 class="reveal d1">VCG advances driven senior executives into <em>PE-backed ownership.</em></h1>
-      <p class="hero__sub reveal d2">We originate the deal together and bring the thesis to the most relevant PE firm. As a sign of the close partnership formed, VCG co-invests alongside the executive at close.</p>
+      <h1 class="reveal d1">Operator-led deal origination for <em>European PE.</em></h1>
+      <p class="hero__sub reveal d2"><strong>VCG advances driven senior executives into PE-backed ownership.</strong> We build the thesis with the executive and bring it to the PE firm whose mandate fits. VCG co-invests at close.</p>
       <div class="hero__entry reveal d3">
         <div class="entry">
-          <span class="entry__label">For executives</span>
-          <a href="#executives" class="entry__link">Start a conversation <span class="arr">→</span></a>
+          <span class="entry__label">Path A</span>
+          <a href="#executives" class="entry__link">For executives <span class="arr">→</span></a>
         </div>
         <div class="entry">
-          <span class="entry__label">For PE firms</span>
-          <a href="#pe" class="entry__link">See the model <span class="arr">→</span></a>
+          <span class="entry__label">Path B</span>
+          <a href="#pe" class="entry__link">For PE firms <span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -686,16 +858,55 @@
     </div>
   </section>
 
-  <!-- Why executives come first -->
+  <!-- Dual-flow diagram: Two approaches to deal origination -->
+  <section class="flow" aria-labelledby="flow-heading">
+    <div class="flow__head">
+      <div class="rule reveal"></div>
+      <p class="eyebrow reveal" style="margin-bottom: 18px;">Two approaches to deal origination</p>
+      <h2 class="flow__title reveal d1" id="flow-heading">The standard process is built around the PE firm. <em>VCG starts with the executive.</em></h2>
+    </div>
+    <div class="flow__diagram reveal d2">
+      <div class="flow__lane">
+        <span class="flow__lane-label">Standard</span>
+        <div class="flow__steps">
+          <div class="flow__step"><strong>01</strong>PE firm identifies target</div>
+          <div class="flow__step"><strong>02</strong>Auction process</div>
+          <div class="flow__step"><strong>03</strong>Bid &amp; close</div>
+          <div class="flow__step"><strong>04</strong>Incumbent CEO stays</div>
+          <div class="flow__step"><strong>05</strong>Operator called late, if at all</div>
+        </div>
+      </div>
+      <div class="flow__lane flow__lane--vcg">
+        <span class="flow__lane-label">VCG · Operator-led</span>
+        <div class="flow__steps">
+          <div class="flow__step"><strong>01</strong>Executive brings sector view</div>
+          <div class="flow__step"><strong>02</strong>VCG shapes the thesis</div>
+          <div class="flow__step"><strong>03</strong>Matched to fitting PE mandate</div>
+          <div class="flow__step"><strong>04</strong>Role &amp; structure pre-aligned</div>
+          <div class="flow__step"><strong>05</strong>VCG co-invests at close</div>
+        </div>
+      </div>
+      <div class="flow__outcome">
+        <span class="flow__outcome-label">Outcome</span>
+        <p><strong>Reactive seat</strong>The executive responds to a process built around someone else's plan.</p>
+        <p class="flow__outcome--vcg"><strong>Authored seat</strong>The executive enters as author of the thesis, in the role the deal requires, with capital alongside.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- The diagnosis: PE firms rarely replace the CEO at close -->
   <section class="section" aria-labelledby="why-heading">
     <div class="narrow">
       <div class="rule reveal"></div>
-      <p class="eyebrow reveal" style="margin-bottom: 28px;">Why executives come first</p>
-      <h2 class="section__title reveal" id="why-heading">PE firms rarely replace the CEO at close. For most senior executives who want to drive their next major deal, <em>bringing it themselves</em> is the most reliable route.</h2>
+      <p class="eyebrow reveal" style="margin-bottom: 28px;">The diagnosis</p>
+      <h2 class="section__title reveal" id="why-heading">PE firms rarely replace the <em>CEO at close.</em></h2>
       <div class="essay">
-        <p class="essay__lede reveal d1">The standard playbook is driven by the PE firm and the auction process. Identify the target, run the bid, close the transaction, and keep the incumbent management — or bring in a known operating partner.</p>
+        <p class="essay__lede reveal d1">For most senior executives who want to drive their next major deal, bringing it themselves is the most reliable route. The standard playbook is driven by the PE firm and the auction process: identify the target, run the bid, close the transaction, keep the incumbent management — or bring in a known operating partner.</p>
         <p class="drop reveal d1">Replacing the CEO upfront is risky and rare; in most cases, the existing chief executive stays in place.</p>
         <p class="reveal d2">For a senior executive who wants to drive a PE-backed platform — as CEO, as active chairman, as operating partner, or in any role that places them at the centre of the value creation plan — the standard process is a closed door. Waiting for the call rarely produces the seat. The route opens from the other side: by walking in with the company, the thesis, and the value creation plan already shaped.</p>
+        <div class="pullquote reveal d2">
+          <p>Drive the process from the executive <em>from the beginning.</em></p>
+        </div>
         <p class="reveal d2">VCG originates from that side. The executive brings the sector intelligence and the operating judgment. VCG brings the PE access, the methodology, and the capital. Together we build the opportunity and bring it to the PE firm whose strategy fits it best. The executive enters the deal as its author, in the role that fits the situation — not as someone responding to a process built around another plan.</p>
       </div>
     </div>
@@ -706,8 +917,8 @@
     <div class="container">
       <div class="section__lede">
         <div class="rule reveal"></div>
-        <p class="eyebrow reveal" style="margin-bottom: 28px;">How it works</p>
-        <h2 class="section__title reveal" id="how-heading">Three stages, <em>weeks not months.</em></h2>
+        <p class="eyebrow reveal" style="margin-bottom: 28px;">The process</p>
+        <h2 class="section__title reveal" id="how-heading">Three stages. <em>Weeks, not months.</em></h2>
       </div>
       <div class="stages">
         <article class="stage reveal">
@@ -736,8 +947,8 @@
         <div class="audience__head reveal">
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For executives</p>
-          <h2 class="section__title" id="exec-heading">Your expertise deserves capital and access. <em>Not a database listing.</em></h2>
-          <p class="audience__pitch">Senior executives who want to drive their next major deal face a structural problem: the opportunity finds them rarely, and when it does, it finds them late and on someone else's terms. Bringing the deal changes the position entirely — from candidate in someone else's process to author of a thesis PE firms want to back.</p>
+          <h2 class="section__title" id="exec-heading">Your expertise deserves capital, <em>not a database listing.</em></h2>
+          <p class="audience__pitch"><strong style="color: var(--ink); font-weight: 500;">The seat. The authorship. The equity.</strong> Senior executives who want to drive their next major deal face a structural problem: the opportunity finds them rarely, late, and on someone else's terms. Bringing the deal changes the position entirely — from candidate in someone else's process to author of a thesis PE firms want to back.</p>
         </div>
         <div class="audience__body reveal d1">
           <p class="audience__subhead">What we bring</p>
@@ -762,9 +973,13 @@
             <li>The role, the equity, the 100-day plan</li>
           </ul>
 
+          <div class="pullquote" style="margin: 32px 0 28px;">
+            <p>There is no market rate for what this is <em>yet.</em></p>
+          </div>
+
           <div class="terms">
             <p class="terms__label">The economics</p>
-            <p>VCG is paid only on a closed transaction. Half of what we earn is reinvested into the company alongside the executive's own reinvestment. This is not the market rate — there is no market rate for what this is yet. It is the sharing of value a VCG-originated deal creates, offered because alignment beats extraction.</p>
+            <p>VCG is paid only on a closed transaction. Half of what we earn is reinvested into the company alongside the executive's own reinvestment. It is the sharing of value a VCG-originated deal creates, offered because alignment beats extraction.</p>
           </div>
           <div class="terms" style="margin-top: 16px;">
             <p class="terms__label">What it costs you upfront</p>
@@ -778,20 +993,44 @@
   <!-- For PE firms -->
   <section class="section section--paper-soft" id="pe" aria-labelledby="pe-heading">
     <div class="container">
-      <div class="audience">
+      <div class="audience" style="margin-bottom: 72px;">
         <div class="audience__head reveal">
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For PE firms</p>
-          <h2 class="section__title" id="pe-heading">A thesis and a senior operator, brought in at the same time, <em>co-invested.</em></h2>
+          <h2 class="section__title" id="pe-heading">Proprietary flow. A pre-aligned operator. <em>Skin in the game.</em></h2>
           <p class="audience__pitch">PE firms running management-heavy platforms need more than capital and a deal team. They need an experienced operating partner to drive the thesis, and a senior executive to anchor the platform in one of the roles it actually requires — CEO, active chairman, operating partner on the board.</p>
         </div>
         <div class="audience__body reveal d1">
-          <p>VCG brings both. The thesis is proprietary. The executive is senior, sector-credible, and already shaped around the opportunity. VCG reinvests alongside at close.</p>
+          <p style="font-size: 22px; line-height: 1.45; font-variation-settings: 'opsz' 72, 'SOFT' 30;">VCG brings both. The thesis is proprietary. The executive is senior, sector-credible, and already shaped around the opportunity. <em style="font-style: italic; color: var(--accent);">VCG reinvests alongside at close.</em></p>
+        </div>
+      </div>
 
+      <!-- Three pillars, full-width -->
+      <div class="reveal d2">
+        <p class="eyebrow" style="margin-bottom: 24px; color: var(--accent);">Access · Alignment · Execution</p>
+        <div class="pillars">
+          <div class="pillar">
+            <p class="pillar__name">Access</p>
+            <p class="pillar__text">82% of mid-market deals never reach a PE firm's desk. VCG originates with the operator before the auction, so the opportunity arrives proprietary, sector-credible, and pre-shaped to a thesis the executive can actually run.</p>
+          </div>
+          <div class="pillar">
+            <p class="pillar__name">Alignment</p>
+            <p class="pillar__text">A senior operator brought in at origination, in the role the deal requires — CEO, active chairman, operating partner on the board. Not a name added late to satisfy diligence. No CEO transition risk after close.</p>
+          </div>
+          <div class="pillar">
+            <p class="pillar__name">Execution</p>
+            <p class="pillar__text">VCG reinvests half its origination fee into the company at close, alongside the executive's own reinvestment. Skin in the game on the same terms — the alignment signal a PE partner can take to their IC.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="audience" style="margin-top: 80px;">
+        <div class="audience__head"></div>
+        <div class="audience__body reveal d3">
           <p class="audience__subhead">What the package contains</p>
           <ul class="audience__list">
             <li>A proprietary, pre-auction opportunity</li>
-            <li>A named operator with the track record and the fit for the role the deal requires</li>
+            <li>A named operator with the track record and fit for the role the deal requires</li>
             <li>VCG's reinvestment as alignment signal</li>
             <li>A value creation plan already coherent with the operator's capabilities</li>
           </ul>
@@ -819,10 +1058,10 @@
           <p class="about__role">Founder<br>Stockholm, Sweden</p>
         </aside>
         <div class="about__body reveal d1">
-          <h2 class="section__title" id="about-heading" style="margin-bottom: 40px;">Founded after 20 years in PE across the Nordics and Europe.</h2>
+          <h2 class="section__title" id="about-heading" style="margin-bottom: 40px;">Built for executives across a career, <em>not one transaction.</em></h2>
           <p>VCG exists to close a structural gap. Senior executives generate most of the returns PE makes, and yet when they want to drive their next major deal they usually cannot get to the other side of the table. In other industries — actors, athletes, senior US executives — specialist firms fill this gap. <em>In European PE, the executive still walks into the room alone.</em></p>
           <p>VCG walks in with them. Capital, access, methodology, co-investment.</p>
-          <p>Stockholm, independent, founder-led. Built for executives across a career, not one transaction.</p>
+          <p>Founded after 20 years in PE across the Nordics and Europe. Stockholm, independent, founder-led.</p>
         </div>
       </div>
     </div>
