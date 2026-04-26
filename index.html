@@ -146,9 +146,11 @@
     .nav__cta {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
-      color: var(--accent); padding-bottom: 3px;
-      border-bottom: 1px solid var(--accent);
+      color: var(--cta); padding-bottom: 3px;
+      border-bottom: 1px solid var(--cta);
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
     }
+    .nav__cta:hover { color: var(--cta-deep); border-color: var(--cta-deep); }
 
     .nav__toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
     .nav__toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 200ms var(--ease); }
@@ -1283,11 +1285,11 @@
             </div>
             <div class="who-this__row">
               <span class="who-this__name">Network</span>
-              <span class="who-this__desc">The relationships to know which company can be bought.</span>
+              <span class="who-this__desc">Key relationships to make the deal happen.</span>
             </div>
             <div class="who-this__row">
               <span class="who-this__name">Standing</span>
-              <span class="who-this__desc">The seller will hand the company to you.</span>
+              <span class="who-this__desc">The seller will see you as the preferred custodian of the business.</span>
             </div>
           </div>
 
@@ -1341,11 +1343,11 @@
             </tr>
             <tr>
               <td>Reinvestment</td>
-              <td>Half of our share back into the company</td>
-              <td>Equity, alongside your rollover</td>
+              <td>We reinvest half of the fee into the company, together.</td>
+              <td>Equity</td>
             </tr>
             <tr>
-              <td>Equity in the company you run</td>
+              <td>Further equity in the company you run</td>
               <td>Negotiated as part of the deal</td>
               <td>Operator package</td>
             </tr>
@@ -1353,7 +1355,7 @@
         </table>
 
         <p class="block-lede" style="max-width: 64ch; margin-top: 36px; margin-bottom: 8px;">Banks pay themselves. Search firms pay themselves. PE firms pay themselves.</p>
-        <p style="font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; font-variation-settings: 'opsz' 72, 'SOFT' 20;">VCG pays the executive who brought the deal.</p>
+        <p style="font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--accent); line-height: 1.35; max-width: 44ch; font-variation-settings: 'opsz' 72, 'SOFT' 20;">VCG ensures the executive gets paid for bringing the deal.</p>
       </div>
 
       <!-- The role -->
