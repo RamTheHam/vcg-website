@@ -20,6 +20,6 @@
 	}
 
 	# Long cache for immutable-ish assets.
-	@assets path *.svg *.png *.ico *.webp *.woff *.woff2
+	@assets path *.svg *.png *.jpg *.jpeg *.ico *.webp *.woff *.woff2
 	header @assets Cache-Control "public, max-age=2592000, immutable"
 }
