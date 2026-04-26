@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Value Catalyst Group</title>
-  <meta name="description" content="Operator-led deal origination for European Private Equity. VCG builds the deal with the executive and brings it to the best-fitting PE firm. Both VCG and the executive share in the transaction fee and co-invest side-by-side.">
+  <meta name="description" content="VCG turns your sector view and your standing with the seller into the deal. We package the thesis, take it to the right PE firm, and split the success fee. Half of our share goes back into the company at close, alongside you.">
   <link rel="canonical" href="https://valuecatalyst.group/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta property="og:title" content="Value Catalyst Group — Operator-led deal origination for European Private Equity">
-  <meta property="og:description" content="Operator-led deal origination for European Private Equity. VCG builds the deal with the executive and brings it to the best-fitting PE firm. Both VCG and the executive share in the transaction fee and co-invest side-by-side.">
+  <meta property="og:title" content="Value Catalyst Group — For the executive who can originate the deal">
+  <meta property="og:description" content="VCG turns your sector view and your standing with the seller into the deal. We package the thesis, take it to the right PE firm, and split the success fee. Half of our share goes back into the company at close, alongside you.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://valuecatalyst.group/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -188,10 +188,10 @@
       font-weight: 500;
     }
     .hero__entry {
-      display: flex; flex-wrap: wrap; gap: 40px; align-items: baseline;
+      display: flex; flex-wrap: wrap; gap: 56px; align-items: baseline;
       padding-top: 28px;
       border-top: 1px solid var(--rule);
-      max-width: 640px;
+      max-width: 560px;
     }
     .entry {
       display: flex; flex-direction: column; gap: 6px;
@@ -288,76 +288,65 @@
     .section h2.section__title em { font-style: italic; color: var(--accent); font-weight: 400; }
     .section--ink h2.section__title em { color: #B8C7BC; }
 
-    /* Essay (Why executives come first) */
-    .essay {
-      max-width: 68ch;
+    /* ── Proof band: relocated 53% with full citation ── */
+    .proof-band {
+      padding: 96px 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
     }
-    .essay p {
-      font-size: 20px;
-      line-height: 1.62;
-      color: var(--ink);
-      margin-bottom: 26px;
-    }
-    .essay p:first-of-type::first-line {
-      font-variation-settings: "opsz" 144;
-    }
-    .essay__lede {
-      font-size: 26px !important;
-      line-height: 1.4 !important;
-      color: var(--ink) !important;
-      margin-bottom: 40px !important;
-      font-weight: 400;
-      font-variation-settings: "opsz" 144, "SOFT" 30;
-      letter-spacing: -0.012em;
-    }
-    .essay__lede em { font-style: italic; color: var(--accent); }
-    .drop::first-letter {
+    .proof-band__number {
       font-family: 'Fraunces', Georgia, serif;
-      font-weight: 400;
-      float: left;
-      font-size: 72px;
-      line-height: 0.85;
-      padding: 6px 12px 0 0;
-      color: var(--accent);
+      font-size: clamp(96px, 14vw, 184px);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--ink);
       font-variation-settings: "opsz" 144, "SOFT" 0;
+      margin-bottom: 32px;
+      font-feature-settings: "lnum", "ss01";
     }
-
-    /* ── How it works ── */
-    .stages {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      margin-top: 24px;
+    .proof-band__number em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
     }
-    .stage {
-      border-top: 1px solid var(--rule);
-      padding-top: 28px;
+    .proof-band__claim {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      max-width: 28ch;
+      margin-bottom: 28px;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
     }
-    .section--ink .stage { border-top-color: rgba(245,241,234,0.16); }
-    .stage__num {
+    .proof-band__source {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 11px;
-      letter-spacing: 0.16em;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 18px;
+      color: var(--ink-faint);
+      line-height: 1.7;
     }
-    .section--ink .stage__num { color: #B8C7BC; }
-    .stage__title {
+    .proof-band__source em {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 26px;
-      font-weight: 500;
-      line-height: 1.15;
-      letter-spacing: -0.015em;
-      margin-bottom: 16px;
-      font-variation-settings: "opsz" 72, "SOFT" 20;
-    }
-    .stage__text {
-      font-size: 16.5px;
-      line-height: 1.6;
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: -0.005em;
+      font-size: 13px;
       color: var(--ink-soft);
     }
-    .section--ink .stage__text { color: rgba(245,241,234,0.7); }
+    .proof-band__source a {
+      color: var(--ink-faint);
+      border-bottom: 1px solid transparent;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+    }
+    .proof-band__source a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
 
     /* ── Audience sections ── */
     .audience {
@@ -483,130 +472,6 @@
       line-height: 1.6;
       color: var(--ink);
     }
-
-    /* ── Dual-flow diagram ── */
-    .flow {
-      background: var(--paper);
-      border-top: 1px solid var(--rule);
-      border-bottom: 1px solid var(--rule);
-      padding: 88px 0;
-    }
-    .flow__head {
-      max-width: var(--max-narrow);
-      margin: 0 auto 56px;
-      padding: 0 32px;
-    }
-    .flow__title {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(26px, 3vw, 36px);
-      line-height: 1.15;
-      letter-spacing: -0.018em;
-      font-weight: 400;
-      color: var(--ink);
-      margin-top: 18px;
-      max-width: 28ch;
-      font-variation-settings: "opsz" 144, "SOFT" 20;
-    }
-    .flow__title em { font-style: italic; color: var(--accent); }
-    .flow__diagram {
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 0 32px;
-    }
-    .flow__lane {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 32px;
-      align-items: center;
-      padding: 28px 0;
-      border-bottom: 1px solid var(--rule);
-    }
-    .flow__lane:last-child { border-bottom: none; }
-    .flow__lane-label {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-    .flow__lane--vcg .flow__lane-label { color: var(--accent); }
-    .flow__steps {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      align-items: stretch;
-    }
-    .flow__step-name {
-      display: block;
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 19px;
-      font-weight: 500;
-      letter-spacing: -0.012em;
-      margin-bottom: 8px;
-      font-variation-settings: "opsz" 72, "SOFT" 20;
-    }
-    .flow__lane--vcg .flow__step-name { color: var(--accent); }
-    .flow__step {
-      padding: 18px 14px;
-      background: var(--paper-soft);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 14.5px;
-      line-height: 1.35;
-      color: var(--ink);
-      letter-spacing: -0.005em;
-      font-variation-settings: "opsz" 36;
-      position: relative;
-    }
-    .flow__lane--vcg .flow__step {
-      background: var(--accent-faint);
-      border-color: var(--accent);
-      color: var(--ink);
-    }
-    .flow__step strong {
-      display: block;
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 9.5px;
-      font-weight: 500;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-      margin-bottom: 6px;
-    }
-    .flow__lane--vcg .flow__step strong { color: var(--accent); }
-    .flow__outcome {
-      grid-column: 1 / -1;
-      margin-top: 36px;
-      padding-top: 24px;
-      border-top: 1px dashed var(--rule);
-      display: grid;
-      grid-template-columns: 180px 1fr 1fr;
-      gap: 32px;
-      align-items: baseline;
-    }
-    .flow__outcome-label {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 11px;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-faint);
-    }
-    .flow__outcome p {
-      font-size: 15.5px;
-      line-height: 1.55;
-      color: var(--ink-soft);
-    }
-    .flow__outcome p strong {
-      display: block;
-      font-family: 'Fraunces', Georgia, serif;
-      font-style: italic;
-      font-size: 17px;
-      color: var(--ink);
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-    .flow__outcome--vcg p strong { color: var(--accent); }
 
     /* ── About ── */
     .about__grid {
@@ -805,7 +670,7 @@
       margin-top: 18px;
       font-variation-settings: "opsz" 144, "SOFT" 20;
     }
-    .alignments__title em { font-style: italic; color: var(--cta); }
+    .alignments__title em { font-style: italic; color: var(--accent); }
     .alignments__grid {
       max-width: var(--max); margin: 0 auto; padding: 0 32px;
     }
@@ -847,12 +712,101 @@
     }
     .align-side .arr { display: inline-block; margin-right: 6px; }
     .align-row--vcg {
-      background: linear-gradient(90deg, transparent, rgba(201,116,85,0.06));
-      border-bottom-color: var(--cta);
+      background: linear-gradient(90deg, transparent, rgba(30,74,58,0.08));
+      border-bottom-color: var(--accent);
     }
-    .align-row--vcg .align-actor { color: var(--cta); }
+    .align-row--vcg .align-actor { color: var(--accent); }
     .align-row--vcg .align-side {
-      color: var(--cta); font-weight: 500; font-size: 13px;
+      color: var(--accent); font-weight: 500; font-size: 13px;
+    }
+
+    /* ── Who-this-is-for block (3 required things) ── */
+    .who-this {
+      border-top: 1px solid var(--rule);
+      margin-top: 0;
+    }
+    .who-this__row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .who-this__name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+      font-variation-settings: "opsz" 36, "SOFT" 20;
+    }
+    .who-this__desc {
+      font-size: 16.5px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    /* ── Fairness table (what they take) ── */
+    .fairness-table, .split-table, .role-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .fairness-table th, .split-table th {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-align: left;
+      padding: 12px 16px 12px 0;
+      border-bottom: 1px solid var(--ink-faint);
+      font-weight: 500;
+    }
+    .fairness-table td, .split-table td, .role-table td {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.45;
+      color: var(--ink);
+      padding: 18px 16px 18px 0;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      font-variation-settings: "opsz" 36;
+    }
+    .fairness-table td:first-child, .split-table td:first-child, .role-table td:first-child {
+      font-weight: 500;
+      color: var(--accent);
+      width: 28%;
+      letter-spacing: -0.005em;
+    }
+    .split-table td:first-child {
+      width: 32%;
+    }
+    .role-table td:first-child {
+      width: 38%;
+    }
+    .role-table tr:last-child td {
+      border-bottom: none;
+    }
+    .fairness-table tr:last-child td, .split-table tr:last-child td {
+      border-bottom: none;
+    }
+    /* Highlight the originator row */
+    .fairness-table tr:last-child td:first-child {
+      color: var(--ink);
+      font-style: italic;
+    }
+    .fairness-table tr:last-child td {
+      color: var(--ink-soft);
+    }
+
+    /* ── Bring grid (what we bring / what you bring) ── */
+    .bring-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 16px;
     }
 
     /* ── Sample thesis card ── */
@@ -906,42 +860,6 @@
       font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
       color: var(--ink-faint);
     }
-
-    /* ── Thesis stack (Sector → Thesis → Deal) ── */
-    .thesis-stack {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
-      align-items: stretch; margin-top: 24px;
-    }
-    .stack-card {
-      background: var(--paper);
-      border: 1px solid var(--rule);
-      border-radius: 2px;
-      padding: 28px 24px;
-      position: relative;
-    }
-    .stack-card__num {
-      font-family: 'JetBrains Mono', ui-monospace, monospace;
-      font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
-      color: var(--accent); margin-bottom: 12px;
-    }
-    .stack-card__title {
-      font-family: 'Fraunces', Georgia, serif;
-      font-size: 22px; font-weight: 500; line-height: 1.18;
-      letter-spacing: -0.012em; margin-bottom: 18px;
-      font-variation-settings: "opsz" 72, "SOFT" 20;
-    }
-    .stack-card ul {
-      list-style: none; padding: 0; margin: 0;
-    }
-    .stack-card li {
-      font-size: 14.5px; line-height: 1.5; color: var(--ink-soft);
-      padding: 7px 0 7px 14px; position: relative;
-    }
-    .stack-card li::before {
-      content: '·'; position: absolute; left: 0; top: 5px;
-      color: var(--accent); font-weight: 700;
-    }
-    .stack-card--final { background: var(--accent-faint); border-color: var(--accent); }
 
     /* ── Deal-package card (PE-firm view) ── */
     .package {
@@ -1052,6 +970,44 @@
       font-variation-settings: "opsz" 36, "SOFT" 30;
     }
 
+    /* ── Eyebrow line under section dividers ── */
+    .section-arc-rule {
+      width: 40px; height: 1px; background: var(--accent);
+      margin: 0 0 28px;
+    }
+
+    /* ── Block headings inside For Executives section ── */
+    .block-heading {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 24px;
+      font-variation-settings: "opsz" 144, "SOFT" 20;
+    }
+    .block-heading em { font-style: italic; color: var(--accent); }
+    .block-lede {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 60ch;
+      margin-bottom: 36px;
+    }
+    .block-lede--soft { color: var(--ink-soft); }
+    .block-finisher {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.4;
+      max-width: 50ch;
+      margin-top: 32px;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+    }
+    .block-finisher em { color: var(--accent); }
+
     /* ── Animations ── */
     @media (prefers-reduced-motion: no-preference) {
       .reveal {
@@ -1082,28 +1038,66 @@
       .audience { grid-template-columns: 1fr; gap: 48px; }
       .about__grid { grid-template-columns: 1fr; gap: 40px; }
       .about__meta { position: static; }
-      .stages { grid-template-columns: 1fr; gap: 40px; }
       .figures__grid { grid-template-columns: 1fr; }
       .figure { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--rule); }
       .figure:first-child { padding-top: 0; }
       .figure:last-child { border-bottom: none; padding-bottom: 0; }
-    }
-    @supports not (backdrop-filter: blur(10px)) {
-      .nav { background: var(--paper); }
-    }
-    @media (max-width: 900px) {
       .pillars { grid-template-columns: 1fr; gap: 24px; }
-      .flow__lane { grid-template-columns: 1fr; gap: 14px; }
-      .flow__steps { grid-template-columns: 1fr; }
-      .flow__outcome { grid-template-columns: 1fr; gap: 16px; }
       .pullquote { padding-left: 20px; }
-      .pullquote p { font-size: 24px; }   /* +30% over 17-18px body */
-      .thesis-stack { grid-template-columns: 1fr; gap: 20px; }
+      .pullquote p { font-size: 24px; }
       .align-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
       .align-row--head { display: none; }
       .align-side { justify-self: start; text-align: left; }
       .credibility__logos { gap: 36px; }
       .credibility__logo img { max-height: 26px; }
+      .bring-grid { grid-template-columns: 1fr; gap: 32px; }
+      .who-this__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+      .who-this__name { font-size: 17px; }
+      .thesis-block { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .package-block { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+      /* Mobile economics: collapse fairness table to a flat list, keep split table */
+      .fairness-table thead { display: none; }
+      .fairness-table tr { display: grid; grid-template-columns: 1fr; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+      .fairness-table tr:last-child { border-bottom: none; }
+      .fairness-table td { border-bottom: none; padding: 4px 0; font-size: 16px; }
+      .fairness-table td:first-child {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ink-faint); font-style: normal;
+      }
+      .fairness-table tr:last-child td:first-child {
+        color: var(--accent);
+      }
+
+      /* Split table: stack each row */
+      .split-table thead { display: none; }
+      .split-table tr {
+        display: block;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      .split-table tr:last-child { border-bottom: none; }
+      .split-table td {
+        display: block;
+        border-bottom: none;
+        padding: 4px 0;
+        width: auto !important;
+      }
+      .split-table td:first-child {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+      .split-table td:not(:first-child) {
+        font-size: 15.5px;
+        color: var(--ink-soft);
+      }
+    }
+    @supports not (backdrop-filter: blur(10px)) {
+      .nav { background: var(--paper); }
     }
     @media (max-width: 760px) {
       .nav__links { display: none; }
@@ -1118,10 +1112,11 @@
       .nav__toggle { display: block; }
       .hero { padding: 128px 0 80px; }
       .section { padding: 88px 0; }
-      .essay p, .about__body p, .audience__body p { font-size: 17px; }
-      .essay__lede { font-size: 21px !important; }
+      .alignments { padding: 88px 0; }
+      .proof-band { padding: 64px 0; }
+      .about__body p, .audience__body p { font-size: 17px; }
       .about__body p:first-child { font-size: 20px; }
-      .hero__entry { gap: 28px; }
+      .hero__entry { gap: 36px; }
       .section__lede { margin-bottom: 40px; }
     }
   </style>
@@ -1146,7 +1141,7 @@
         <a href="#executives" class="nav__link">Executives</a>
         <a href="#pe" class="nav__link">PE firms</a>
         <a href="#about" class="nav__link">About</a>
-        <a href="#contact" class="nav__cta">Contact</a>
+        <a href="#contact" class="nav__cta">Talk to Henrik</a>
       </div>
       <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
         <span></span><span></span><span></span>
@@ -1158,8 +1153,8 @@
   <header class="hero" id="top">
     <div class="container">
       <p class="eyebrow hero__eyebrow reveal">Confidential · Independent · Structurally aligned</p>
-      <h1 class="reveal d1"><em>Operator-led deal origination</em> for European Private Equity.</h1>
-      <p class="hero__sub reveal d2"><strong>VCG advances driven senior executives into PE-backed ownership.</strong> We build the deal with the executive, and bring it to the best-fitting PE firm. Both VCG and the executive share in the transaction fee and co-invest side-by-side.</p>
+      <h1 class="reveal d1"><em>For the executive</em> who can originate the deal.</h1>
+      <p class="hero__sub reveal d2">The difference between <strong>authoring the transaction</strong> and being placed into it. VCG packages your sector view and your standing with the seller into the deal, takes it to the right PE firm, and splits the success fee.</p>
       <div class="hero__entry reveal d3">
         <div class="entry">
           <span class="entry__label">Path A</span>
@@ -1169,47 +1164,36 @@
           <span class="entry__label">Path B</span>
           <a href="#pe" class="entry__link">PE firms <span class="arr">→</span></a>
         </div>
-        <div class="entry">
-          <span class="entry__label entry__label--cta">Direct</span>
-          <a href="#contact" class="cta-primary">Talk to Henrik <span class="arr">→</span></a>
-        </div>
       </div>
     </div>
   </header>
 
-  <!-- Three figures -->
+  <!-- Three figures: VCG facts only -->
   <section class="figures" aria-label="Key figures">
     <div class="container">
       <div class="figures__grid">
         <div class="figure reveal">
-          <div class="figure__number"><em>53%</em></div>
-          <p class="figure__desc">of PE returns trace to the CEO.</p>
-          <p class="figure__src">
-            <a href="https://www.mckinsey.com/industries/private-capital/our-insights/ceo-alpha-a-new-approach-to-generating-private-equity-outperformance" target="_blank" rel="noopener">McKinsey, CEO Alpha</a>
-          </p>
+          <div class="figure__number">½</div>
+          <p class="figure__desc">of the origination fee to the executive who brought the deal.</p>
         </div>
         <div class="figure reveal d1">
-          <div class="figure__number">60%+</div>
-          <p class="figure__desc">of available deal flow typically doesn't reach even top-quartile PE firms.</p>
-          <p class="figure__src">
-            <a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener">Sutton Place Strategies, 2024 DOBR</a>
-          </p>
+          <div class="figure__number">½</div>
+          <p class="figure__desc">of our share reinvested into the company at close — equity, alongside your rollover.</p>
         </div>
         <div class="figure reveal d2">
-          <div class="figure__number">½</div>
-          <p class="figure__desc">of our fee reinvested into the company alongside the executive.</p>
-          <p class="figure__src">VCG structure</p>
+          <div class="figure__number">0</div>
+          <p class="figure__desc">retainers. No upfront fees. Paid only on a closed transaction.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Credibility logo strip -->
+  <!-- Credibility logo strip (Henrik's background) -->
   <section class="credibility" aria-label="Background">
     <div class="container">
       <div class="credibility__head">
-        <p class="eyebrow">Background</p>
-        <p class="credibility__note">Education, career, and boards across European institutions.</p>
+        <p class="eyebrow">Henrik's background</p>
+        <p class="credibility__note">Twenty years in private equity across Europe.</p>
       </div>
       <div class="credibility__logos">
         <span class="credibility__logo credibility__logo--text">London School of Economics</span>
@@ -1222,7 +1206,18 @@
     </div>
   </section>
 
-  <!-- Alignment diagram: who's actually on the executive's side -->
+  <!-- Proof band: 53% with Teneo + McKinsey citation -->
+  <section class="proof-band" aria-label="The keystone fact">
+    <div class="narrow">
+      <p class="proof-band__number reveal"><em>53%</em></p>
+      <p class="proof-band__claim reveal d1">of investment returns trace to the leadership of the portfolio company.</p>
+      <p class="proof-band__source reveal d2">
+        <em>Source:</em> <a href="https://www.teneo.com/insights/articles/leadership-alpha-in-private-equity/" target="_blank" rel="noopener">Teneo, <em>Leadership Alpha in Private Equity</em>, 2022</a> · cited in <a href="https://www.mckinsey.com/industries/private-capital/our-insights/ceo-alpha-a-new-approach-to-generating-private-equity-outperformance" target="_blank" rel="noopener">McKinsey, <em>CEO Alpha</em></a>
+      </p>
+    </div>
+  </section>
+
+  <!-- Alignment table: diagnosis (every actor serves something) -->
   <section class="alignments" aria-labelledby="align-heading">
     <div class="alignments__head">
       <div class="rule reveal"></div>
@@ -1263,126 +1258,151 @@
     </div>
   </section>
 
-  <!-- Dual-flow diagram: Two approaches to deal origination -->
-  <section class="flow" aria-labelledby="flow-heading">
-    <div class="flow__head">
-      <div class="rule reveal"></div>
-      <p class="eyebrow reveal" style="margin-bottom: 18px;">Two approaches to deal origination</p>
-      <h2 class="flow__title reveal d1" id="flow-heading">The standard process is built around the PE firm. <em>VCG starts with the executive.</em></h2>
-    </div>
-    <div class="flow__diagram reveal d2">
-      <div class="flow__lane">
-        <span class="flow__lane-label">Standard</span>
-        <div class="flow__steps">
-          <div class="flow__step"><strong>01</strong><span class="flow__step-name">React</span>Wait for the investment banker to call. 60%+ of deals never arrive.</div>
-          <div class="flow__step"><strong>02</strong><span class="flow__step-name">Confirm</span>Auction, due-diligence confirmation, low likelihood to close.</div>
-          <div class="flow__step"><strong>03</strong><span class="flow__step-name">Strengthen</span>Operator called late, has to fit into an existing framework.</div>
-        </div>
-      </div>
-      <div class="flow__lane flow__lane--vcg">
-        <span class="flow__lane-label">VCG · Operator-led</span>
-        <div class="flow__steps">
-          <div class="flow__step"><strong>01</strong><span class="flow__step-name">Discover</span>Executive sector view, network, and ambition shape the search.</div>
-          <div class="flow__step"><strong>02</strong><span class="flow__step-name">Develop</span>Together we build the thesis and the value creation plan.</div>
-          <div class="flow__step"><strong>03</strong><span class="flow__step-name">Deliver</span>Matched to the right PE firm. Role and equity pre-agreed.</div>
-        </div>
-      </div>
-      <div class="flow__outcome">
-        <span class="flow__outcome-label">Outcome</span>
-        <p><strong>Reactive seat</strong>The executive responds to a process built around someone else's plan.</p>
-        <p class="flow__outcome--vcg"><strong>Authored seat</strong>The executive enters as author of the thesis, in the role the deal requires, with capital alongside. And with commensurate upside.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- The diagnosis: PE firms rarely replace the CEO at close -->
-  <section class="section" aria-labelledby="why-heading">
-    <div class="narrow">
-      <div class="rule reveal"></div>
-      <p class="eyebrow reveal" style="margin-bottom: 28px;">The diagnosis</p>
-      <h2 class="section__title reveal" id="why-heading">It's hard for external CEOs to get in <em>the driving seat.</em></h2>
-      <div class="essay">
-        <p class="essay__lede reveal d1">The standard process is built around the PE firm and the auction: identify the target, run the bid, close the transaction, keep the incumbent management. Replacing the CEO at close is risky and rare.</p>
-        <p class="drop reveal d2">For an executive who wants to drive a PE-backed platform, that path is closed. The route opens from the other side — walking in with the company, the thesis, and the value creation plan already shaped.</p>
-        <div class="pullquote reveal d2">
-          <p>Drive the process from the executive <em>from the beginning.</em></p>
-        </div>
-        <p class="reveal d2">VCG originates from that side. The executive brings sector intelligence and operating judgment. VCG brings PE access, methodology, and capital. Together we shape the deal and route it where it fits. The executive enters as the deal's author, in the role it requires.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- How it works -->
-  <section class="section section--paper-soft" aria-labelledby="how-heading">
-    <div class="container">
-      <div class="section__lede">
-        <div class="rule reveal"></div>
-        <p class="eyebrow reveal" style="margin-bottom: 28px;">The process</p>
-        <h2 class="section__title reveal" id="how-heading">Three stages. <em>Focused.</em></h2>
-      </div>
-      <div class="stages">
-        <article class="stage reveal">
-          <p class="stage__num">01 — Draw out</p>
-          <h3 class="stage__title">A structured conversation with the executive.</h3>
-          <p class="stage__text">20-odd years of operating experience, sector view, ambition, network, what they would do differently if they owned it. Then find the deal that can carry it.</p>
-        </article>
-        <article class="stage reveal d1">
-          <p class="stage__num">02 — Shape and take to market</p>
-          <h3 class="stage__title">VCG shapes the thesis into a PE-grade package.</h3>
-          <p class="stage__text">We identify the PE firms whose mandate and culture fit. We negotiate the full structure — role, authority, compensation, equity, governance — so the executive can stay focused on the opportunity itself.</p>
-        </article>
-        <article class="stage reveal d2">
-          <p class="stage__num">03 — Invest alongside</p>
-          <h3 class="stage__title">At close, we each reinvest half our origination fee back into the company.</h3>
-          <p class="stage__text">That is the alignment signal — to the PE firm and to each other — that we believe in this enough to put our own capital on the same terms.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
   <!-- For executives -->
   <section class="section" id="executives" aria-labelledby="exec-heading">
     <div class="container">
+
+      <!-- Section opening -->
       <div class="audience">
         <div class="audience__head reveal">
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For executives</p>
-          <h2 class="section__title" id="exec-heading">Your expertise deserves capital, <em>not a database listing.</em></h2>
-          <p class="audience__pitch"><strong style="color: var(--ink); font-weight: 500;">The seat. The authorship. The equity.</strong> Senior executives who want to drive their next major deal face a structural problem: the opportunity finds them rarely, late, and on someone else's terms. Bringing the deal changes the position entirely — from candidate in someone else's process to author of a thesis PE firms want to back.</p>
+          <h2 class="section__title" id="exec-heading">You generated the value. <em>You should be paid like you did.</em></h2>
+          <p class="audience__pitch">Most senior executives have spent their careers generating value that flowed to other people. They took a salary and an option package — usually after the deal was shaped by someone else.</p>
+          <p class="audience__pitch" style="margin-top: 18px; font-style: italic; color: var(--accent);">VCG exists for the executives who can change this.</p>
         </div>
         <div class="audience__body reveal d1">
-          <p class="audience__subhead">What we bring</p>
-          <ul class="audience__list">
-            <li>PE firm access and relationships across Europe</li>
-            <li>Methodology and deal-structuring experience — turning sector intelligence into an investable thesis, then into the role, compensation, equity, and governance terms</li>
-            <li>Co-investment capital alongside the executive's own reinvestment</li>
-          </ul>
 
-          <p class="audience__subhead">What you bring</p>
-          <ul class="audience__list">
-            <li>"20" years of operating judgment</li>
-            <li>Sector intelligence no PE associate can generate</li>
-            <li>The credibility to anchor the platform — as CEO, as active chairman, as operating partner, or in whichever role the deal requires</li>
-          </ul>
-
-          <div class="pullquote" style="margin: 32px 0 28px;">
-            <p>There is no market rate for what this is <em>yet.</em></p>
+          <!-- Who this is for -->
+          <p class="audience__subhead">Who this is for</p>
+          <p style="font-size: 16.5px; color: var(--ink-soft); margin-bottom: 18px;">Three things, all required:</p>
+          <div class="who-this">
+            <div class="who-this__row">
+              <span class="who-this__name">Sector view</span>
+              <span class="who-this__desc">Sharp enough to source the deal.</span>
+            </div>
+            <div class="who-this__row">
+              <span class="who-this__name">Network</span>
+              <span class="who-this__desc">The relationships to know which company can be bought.</span>
+            </div>
+            <div class="who-this__row">
+              <span class="who-this__name">Standing</span>
+              <span class="who-this__desc">The seller will hand the company to you.</span>
+            </div>
           </div>
 
-          <div class="terms">
-            <p class="terms__label">The shared economics</p>
-            <p>We take a success fee. We share it with the executive. And together we reinvest half of it into the company.</p>
+          <!-- What originating means -->
+          <p class="audience__subhead" style="margin-top: 36px;">What originating means</p>
+          <p style="font-size: 16.5px; color: var(--ink-soft); margin-bottom: 18px;">Not a search firm. Not an operating-partner program. The seat at the table where the deal gets made — and the conviction to run the company for the next five to seven years.</p>
+
+          <div class="pullquote" style="margin: 24px 0 0;">
+            <p>You do not get paid to develop a view. <em>You get paid for the view you already have.</em></p>
           </div>
+
         </div>
       </div>
 
-      <!-- Sample thesis card (redacted) -->
-      <div class="reveal d3" style="margin-top: 96px;">
-        <div style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;">
+      <!-- The economics -->
+      <div class="reveal" style="margin-top: 120px;">
+        <div class="rule"></div>
+        <p class="eyebrow" style="margin-bottom: 28px;">The economics</p>
+        <h3 class="block-heading" style="max-width: 22ch;">What you earn as <em>the deal-maker.</em></h3>
+        <p class="block-lede">The system pays everyone their fair dues. Except the person who made the deal possible.</p>
+
+        <!-- Fairness table: what they take -->
+        <table class="fairness-table" aria-label="What each actor takes">
+          <thead>
+            <tr><th scope="col">Actor</th><th scope="col">What they take</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Bank</td><td>Transaction fee on the close</td></tr>
+            <tr><td>Search firm</td><td>Placement fee on the candidate</td></tr>
+            <tr><td>PE firm</td><td>Carry on a thesis they bought into</td></tr>
+            <tr><td>Originator</td><td>Salary, options, and the operating risk</td></tr>
+          </tbody>
+        </table>
+
+        <p class="block-lede" style="max-width: 64ch; margin-top: 36px; margin-bottom: 12px;">The originator — the executive who knew which company could be bought, who the seller would hand it to, and what to do with it once they had it — is paid for executing someone else's deal.</p>
+        <div class="pullquote" style="margin: 24px 0 48px;">
+          <p>We think <em>that is the wrong split.</em></p>
+        </div>
+
+        <!-- VCG split table -->
+        <p class="audience__subhead" style="margin-bottom: 16px;">The VCG split</p>
+        <table class="split-table" aria-label="The VCG split">
+          <thead>
+            <tr><th scope="col">Component</th><th scope="col">Recipient</th><th scope="col">Form</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Origination fee on enterprise value</td>
+              <td>Split between you and VCG</td>
+              <td>Cash at close</td>
+            </tr>
+            <tr>
+              <td>Reinvestment</td>
+              <td>Half of our share back into the company</td>
+              <td>Equity, alongside your rollover</td>
+            </tr>
+            <tr>
+              <td>Equity in the company you run</td>
+              <td>Negotiated as part of the deal</td>
+              <td>Operator package</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="block-lede" style="max-width: 64ch; margin-top: 36px; margin-bottom: 8px;">Banks pay themselves. Search firms pay themselves. PE firms pay themselves.</p>
+        <p style="font-family: 'Fraunces', Georgia, serif; font-size: 24px; font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; font-variation-settings: 'opsz' 72, 'SOFT' 20;">VCG pays the executive who brought the deal.</p>
+      </div>
+
+      <!-- The role -->
+      <div class="reveal" style="margin-top: 120px;">
+        <div class="rule"></div>
+        <p class="eyebrow" style="margin-bottom: 28px;">The role</p>
+        <h3 class="block-heading" style="max-width: 18ch;"><em>You shape the role.</em></h3>
+        <p class="block-lede block-lede--soft" style="max-width: 60ch;">The deal determines what the company needs at close. You decide which part of it you want to run.</p>
+
+        <table class="role-table" aria-label="Available roles">
+          <tbody>
+            <tr>
+              <td>CEO</td>
+              <td>You want to run the company day-to-day.</td>
+            </tr>
+            <tr>
+              <td>Active chair</td>
+              <td>You want to govern, hire the CEO, and stay close.</td>
+            </tr>
+            <tr>
+              <td>Operating partner on the board</td>
+              <td>You want the influence without the executive seat.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="block-finisher">Negotiated as part of the deal, not assigned afterwards. <em>That is the difference between authoring the transaction and being placed into it.</em></p>
+      </div>
+
+      <!-- What VCG brings -->
+      <div class="reveal" style="margin-top: 120px;">
+        <div class="rule"></div>
+        <p class="eyebrow" style="margin-bottom: 28px;">What VCG brings</p>
+        <h3 class="block-heading" style="max-width: 22ch;">Access, structure, capital — <em>the rest is yours.</em></h3>
+        <ul class="audience__list" style="margin-top: 16px; max-width: 64ch;">
+          <li>PE firm access and relationships across Europe</li>
+          <li>Deal structuring — thesis, role, equity, governance</li>
+          <li>Co-investment capital alongside your own rollover</li>
+        </ul>
+      </div>
+
+      <!-- The thesis card -->
+      <div class="reveal" style="margin-top: 120px;">
+        <div class="thesis-block" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;">
           <div>
-            <p class="eyebrow" style="margin-bottom: 18px;">What a VCG thesis looks like</p>
-            <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 400; line-height: 1.18; letter-spacing: -0.018em; max-width: 22ch; font-variation-settings: 'opsz' 144, 'SOFT' 20;">A single page. Specific enough for a PE partner to act on. <em style="color: var(--accent); font-style: italic;">Confidential by default.</em></h3>
-            <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 20px; max-width: 38ch;">Your thesis arrives as a working document — sector, target type, role, fit. Specifics stay redacted until the right PE firm signs the NDA-with-tail.</p>
+            <div class="rule"></div>
+            <p class="eyebrow" style="margin-bottom: 18px; margin-top: 28px;">The thesis</p>
+            <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 400; line-height: 1.18; letter-spacing: -0.018em; max-width: 24ch; font-variation-settings: 'opsz' 144, 'SOFT' 20;">A single page. Specific enough for a PE partner to act on. <em style="color: var(--accent); font-style: italic;">Confidential by default.</em></h3>
+            <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 20px; max-width: 38ch;">Sector, geography, target type, operator, role, PE fit. Specifics stay redacted until the right PE firm signs.</p>
           </div>
           <div class="thesis-card" style="justify-self: center;">
             <span class="thesis-card__corner">VCG · Q3 2026</span>
@@ -1416,43 +1436,6 @@
         </div>
       </div>
 
-      <!-- Thesis stack: Sector → Thesis → Deal -->
-      <div class="reveal d3" style="margin-top: 96px;">
-        <p class="eyebrow" style="margin-bottom: 18px;">How a thesis is built</p>
-        <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 400; line-height: 1.18; letter-spacing: -0.018em; max-width: 24ch; margin-bottom: 8px; font-variation-settings: 'opsz' 144, 'SOFT' 20;">Three stages. From your sector view to a deal package <em style="color: var(--accent); font-style: italic;">a PE firm can underwrite.</em></h3>
-        <div class="thesis-stack">
-          <div class="stack-card">
-            <p class="stack-card__num">Stage 1</p>
-            <h4 class="stack-card__title">Sector intelligence</h4>
-            <ul>
-              <li>Your 20-year sector view</li>
-              <li>The inefficiency only you've seen</li>
-              <li>Your network of insiders and customers</li>
-              <li>The hypothesis: "X kind of company can become Y"</li>
-            </ul>
-          </div>
-          <div class="stack-card">
-            <p class="stack-card__num">Stage 2</p>
-            <h4 class="stack-card__title">Thesis frame</h4>
-            <ul>
-              <li>Target type, size, and geography</li>
-              <li>Value creation plan, sequenced</li>
-              <li>Your role at close — CEO, chair, operating partner</li>
-              <li>Equity and governance terms</li>
-            </ul>
-          </div>
-          <div class="stack-card stack-card--final">
-            <p class="stack-card__num">Stage 3</p>
-            <h4 class="stack-card__title">Deal package</h4>
-            <ul>
-              <li>Specific target identified or pipelined</li>
-              <li>PE firms mapped to mandate fit</li>
-              <li>Role and equity terms drafted</li>
-              <li>VCG co-invest committed at close</li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1463,7 +1446,7 @@
         <div class="audience__head reveal">
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For PE firms</p>
-          <h2 class="section__title" id="pe-heading">Proprietary flow. A pre-aligned operator. <em>Skin in the game.</em></h2>
+          <h2 class="section__title" id="pe-heading">Proprietary flow. The operator already in place. <em>Skin in the game.</em></h2>
           <p class="audience__pitch">PE firms running management-heavy platforms need more than capital and a deal team. They need an experienced operating partner to drive the thesis, and a senior executive to anchor the platform in one of the roles it actually requires — CEO, active chairman, operating partner on the board.</p>
         </div>
         <div class="audience__body reveal d1">
@@ -1473,39 +1456,32 @@
 
       <!-- Three pillars, full-width -->
       <div class="reveal d2">
-        <p class="eyebrow" style="margin-bottom: 24px; color: var(--accent);">Access · Alignment · Execution</p>
+        <p class="eyebrow" style="margin-bottom: 24px; color: var(--accent);">Access · Operator · Execution</p>
         <div class="pillars">
           <div class="pillar">
             <p class="pillar__name">Access</p>
-            <p class="pillar__text">Even top-quartile PE firms see less than 40% of available deal flow. VCG originates with the operator before the auction, so opportunities arrive with proprietary angles, sector-credible and pre-shaped to a thesis the executive can run.</p>
+            <p class="pillar__text">Even top-quartile PE firms see less than 40% of available deal flow. VCG originates with the executive before the auction, so opportunities arrive proprietary, sector-credible, and shaped to a thesis the executive can run.</p>
           </div>
           <div class="pillar">
-            <p class="pillar__name">Alignment</p>
-            <p class="pillar__text">A senior operator brought in at origination, in the role the deal requires — CEO, active chairman, operating partner on the board. Not a name added late to satisfy diligence. No CEO transition risk after close.</p>
+            <p class="pillar__name">Operator</p>
+            <p class="pillar__text">A senior operator in place from origination, in the role the deal requires — CEO, active chair, operating partner on the board. Not a name added late to satisfy diligence. No CEO transition risk after close.</p>
           </div>
           <div class="pillar">
             <p class="pillar__name">Execution</p>
-            <p class="pillar__text">VCG reinvests half its origination fee into the company at close, alongside the executive's own reinvestment. Skin in the game on the same terms — the alignment signal a PE partner can take to their IC.</p>
+            <p class="pillar__text">VCG reinvests half its origination fee into the company at close, alongside the executive's rollover. Skin in the game on the same terms — visible to your IC.</p>
           </div>
         </div>
       </div>
 
-      <div class="audience" style="margin-top: 80px;">
-        <div class="audience__head"></div>
-        <div class="audience__body reveal d3">
-          <p class="audience__subhead">What we deliver to the PE firm</p>
-          <ul class="audience__list">
-            <li>An opportunity with proprietary angles, pre-auction</li>
-            <li>An operator with the track record and fit for the role the deal requires</li>
-            <li>VCG's reinvestment as alignment signal</li>
-            <li>A value creation plan already coherent with the operator's capabilities</li>
-          </ul>
+      <div class="reveal d3" style="margin-top: 56px; max-width: 760px;">
+        <div class="pullquote">
+          <p>VCG works with PE firms that pay operators properly. <em>The economics are aligned because they are visible</em> — to the executive, to the firm, and to each other.</p>
         </div>
       </div>
 
       <!-- Deal package card (PE-firm view) -->
       <div class="reveal d3" style="margin-top: 80px;">
-        <div style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center;">
+        <div class="package-block" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center;">
           <div>
             <p class="eyebrow" style="margin-bottom: 18px;">What lands on your desk</p>
             <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 400; line-height: 1.18; letter-spacing: -0.018em; max-width: 24ch; font-variation-settings: 'opsz' 144, 'SOFT' 20;">Six lines on a single page. <em style="color: var(--accent); font-style: italic;">Ready for IC.</em></h3>
@@ -1569,7 +1545,7 @@
           <h2 class="section__title" id="about-heading" style="margin-bottom: 40px;">Built for executives across a career, <em>not one transaction.</em></h2>
           <p>VCG exists to close a structural gap. Senior executives generate most of the returns PE makes, and yet when they want to drive their next major deal they usually cannot get to the other side of the table. In other industries — actors, athletes, senior US executives — specialist firms fill this gap. <em>In European PE, the executive still walks into the room alone.</em></p>
           <p>VCG walks in with them. Access, methodology, co-investment.</p>
-          <p>Founded after 20 years in PE across the Nordics and Europe. Stockholm, independent, founder-led.</p>
+          <p>Twenty years in PE across the Nordics and Europe. Stockholm, independent, founder-led.</p>
 
           <div class="creds">
             <div class="creds__row">
@@ -1597,8 +1573,7 @@
         <div class="rule reveal" style="background: #B8C7BC;"></div>
         <p class="eyebrow reveal" style="color: #B8C7BC; margin-bottom: 28px;">Contact</p>
         <h2 class="reveal d1" id="contact-heading">I'd like to start <em>a conversation.</em></h2>
-        <p class="contact__para reveal d2"><strong style="color: var(--paper); font-weight: 500;">For executives:</strong> a strategic conversation about building companies with private equity. You leave with a written strategy document whether or not we work together on a specific deal.</p>
-        <p class="contact__para reveal d2"><strong style="color: var(--paper); font-weight: 500;">For PE firms:</strong> when a thesis fits one of your mandates, we'll bring it directly. No retainer, no broker process, no auction.</p>
+        <p class="contact__para reveal d2">A strategic conversation about the deal you would build if you owned the process. You leave with a written thesis whether or not we work together.</p>
         <div class="contact__email-wrap reveal d3">
           <a href="mailto:henrik@valuecatalyst.group" class="contact__email">Talk to Henrik <span class="arr" style="display:inline-block;">→</span></a>
           <span class="contact__email-sub"><a href="mailto:henrik@valuecatalyst.group">henrik@valuecatalyst.group</a> · <a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer</a></span>
