@@ -39,6 +39,8 @@
       --accent: #1E4A3A;
       --accent-deep: #143428;
       --accent-faint: #E8E3D3;
+      --cta: #C97455;          /* Claude orange — reserved for primary CTA */
+      --cta-deep: #A85C40;
       --max: 1120px;
       --max-narrow: 760px;
       --ease: cubic-bezier(0.16, 1, 0.3, 1);
@@ -446,7 +448,7 @@
     }
     .pullquote p {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: 26px;
+      font-size: 28px;
       line-height: 1.32;
       letter-spacing: -0.012em;
       font-style: italic;
@@ -530,11 +532,20 @@
     .flow__lane--vcg .flow__lane-label { color: var(--accent); }
     .flow__steps {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
       align-items: stretch;
     }
-    .flow__steps--three { grid-template-columns: repeat(3, 1fr); }
+    .flow__step-name {
+      display: block;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      letter-spacing: -0.012em;
+      margin-bottom: 8px;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+    }
+    .flow__lane--vcg .flow__step-name { color: var(--accent); }
     .flow__step {
       padding: 18px 14px;
       background: var(--paper-soft);
@@ -684,15 +695,26 @@
     }
     .contact__email {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(22px, 2.6vw, 30px);
-      font-weight: 400;
-      color: var(--paper);
-      border-bottom: 1px solid rgba(245,241,234,0.36);
-      padding-bottom: 4px;
+      font-size: clamp(28px, 3.4vw, 44px);
+      font-weight: 500;
+      color: var(--cta);
+      border-bottom: 2px solid var(--cta);
+      padding-bottom: 6px;
       font-variation-settings: "opsz" 72, "SOFT" 20;
-      transition: border-color 200ms var(--ease);
+      transition: opacity 200ms var(--ease);
+      letter-spacing: -0.012em;
     }
-    .contact__email:hover { border-bottom-color: var(--paper); }
+    .contact__email:hover { opacity: 0.78; }
+    .contact__email-sub {
+      display: block;
+      margin-top: 18px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: rgba(245,241,234,0.6);
+    }
+    .contact__email-sub a { color: rgba(245,241,234,0.85); border-bottom: 1px solid rgba(245,241,234,0.3); }
+    .contact__email-sub a:hover { color: var(--paper); }
     .contact__meta {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 11px;
@@ -736,21 +758,63 @@
       color: rgba(245,241,234,0.6);
     }
 
+    /* ── Primary CTA — orange, sparing use ── */
+    .cta-primary {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--cta);
+      border-bottom: 1.5px solid var(--cta);
+      padding-bottom: 3px;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+      font-variation-settings: "opsz" 36;
+    }
+    .cta-primary:hover { color: var(--cta-deep); border-color: var(--cta-deep); }
+    .cta-primary .arr { display: inline-block; transition: transform 240ms var(--ease); }
+    .cta-primary:hover .arr { transform: translateX(4px); }
+
+    .entry__label--cta { color: var(--cta); }
+
+    /* ── Henrik portrait block ── */
+    .portrait {
+      margin-bottom: 24px;
+    }
+    .portrait img {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 2px;
+      filter: saturate(0.92) contrast(1.02);
+      display: block;
+    }
+    .portrait__bio {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-top: 14px;
+      max-width: 280px;
+      font-style: italic;
+      font-variation-settings: "opsz" 36, "SOFT" 30;
+    }
+
     /* ── Animations ── */
     @media (prefers-reduced-motion: no-preference) {
       .reveal {
         opacity: 0;
-        transform: translateY(14px);
-        transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+        transform: translateY(8px);
+        transition: opacity 360ms var(--ease), transform 360ms var(--ease);
       }
       .reveal.in {
         opacity: 1;
         transform: translateY(0);
       }
-      .reveal.d1 { transition-delay: 80ms; }
-      .reveal.d2 { transition-delay: 160ms; }
-      .reveal.d3 { transition-delay: 240ms; }
-      .reveal.d4 { transition-delay: 320ms; }
+      .reveal.d1 { transition-delay: 40ms; }
+      .reveal.d2 { transition-delay: 80ms; }
+      .reveal.d3 { transition-delay: 120ms; }
+      .reveal.d4 { transition-delay: 160ms; }
     }
 
     /* ── Focus ── */
@@ -781,7 +845,7 @@
       .flow__steps { grid-template-columns: 1fr 1fr; }
       .flow__outcome { grid-template-columns: 1fr; gap: 16px; }
       .pullquote { padding-left: 20px; }
-      .pullquote p { font-size: 22px; }
+      .pullquote p { font-size: 24px; }   /* +30% over 17-18px body */
     }
     @media (max-width: 760px) {
       .nav__links { display: none; }
@@ -803,6 +867,12 @@
       .section__lede { margin-bottom: 40px; }
     }
   </style>
+  <noscript>
+    <style>
+      /* No-JS fallback: ensure all reveal content is visible */
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
 </head>
 <body>
 
@@ -829,17 +899,21 @@
   <!-- Hero -->
   <header class="hero" id="top">
     <div class="container">
-      <p class="eyebrow hero__eyebrow reveal">Stockholm · Independent · Founder-led</p>
+      <p class="eyebrow hero__eyebrow reveal">Confidential · Independent · Aligned</p>
       <h1 class="reveal d1"><em>Operator-led deal origination</em> for European Private Equity.</h1>
       <p class="hero__sub reveal d2"><strong>VCG advances driven senior executives into PE-backed ownership.</strong> We build the deal with the executive, and bring it to the best-fitting PE firm. Both VCG and the executive share in the transaction fee and co-invest side-by-side.</p>
       <div class="hero__entry reveal d3">
         <div class="entry">
           <span class="entry__label">Path A</span>
-          <a href="#executives" class="entry__link">For executives <span class="arr">→</span></a>
+          <a href="#executives" class="entry__link">Executives <span class="arr">→</span></a>
         </div>
         <div class="entry">
           <span class="entry__label">Path B</span>
-          <a href="#pe" class="entry__link">For PE firms <span class="arr">→</span></a>
+          <a href="#pe" class="entry__link">PE firms <span class="arr">→</span></a>
+        </div>
+        <div class="entry">
+          <span class="entry__label entry__label--cta">Direct</span>
+          <a href="#contact" class="cta-primary">Talk to Henrik <span class="arr">→</span></a>
         </div>
       </div>
     </div>
@@ -883,21 +957,17 @@
       <div class="flow__lane">
         <span class="flow__lane-label">Standard</span>
         <div class="flow__steps">
-          <div class="flow__step"><strong>01</strong>82% of mid-market deals never reach PE firms</div>
-          <div class="flow__step"><strong>02</strong>Investment bank calls PE firm with target</div>
-          <div class="flow__step"><strong>03</strong>Auction process</div>
-          <div class="flow__step"><strong>04</strong>Bid &amp; close — incumbent CEO stays</div>
-          <div class="flow__step"><strong>05</strong>Operator called late</div>
+          <div class="flow__step"><strong>01</strong><span class="flow__step-name">React</span>PE firm waits for the IB call. 82% of mid-market deals never arrive.</div>
+          <div class="flow__step"><strong>02</strong><span class="flow__step-name">Confirm</span>Auction process, bid, close — incumbent CEO stays.</div>
+          <div class="flow__step"><strong>03</strong><span class="flow__step-name">Strengthen</span>Operator called late, if at all, to fix what could have been designed in.</div>
         </div>
       </div>
       <div class="flow__lane flow__lane--vcg">
         <span class="flow__lane-label">VCG · Operator-led</span>
         <div class="flow__steps">
-          <div class="flow__step"><strong>01</strong>Executive experience and network</div>
-          <div class="flow__step"><strong>02</strong>Find and develop deal together</div>
-          <div class="flow__step"><strong>03</strong>Executive &amp; VCG shape the thesis</div>
-          <div class="flow__step"><strong>04</strong>Match to fitting PE firm</div>
-          <div class="flow__step"><strong>05</strong>Role &amp; equity pre-agreed</div>
+          <div class="flow__step"><strong>01</strong><span class="flow__step-name">Discover</span>Executive sector view, network, and ambition shape the opportunity.</div>
+          <div class="flow__step"><strong>02</strong><span class="flow__step-name">Develop</span>Together we build the thesis and the value creation plan.</div>
+          <div class="flow__step"><strong>03</strong><span class="flow__step-name">Deliver</span>Matched to the right PE firm. Role and equity pre-agreed. Co-invested at close.</div>
         </div>
       </div>
       <div class="flow__outcome">
@@ -992,11 +1062,7 @@
 
           <div class="terms">
             <p class="terms__label">The shared economics</p>
-            <p>VCG and the executive are paid only on a closed transaction. Half of what we earn is reinvested into the company alongside the executive's own reinvestment. It is the sharing of value a VCG-originated deal creates, offered because alignment beats extraction.</p>
-          </div>
-          <div class="terms" style="margin-top: 16px;">
-            <p class="terms__label">What it costs you upfront</p>
-            <p>Nothing. No retainer, no fees, no commitment until there is a deal worth committing to.</p>
+            <p>We take a success fee. We share it with the executive. And together we reinvest half of it into the company.</p>
           </div>
         </div>
       </div>
@@ -1067,9 +1133,14 @@
         <aside class="about__meta reveal">
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">About</p>
+          <div class="portrait">
+            <img src="/henrik.jpg" alt="Henrik Rammer, Founder of Value Catalyst Group" loading="lazy" width="280" height="280">
+            <p class="portrait__bio">20 years across European private equity. LSE. Founder, Value Catalyst Group.</p>
+          </div>
           <p class="about__name">Henrik Rammer</p>
           <p class="about__role">Founder<br>Stockholm, Sweden</p>
           <p class="about__linkedin"><a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer →</a></p>
+          <p style="margin-top: 20px;"><a href="#contact" class="cta-primary" style="font-size: 16px;">Talk to Henrik <span class="arr">→</span></a></p>
         </aside>
         <div class="about__body reveal d1">
           <h2 class="section__title" id="about-heading" style="margin-bottom: 40px;">Built for executives across a career, <em>not one transaction.</em></h2>
@@ -1091,8 +1162,9 @@
         <p class="contact__para reveal d2"><strong style="color: var(--paper); font-weight: 500;">For executives:</strong> a strategic conversation about building companies with private equity. You leave with a written strategy document whether or not we work together on a specific deal.</p>
         <p class="contact__para reveal d2"><strong style="color: var(--paper); font-weight: 500;">For PE firms:</strong> when a thesis fits one of your mandates, we'll bring it directly. No retainer, no broker process, no auction.</p>
         <div class="contact__email-wrap reveal d3">
-          <a href="mailto:henrik@valuecatalyst.group" class="contact__email">henrik@valuecatalyst.group</a>
-          <p class="contact__meta">Henrik Rammer · Stockholm · <a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener" style="color: #B8C7BC; border-bottom: 1px solid rgba(184,199,188,0.5); padding-bottom: 1px;">linkedin.com/in/henrikrammer</a></p>
+          <a href="mailto:henrik@valuecatalyst.group" class="contact__email">Talk to Henrik <span class="arr" style="display:inline-block;">→</span></a>
+          <span class="contact__email-sub"><a href="mailto:henrik@valuecatalyst.group">henrik@valuecatalyst.group</a> · <a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer</a></span>
+          <p class="contact__meta">Henrik Rammer · Stockholm</p>
         </div>
       </div>
     </div>
