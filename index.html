@@ -642,17 +642,29 @@
       max-width: 36ch;
     }
     .credibility__logos {
-      display: flex; flex-wrap: wrap; gap: 56px; align-items: center;
+      display: flex; flex-wrap: wrap; gap: 32px; align-items: center;
     }
     .credibility__logo {
-      display: inline-flex; align-items: center; height: 36px;
+      display: inline-flex; align-items: center;
     }
     .credibility__logo img {
-      max-height: 32px; width: auto;
-      filter: grayscale(1) opacity(0.55) contrast(1.05);
-      transition: filter 240ms var(--ease);
+      width: auto;
+      opacity: 0.45;
+      transition: opacity 240ms var(--ease);
     }
-    .credibility__logo:hover img { filter: grayscale(1) opacity(0.85) contrast(1.05); }
+    .credibility__logo:hover img { opacity: 0.85; }
+    /* Per-logo height tuning so the actual letterforms read at a similar x-height (~22-26px) across the row */
+    .credibility__logo--lse img        { max-height: 40px; }
+    .credibility__logo--investcorp img { max-height: 18px; }
+    .credibility__logo--triton img     { max-height: 44px; }
+    .credibility__logo--axcel img      { max-height: 26px; }
+    .credibility__logo--chordate img   { max-height: 30px; }
+    /* Myoroface source is 1:1 with deep whitespace padding — crop the canvas to lift the wordmark to row height */
+    .credibility__logo--myoroface {
+      height: 28px; width: 144px; overflow: hidden;
+      justify-content: center;
+    }
+    .credibility__logo--myoroface img { height: 144px; max-height: none; }
     .credibility__logo--text {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 18px; font-weight: 500; letter-spacing: -0.005em;
@@ -1051,7 +1063,13 @@
       .align-row--head { display: none; }
       .align-side { justify-self: start; text-align: left; }
       .credibility__logos { gap: 36px; }
-      .credibility__logo img { max-height: 26px; }
+      .credibility__logo--lse img        { max-height: 34px; }
+      .credibility__logo--investcorp img { max-height: 18px; }
+      .credibility__logo--triton img     { max-height: 46px; }
+      .credibility__logo--axcel img      { max-height: 24px; }
+      .credibility__logo--chordate img   { max-height: 28px; }
+      .credibility__logo--myoroface { height: 28px; width: 130px; }
+      .credibility__logo--myoroface img { height: 130px; }
       .bring-grid { grid-template-columns: 1fr; gap: 32px; }
       .who-this__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
       .who-this__name { font-size: 17px; }
@@ -1198,12 +1216,24 @@
         <p class="credibility__note">Twenty years in private equity across Europe.</p>
       </div>
       <div class="credibility__logos">
-        <span class="credibility__logo credibility__logo--text">London School of Economics</span>
-        <span class="credibility__logo credibility__logo--text">Investcorp</span>
-        <span class="credibility__logo credibility__logo--text">Triton</span>
-        <span class="credibility__logo credibility__logo--text">Axcel</span>
-        <span class="credibility__logo credibility__logo--text">Myoroface</span>
-        <span class="credibility__logo credibility__logo--text">Chordate Medical</span>
+        <a class="credibility__logo credibility__logo--lse" href="https://www.lse.ac.uk" target="_blank" rel="noopener" aria-label="London School of Economics">
+          <img src="logos/London_school_of_economics_logo_with_name.svg.png" alt="London School of Economics" loading="lazy">
+        </a>
+        <a class="credibility__logo credibility__logo--investcorp" href="https://www.investcorp.com" target="_blank" rel="noopener" aria-label="Investcorp">
+          <img src="logos/Investcorp-logo.png" alt="Investcorp" loading="lazy">
+        </a>
+        <a class="credibility__logo credibility__logo--triton" href="https://www.triton-partners.com" target="_blank" rel="noopener" aria-label="Triton">
+          <img src="logos/Triton-Logo-1.png" alt="Triton" loading="lazy">
+        </a>
+        <a class="credibility__logo credibility__logo--axcel" href="https://axcel.com" target="_blank" rel="noopener" aria-label="Axcel">
+          <img src="logos/Axcel_logo.svg.png" alt="Axcel" loading="lazy">
+        </a>
+        <a class="credibility__logo credibility__logo--myoroface" href="https://www.iqoro.com" target="_blank" rel="noopener" aria-label="Myoroface (IQoro)">
+          <img src="logos/iq_logo_myoroface_696x696.webp" alt="Myoroface" loading="lazy">
+        </a>
+        <a class="credibility__logo credibility__logo--chordate" href="https://www.chordate.com" target="_blank" rel="noopener" aria-label="Chordate Medical">
+          <img src="logos/220620_chordate_logo_600x101px.png" alt="Chordate Medical" loading="lazy">
+        </a>
       </div>
     </div>
   </section>
