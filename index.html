@@ -498,6 +498,43 @@
       line-height: 1.6;
       color: var(--ink);
     }
+    .pillar__cite {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px;
+      vertical-align: super;
+      line-height: 0;
+      margin-left: 1px;
+    }
+    .pillar__cite a {
+      color: var(--accent);
+      border-bottom: none;
+      transition: color 180ms var(--ease);
+    }
+    .pillar__cite a:hover { color: var(--ink); }
+    .pillars__footnote {
+      margin-top: 28px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+    .pillars__footnote em {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      letter-spacing: -0.005em;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+    }
+    .pillars__footnote a {
+      color: var(--ink-faint);
+      border-bottom: 1px solid transparent;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+    }
+    .pillars__footnote a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
 
     /* ── About ── */
     .about__grid {
@@ -1276,6 +1313,9 @@
   <section class="proof-band" aria-label="The diagnosis">
     <div class="narrow">
       <p class="proof-band__claim proof-band__claim--editorial reveal">They took a salary and at best an uncertain options package &mdash; usually after the deal was shaped by someone else. <em>1/3 of the &ldquo;lucky ones&rdquo; didn&rsquo;t even get to keep the job long enough to see the result.</em></p>
+      <p class="proof-band__source reveal d1" style="margin-top: 28px;">
+        <em>Source:</em> <a href="https://www.heidrick.com/en/insights/private-equity/closing-the-leadership-gap-in-private-equity" target="_blank" rel="noopener">Heidrick &amp; Struggles, <em>Closing the Leadership Gap in Private Equity</em>, 2026</a>
+      </p>
     </div>
   </section>
 
@@ -1403,12 +1443,12 @@
             </tr>
             <tr>
               <td>Reinvestment</td>
-              <td>We reinvest half of the fee into the company, together.</td>
+              <td>We reinvest half of the fee into the company, together</td>
               <td>Equity</td>
             </tr>
             <tr>
               <td>Further equity in the company you run</td>
-              <td>Negotiated as part of the deal</td>
+              <td>Negotiated as part of the deal (options, ratchets etc.)</td>
               <td>Operator package</td>
             </tr>
           </tbody>
@@ -1449,12 +1489,12 @@
       <div class="reveal" style="margin-top: 120px;">
         <div class="rule"></div>
         <p class="eyebrow" style="margin-bottom: 28px;">What VCG brings</p>
-        <h3 class="block-heading" style="max-width: 24ch;">Access, structure, capital — <em>and your side of the table held.</em></h3>
-        <p class="block-lede" style="max-width: 58ch; margin-top: 16px; margin-bottom: 24px;">VCG works the executive's side of the deal. We open the doors, shape the terms, put capital in alongside yours, and stay with you from first conversation to signed close.</p>
+        <h3 class="block-heading" style="max-width: 26ch;">Access, structure, capital — <em>a structurally aligned partner, on your side.</em></h3>
+        <p class="block-lede" style="max-width: 58ch; margin-top: 16px; margin-bottom: 24px;">VCG works the executive's side of the deal. We open the doors, shape the terms, put capital in alongside yours, and stay with you from first conversation all the way to exit, years later.</p>
         <ul class="audience__list" style="margin-top: 16px; max-width: 64ch;">
-          <li>PE relationships across Europe — mandate-matched, never a cold intro</li>
-          <li>Deal architecture — thesis, role, equity, governance, all shaped before approach</li>
-          <li>Co-investment alongside your rollover — paid only when the deal closes</li>
+          <li>PE relationships across Europe — mandate-matched</li>
+          <li>Deal architecture — thesis, role, equity, governance</li>
+          <li>Co-investment alongside your rollover</li>
         </ul>
       </div>
 
@@ -1523,7 +1563,7 @@
         <div class="pillars">
           <div class="pillar">
             <p class="pillar__name">Access</p>
-            <p class="pillar__text">Even top-quartile PE firms see less than 40% of available deal flow. VCG originates with the executive before the auction, so opportunities arrive proprietary, sector-credible, and shaped to a thesis the executive can run.</p>
+            <p class="pillar__text">Even top-quartile PE firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup> VCG originates with the executive before the auction, so opportunities arrive proprietary, sector-credible, and shaped to a thesis the executive can run.</p>
           </div>
           <div class="pillar">
             <p class="pillar__name">Operator</p>
@@ -1534,6 +1574,7 @@
             <p class="pillar__text">VCG reinvests half its origination fee into the company at close, alongside the executive's rollover. Skin in the game on the same terms — visible to your IC.</p>
           </div>
         </div>
+        <p class="pillars__footnote"><span aria-hidden="true">1.</span> <a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener">Sutton Place Strategies, <em>2024 Deal Origination Benchmark Report</em></a></p>
       </div>
 
       <div class="reveal d3" style="margin-top: 56px; max-width: 760px;">
@@ -1542,50 +1583,6 @@
         </div>
       </div>
 
-      <!-- Deal package card (PE-firm view) -->
-      <div class="reveal d3" style="margin-top: 80px;">
-        <div class="package-block" style="display: grid; grid-template-columns: 1fr 1.15fr; gap: 64px; align-items: center;">
-          <div>
-            <p class="eyebrow" style="margin-bottom: 18px;">What lands on your desk</p>
-            <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 400; line-height: 1.18; letter-spacing: -0.018em; max-width: 24ch; font-variation-settings: 'opsz' 144, 'SOFT' 20;">Six lines on a single page. <em style="color: var(--accent); font-style: italic;">Ready for IC.</em></h3>
-            <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 20px; max-width: 38ch;">Origination, operator, role, equity, alignment — pre-resolved. The package isn't a lead to chase. It's a deal to underwrite.</p>
-          </div>
-          <div class="package" style="justify-self: center;">
-            <p class="package__head"><span>Deal package</span><span>Pre-IC</span></p>
-            <div class="package__row">
-              <span class="package__label">Origination</span>
-              <span class="package__value">Proprietary, pre-auction, sector-specific</span>
-              <span class="package__check">✓</span>
-            </div>
-            <div class="package__row">
-              <span class="package__label">Operator</span>
-              <span class="package__value">Named senior executive · 20 yr in sector</span>
-              <span class="package__check">✓</span>
-            </div>
-            <div class="package__row">
-              <span class="package__label">Thesis</span>
-              <span class="package__value">Authored by the operator · investable</span>
-              <span class="package__check">✓</span>
-            </div>
-            <div class="package__row">
-              <span class="package__label">Role</span>
-              <span class="package__value">CEO / Chair / OP — pre-agreed</span>
-              <span class="package__check">✓</span>
-            </div>
-            <div class="package__row">
-              <span class="package__label">Equity</span>
-              <span class="package__value">Term-sheet drafted · operator rollover</span>
-              <span class="package__check">✓</span>
-            </div>
-            <div class="package__row">
-              <span class="package__label">Alignment</span>
-              <span class="package__value">VCG co-invests at close</span>
-              <span class="package__check">✓</span>
-            </div>
-            <p class="package__foot">Mandate-matched before introduction.</p>
-          </div>
-        </div>
-      </div>
     </div>
   </section>
 
