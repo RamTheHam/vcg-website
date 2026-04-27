@@ -338,6 +338,16 @@
       margin-bottom: 28px;
       font-variation-settings: "opsz" 144, "SOFT" 30;
     }
+    .proof-band__claim--editorial {
+      font-size: clamp(28px, 3.8vw, 46px);
+      max-width: 38ch;
+      margin-bottom: 0;
+      line-height: 1.22;
+    }
+    .proof-band__claim--editorial em {
+      font-style: italic;
+      color: var(--accent);
+    }
     .proof-band__source {
       font-family: 'JetBrains Mono', ui-monospace, monospace;
       font-size: 11px;
@@ -820,13 +830,16 @@
     .fairness-table tr:last-child td, .split-table tr:last-child td {
       border-bottom: none;
     }
-    /* Highlight the originator row */
-    .fairness-table tr:last-child td:first-child {
+    /* Highlight the originator row — accent treatment in line with em throughout the page */
+    .fairness-table tr.fairness-table__originator td {
+      background: rgba(30, 74, 58, 0.04);
       color: var(--ink);
-      font-style: italic;
+      font-weight: 500;
     }
-    .fairness-table tr:last-child td {
-      color: var(--ink-soft);
+    .fairness-table tr.fairness-table__originator td:first-child {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 500;
     }
 
     /* ── Bring grid (what we bring / what you bring) ── */
@@ -1100,7 +1113,10 @@
         font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
         color: var(--ink-faint); font-style: normal;
       }
-      .fairness-table tr:last-child td:first-child {
+      .fairness-table tr.fairness-table__originator td {
+        background: rgba(30, 74, 58, 0.04);
+      }
+      .fairness-table tr.fairness-table__originator td:first-child {
         color: var(--accent);
       }
 
@@ -1188,7 +1204,7 @@
     <div class="container">
       <p class="eyebrow hero__eyebrow reveal">Confidential · Independent · Structurally aligned</p>
       <h1 class="reveal d1"><em>For the executive</em> who can originate the deal.</h1>
-      <p class="hero__sub reveal d2">The difference between <strong>authoring the transaction</strong> and being placed into it. VCG packages your sector view and your standing with the seller into the deal, takes it to the right PE firm, and splits the success fee.</p>
+      <p class="hero__sub reveal d2">The difference between <strong>authoring the transaction</strong> and being placed into it. VCG packages your sector view and your standing with the seller into the deal, takes it to the right PE firm, and splits the success fee with you.</p>
       <div class="hero__entry reveal d3">
         <div class="entry">
           <span class="entry__label">Path A</span>
@@ -1257,13 +1273,9 @@
   </section>
 
   <!-- Proof band: $3.8T trapped value (Bain 2026) — the latent demand pull -->
-  <section class="proof-band" aria-label="The keystone fact">
+  <section class="proof-band" aria-label="The diagnosis">
     <div class="narrow">
-      <p class="proof-band__number reveal"><em>$3.8T</em></p>
-      <p class="proof-band__claim reveal d1">of unrealised value sits in PE portfolios waiting for exits — distributions have held below 15% of NAV for four years running, an industry record.</p>
-      <p class="proof-band__source reveal d2">
-        <em>Source:</em> <a href="https://www.bain.com/insights/topics/global-private-equity-report/" target="_blank" rel="noopener">Bain, <em>Global Private Equity Report 2026</em></a>
-      </p>
+      <p class="proof-band__claim proof-band__claim--editorial reveal">They took a salary and at best an uncertain options package &mdash; usually after the deal was shaped by someone else. <em>1/3 of the &ldquo;lucky ones&rdquo; didn&rsquo;t even get to keep the job long enough to see the result.</em></p>
     </div>
   </section>
 
@@ -1368,7 +1380,7 @@
             <tr><td>Investment bank</td><td>Transaction fee on the close</td></tr>
             <tr><td>Search firm</td><td>Placement fee on the candidate</td></tr>
             <tr><td>PE firm</td><td>Carry on a thesis they bought into</td></tr>
-            <tr><td>Originator</td><td>Salary, options, and the operating risk</td></tr>
+            <tr class="fairness-table__originator"><td>Originator</td><td>Salary, uncertain options, and the operating and employment risk</td></tr>
           </tbody>
         </table>
 
@@ -1411,7 +1423,7 @@
         <div class="rule"></div>
         <p class="eyebrow" style="margin-bottom: 28px;">The role</p>
         <h3 class="block-heading" style="max-width: 18ch;"><em>You shape the role.</em></h3>
-        <p class="block-lede block-lede--soft" style="max-width: 60ch;">The deal determines what the company needs at close. You decide which part of it you want to run.</p>
+        <p class="block-lede block-lede--soft" style="max-width: 60ch;">The deal determines what the company needs at close. Your requirements determine which part of the value creation process you want to run.</p>
 
         <table class="role-table" aria-label="Available roles">
           <tbody>
@@ -1430,18 +1442,19 @@
           </tbody>
         </table>
 
-        <p class="block-finisher">Negotiated as part of the deal, not assigned afterwards. <em>That is the difference between authoring the transaction and being placed into it.</em></p>
+        <p class="block-finisher">Agreed as part of the deal, not assigned afterwards.</p>
       </div>
 
       <!-- What VCG brings -->
       <div class="reveal" style="margin-top: 120px;">
         <div class="rule"></div>
         <p class="eyebrow" style="margin-bottom: 28px;">What VCG brings</p>
-        <h3 class="block-heading" style="max-width: 22ch;">Access, structure, capital — <em>the rest is yours.</em></h3>
+        <h3 class="block-heading" style="max-width: 24ch;">Access, structure, capital — <em>and your side of the table held.</em></h3>
+        <p class="block-lede" style="max-width: 58ch; margin-top: 16px; margin-bottom: 24px;">VCG works the executive's side of the deal. We open the doors, shape the terms, put capital in alongside yours, and stay with you from first conversation to signed close.</p>
         <ul class="audience__list" style="margin-top: 16px; max-width: 64ch;">
-          <li>PE firm access and relationships across Europe</li>
-          <li>Deal structuring — thesis, role, equity, governance</li>
-          <li>Co-investment capital alongside your own rollover</li>
+          <li>PE relationships across Europe — mandate-matched, never a cold intro</li>
+          <li>Deal architecture — thesis, role, equity, governance, all shaped before approach</li>
+          <li>Co-investment alongside your rollover — paid only when the deal closes</li>
         </ul>
       </div>
 
