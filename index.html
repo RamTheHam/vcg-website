@@ -623,14 +623,14 @@
     }
     .contact__email {
       font-family: 'Fraunces', Georgia, serif;
-      font-size: clamp(28px, 3.4vw, 44px);
+      font-size: clamp(14px, 1.7vw, 22px);
       font-weight: 500;
       color: var(--cta);
-      border-bottom: 2px solid var(--cta);
-      padding-bottom: 6px;
-      font-variation-settings: "opsz" 72, "SOFT" 20;
+      border-bottom: 1px solid var(--cta);
+      padding-bottom: 3px;
+      font-variation-settings: "opsz" 36, "SOFT" 20;
       transition: opacity 200ms var(--ease);
-      letter-spacing: -0.012em;
+      letter-spacing: -0.008em;
     }
     .contact__email:hover { opacity: 0.78; }
     .contact__email-sub {
@@ -716,6 +716,7 @@
     .credibility__logo:hover img { opacity: 0.85; }
     /* Per-logo height tuning so the actual letterforms read at a similar x-height (~22-26px) across the row */
     .credibility__logo--lse img        { max-height: 40px; }
+    .credibility__logo--investcorp     { min-width: 200px; justify-content: center; }
     .credibility__logo--investcorp img { max-height: 18px; }
     .credibility__logo--triton img     { max-height: 44px; mix-blend-mode: multiply; }
     .credibility__logo--axcel img      { max-height: 26px; mix-blend-mode: multiply; }
@@ -725,7 +726,7 @@
       height: 28px; width: 144px; overflow: hidden;
       justify-content: center;
     }
-    .credibility__logo--myoroface img { height: 144px; max-height: none; }
+    .credibility__logo--myoroface img { height: 144px; max-height: none; mix-blend-mode: multiply; }
     .credibility__logo--text {
       font-family: 'Fraunces', Georgia, serif;
       font-size: 18px; font-weight: 500; letter-spacing: -0.005em;
@@ -1241,7 +1242,7 @@
     <div class="container">
       <p class="eyebrow hero__eyebrow reveal">Confidential · Independent · Structurally aligned</p>
       <h1 class="reveal d1"><em>For the executive</em> who can originate the deal.</h1>
-      <p class="hero__sub reveal d2">The difference between <strong>authoring the transaction</strong> and being placed into it. VCG packages your sector view and your standing with the seller into the deal, takes it to the right PE firm, and splits the success fee with you.</p>
+      <p class="hero__sub reveal d2">VCG packages your sector view into the deal, brings it to the right PE firm, and splits the success fee with you.</p>
       <div class="hero__entry reveal d3">
         <div class="entry">
           <span class="entry__label">Path A</span>
@@ -1260,22 +1261,22 @@
     <div class="container">
       <div class="figures__grid">
         <div class="figure reveal">
-          <div class="figure__number"><em>53%</em></div>
+          <div class="figure__number">53%</div>
           <p class="figure__desc">of investment returns trace to the leadership of the portfolio company.</p>
           <p class="figure__src"><a href="https://www.teneo.com/insights/articles/leadership-alpha-in-private-equity/" target="_blank" rel="noopener">Teneo · McKinsey CEO Alpha</a></p>
         </div>
         <div class="figure reveal d1">
-          <div class="figure__number"><em>70%</em></div>
+          <div class="figure__number">70%</div>
           <p class="figure__desc">of CEOs at PE-backed companies are replaced during the typical hold — over half of it unplanned.</p>
           <p class="figure__src"><a href="https://www.heidrick.com/en/insights/private-equity/closing-the-leadership-gap-in-private-equity" target="_blank" rel="noopener">Heidrick &amp; Struggles, 2026</a></p>
         </div>
         <div class="figure reveal d2">
-          <div class="figure__number"><em>50/50</em></div>
+          <div class="figure__number">50/50</div>
           <p class="figure__desc">the share of the origination fee paid to the executive who brought the deal.</p>
           <p class="figure__src">VCG · every deal</p>
         </div>
       </div>
-      <p class="figures__caption reveal d3">No other corporate finance firm structures the deal this way.</p>
+      <p class="figures__caption reveal d3">Few corporate finance firms structure the deal this way.</p>
     </div>
   </section>
 
@@ -1370,7 +1371,7 @@
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For executives</p>
           <h2 class="section__title" id="exec-heading">You generated the value. <em>You should be paid like you did.</em></h2>
-          <p class="audience__pitch">Most senior executives have spent their careers generating value that flowed to other people. They took a salary and an option package — usually after the deal was shaped by someone else.</p>
+          <p class="audience__pitch">Most senior executives have spent their careers generating value that flowed to other people.</p>
           <p class="audience__pitch" style="margin-top: 18px; font-style: italic; color: var(--accent);">VCG exists for the executives who can change this.</p>
         </div>
         <div class="audience__body reveal d1">
@@ -1482,7 +1483,7 @@
           </tbody>
         </table>
 
-        <p class="block-finisher">Agreed as part of the deal, not assigned afterwards.</p>
+        <p class="block-finisher">The role is agreed as part of the deal, not assigned afterwards.</p>
       </div>
 
       <!-- What VCG brings -->
@@ -1550,7 +1551,8 @@
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For PE firms</p>
           <h2 class="section__title" id="pe-heading">Proprietary flow. The operator already in place. <em>Skin in the game.</em></h2>
-          <p class="audience__pitch">PE firms running management-heavy platforms need more than capital and a deal team. They need an experienced operating partner to drive the thesis, and a senior executive to anchor the platform in one of the roles it actually requires — CEO, active chairman, operating partner on the board.</p>
+          <p class="audience__pitch">PE firms running management-heavy platforms need more than capital and a deal team.</p>
+          <p class="audience__pitch" style="margin-top: 18px;">They need an experienced operating partner to drive the thesis, and a senior executive to anchor the platform in one of the roles it actually requires — CEO, active chairman, operating partner on the board.</p>
         </div>
         <div class="audience__body reveal d1">
           <p style="font-size: 22px; line-height: 1.45; font-variation-settings: 'opsz' 72, 'SOFT' 30;">VCG brings both. The thesis is proprietary. The executive is senior, sector-credible, and already shaped around the opportunity. <em style="font-style: italic; color: var(--accent);">VCG reinvests alongside at close.</em></p>
@@ -1603,7 +1605,7 @@
         </aside>
         <div class="about__body reveal d1">
           <h2 class="section__title" id="about-heading" style="margin-bottom: 40px;">Built for executives across a career, <em>not one transaction.</em></h2>
-          <p>VCG exists to close a structural gap. Senior executives generate most of the returns PE makes, and yet when they want to drive their next major deal they usually cannot get to the other side of the table. In other industries — actors, athletes, senior US executives — specialist firms fill this gap. <em>In European PE, the executive still walks into the room alone.</em></p>
+          <p>Senior executives generate most of the returns PE makes — and yet when they want to drive their next major deal they usually cannot get to the other side of the table. <em>In European PE, the executive still walks into the room alone.</em></p>
           <p>VCG walks in with them. Access, methodology, co-investment.</p>
           <p>Twenty years in PE across the Nordics and Europe. Stockholm, independent, founder-led.</p>
 
