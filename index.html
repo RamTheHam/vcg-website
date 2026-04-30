@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Value Catalyst Group</title>
+  <title>Value Catalyst Group — For the few who can originate the deal</title>
   <meta name="description" content="Most senior executives spend their careers generating value that flows to other people. We call this the Principal Gap. VCG closes it — by leading with the operator, opening the door to the right PE firm, and splitting the deal fee fifty-fifty.">
   <link rel="canonical" href="https://valuecatalyst.group/">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <meta property="og:title" content="Value Catalyst Group — For the executive who can originate the deal">
+  <meta property="og:title" content="Value Catalyst Group — For the few who can originate the deal">
   <meta property="og:description" content="Most senior executives spend their careers generating value that flows to other people. We call this the Principal Gap. VCG closes it — by leading with the operator, opening the door to the right PE firm, and splitting the deal fee fifty-fifty.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://valuecatalyst.group/">
@@ -1005,6 +1005,31 @@
       font-family: 'Fraunces', Georgia, serif;
       font-size: 16px; line-height: 1.5; color: var(--ink);
       font-variation-settings: "opsz" 36;
+      display: flex; flex-wrap: wrap; gap: 6px 14px;
+    }
+    .creds__chip {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 4px 10px 4px 6px;
+      border: 1px solid transparent;
+      border-radius: 999px;
+      color: var(--ink);
+      text-decoration: none;
+      transition: background 180ms var(--ease), border-color 180ms var(--ease), color 180ms var(--ease);
+    }
+    .creds__chip:hover, .creds__chip:focus-visible {
+      background: rgba(31, 60, 47, 0.05);
+      border-color: rgba(31, 60, 47, 0.18);
+      color: var(--ink);
+    }
+    .creds__chip-logo {
+      width: 18px; height: 18px;
+      object-fit: contain;
+      filter: grayscale(1) opacity(0.55);
+      transition: filter 180ms var(--ease);
+    }
+    .creds__chip:hover .creds__chip-logo,
+    .creds__chip:focus-visible .creds__chip-logo {
+      filter: grayscale(0) opacity(1);
     }
 
     /* ── Primary CTA — orange, sparing use ── */
@@ -1276,7 +1301,7 @@
           <p class="figure__src">VCG · every deal</p>
         </div>
       </div>
-      <p class="figures__caption reveal d3">No firm structures the deal economics like VCG.</p>
+      <p class="figures__caption reveal d3">No other firm structures the deal economics like VCG.</p>
     </div>
   </section>
 
@@ -1307,27 +1332,25 @@
         <div class="audience__head reveal">
           <div class="rule"></div>
           <p class="eyebrow" style="margin-bottom: 28px;">For executives</p>
-          <h2 class="section__title" id="exec-heading">You generated the value. <em>You should be paid like you did.</em></h2>
-          <p class="audience__pitch">The Principal Gap is closed one operator at a time. By individual executives who know which company can be bought, who the seller will hand it to, and what to do with it once they have it &mdash; and who refuse to give that knowledge away again.</p>
+          <h2 class="section__title" id="exec-heading">Built for executives across a career, <em>not one transaction.</em></h2>
+          <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(22px, 2.4vw, 28px); font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; margin-top: 16px; font-variation-settings: 'opsz' 96, 'SOFT' 25;">In European PE, the executive still walks into the room alone.</p>
+          <p class="audience__pitch" style="margin-top: 16px;">VCG walks in with them.</p>
+          <p class="audience__pitch" style="margin-top: 24px;">The Principal Gap is closed one operator at a time. By individual executives who know which company can be bought, who the seller will hand it to, and what to do with it once they have it &mdash; and who refuse to give that knowledge away again.</p>
           <p class="audience__pitch" style="margin-top: 18px; font-style: italic; color: var(--accent);">VCG exists for those executives.</p>
         </div>
         <div class="audience__body reveal d1">
 
           <!-- Who this is for -->
-          <p class="audience__subhead">Who this is for</p>
-          <p style="font-size: 16.5px; color: var(--ink-soft); margin-bottom: 18px;">Three things:</p>
-          <div class="who-this">
+          <p class="audience__subhead">Typical executives VCG works with</p>
+          <div class="who-this" style="margin-top: 12px;">
             <div class="who-this__row">
-              <span class="who-this__name">Sector view</span>
-              <span class="who-this__desc">Sharp enough to source the deal.</span>
+              <span class="who-this__name">Sector view sharp enough to source the deal</span>
             </div>
             <div class="who-this__row">
-              <span class="who-this__name">Network</span>
-              <span class="who-this__desc">Key relationships to make the deal happen.</span>
+              <span class="who-this__name">Network of key relationships to make the deal happen</span>
             </div>
             <div class="who-this__row">
-              <span class="who-this__name">Standing</span>
-              <span class="who-this__desc">The seller will see you as the preferred custodian of the business.</span>
+              <span class="who-this__name">Standing as the seller's preferred custodian of the business</span>
             </div>
           </div>
           <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 18px; max-width: 50ch;">Most senior executives have one of the three. The minority who have all three are the executives VCG was built for.</p>
@@ -1382,46 +1405,22 @@
         </div>
       </div>
 
-      <!-- The method -->
+      <!-- The method (artefact merged in) -->
       <div class="reveal" style="margin-top: 120px;">
         <div class="rule"></div>
         <p class="eyebrow" style="margin-bottom: 28px;">The method</p>
         <h3 class="block-heading" style="max-width: 22ch;"><em>Lead with the operator.</em> Then shape the role.</h3>
         <p class="block-lede block-lede--soft" style="max-width: 62ch;">Standard PE works backwards. Firm finds target. Firm builds thesis. Firm hires manager to execute.</p>
         <p class="block-lede" style="max-width: 62ch; margin-top: -8px;">VCG inverts the sequence. The operator's view is the deal. The role follows.</p>
-        <p class="block-lede" style="max-width: 64ch; margin-top: 16px;">In standard PE, the company's board appoints a CEO after close. In VCG's model, the operator's name is on the deal before the firm signs — usually as chairman, sometimes as CEO.</p>
-        <p style="font-family: 'Fraunces', Georgia, serif; font-size: 19px; font-style: italic; color: var(--ink-soft); line-height: 1.5; max-width: 60ch; margin: 28px 0 36px; font-variation-settings: 'opsz' 72, 'SOFT' 20;">Operator is who you are by experience. The seat in this deal is downstream.</p>
-
-        <p class="block-lede" style="max-width: 60ch; margin-bottom: 16px;">What that looks like in practice:</p>
-        <table class="role-table" aria-label="Available roles">
-          <tbody>
-            <tr>
-              <td>Active chair</td>
-              <td>You want to govern, hire the CEO, and stay close.</td>
-            </tr>
-            <tr>
-              <td>CEO</td>
-              <td>You want to run the company day-to-day.</td>
-            </tr>
-            <tr>
-              <td>Operating partner on the board</td>
-              <td>You want the influence without the executive seat.</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="block-finisher">The role is agreed as part of the deal, not assigned afterwards.</p>
+        <p class="block-lede" style="max-width: 64ch; margin-top: 16px;">In standard PE, the company's board appoints a CEO after close. In VCG's model, the operator's name is on the deal before the firm signs &mdash; usually as chairman, sometimes as CEO.</p>
+        <p class="block-lede" style="max-width: 62ch; margin-top: 24px;">Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em> &mdash; the operator's deal, written down before the PE firm signs.</p>
       </div>
 
-      <!-- The artefact: Value Catalyst Plan + What VCG brings -->
-      <div class="reveal" style="margin-top: 96px;">
+      <!-- Thesis card (the artefact made visible) -->
+      <div class="reveal" style="margin-top: 64px;">
         <div class="thesis-block" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;">
           <div>
-            <div class="rule"></div>
-            <p class="eyebrow" style="margin-bottom: 18px; margin-top: 28px;">The artefact</p>
-            <h3 style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(24px, 2.8vw, 34px); font-weight: 400; line-height: 1.18; letter-spacing: -0.018em; max-width: 26ch; font-variation-settings: 'opsz' 144, 'SOFT' 20;">The <em style="color: var(--accent); font-style: italic;">Value Catalyst Plan.</em></h3>
-            <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink); margin-top: 20px; max-width: 42ch;">The operator's deal, written down before a PE firm signs. Target, thesis, role, fit. Specifics stay redacted until the right firm is at the table.</p>
-            <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 20px; max-width: 42ch;">VCG opens the doors, shapes the terms, and reinvests alongside you — for the life of the deal.</p>
+            <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); max-width: 42ch;">VCG opens the doors, shapes the terms, and reinvests alongside you &mdash; for the life of the deal.</p>
           </div>
           <div class="thesis-card" style="justify-self: center;">
             <span class="thesis-card__corner">VCG · Q3 2026</span>
@@ -1507,35 +1506,22 @@
         <p style="font-size: 17px; font-style: italic; color: var(--ink-soft); line-height: 1.55; max-width: 56ch; margin-top: 8px;">Three layers of skin in the same game, on the same terms.</p>
       </div>
 
-      <!-- Closer: built for a career, not one transaction -->
-      <div class="reveal" style="margin-top: 120px; max-width: 720px;">
-        <h3 class="block-heading" style="max-width: 22ch;">Built for executives across a career, <em>not one transaction.</em></h3>
-        <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(22px, 2.4vw, 28px); font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; margin-top: 20px; font-variation-settings: 'opsz' 96, 'SOFT' 25;">In European PE, the executive still walks into the room alone.</p>
-        <p class="block-lede" style="max-width: 58ch; margin-top: 20px;">VCG walks in with them.</p>
-      </div>
-
     </div>
   </section>
 
   <!-- For PE firms -->
   <section class="section section--paper-soft" id="pe" aria-labelledby="pe-heading">
     <div class="container">
-      <div class="audience" style="margin-bottom: 72px;">
+      <div class="audience" style="margin-bottom: 56px;">
         <div class="audience__head reveal">
           <div class="rule"></div>
-          <p class="eyebrow" style="margin-bottom: 28px;">For PE firms</p>
-          <h2 class="section__title" id="pe-heading">Proprietary flow. The operator already in place. <em>Skin in the game.</em></h2>
-          <p class="audience__pitch">PE firms running management-heavy platforms need more than capital and a deal team. They need a sector-credible operator already in place, shaped into the role the deal actually requires.</p>
+          <p class="eyebrow" style="margin-bottom: 28px;">Proprietary angle</p>
+          <h2 class="section__title" id="pe-heading">For <em>PE firms.</em></h2>
         </div>
         <div class="audience__body reveal d1">
-          <p style="font-size: 22px; line-height: 1.45; font-variation-settings: 'opsz' 72, 'SOFT' 30;">Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em>: a defined target, an operator pre-committed, and VCG's reinvestment alongside at close.</p>
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); max-width: 64ch;">PE firms need a sector-credible operator driving the deal, shaped into the role the deal actually requires. We find nuggets &mdash; even top-quartile PE firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup> Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em>: a defined target, an operator pre-committed, and VCG's reinvestment of half its fee, alongside the operator's rollover.</p>
+          <p class="pillars__footnote" style="margin-top: 24px;"><span aria-hidden="true">1.</span> <a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener">Sutton Place Strategies, <em>2024 Deal Origination Benchmark Report</em></a></p>
         </div>
-      </div>
-
-      <!-- Pillars collapsed -->
-      <div class="reveal d2" style="max-width: 760px;">
-        <p class="block-lede">Proprietary flow shaped before the auction — even top-quartile PE firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup> A sector-credible operator in place from origination, in the role the deal requires. VCG reinvests half its origination fee at close, alongside the operator's rollover — skin in the game on the same terms, visible to your IC.</p>
-        <p class="pillars__footnote" style="margin-top: 24px;"><span aria-hidden="true">1.</span> <a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener">Sutton Place Strategies, <em>2024 Deal Origination Benchmark Report</em></a></p>
       </div>
 
       <div class="reveal d3" style="margin-top: 56px; max-width: 760px;">
@@ -1569,15 +1555,37 @@
           <div class="creds">
             <div class="creds__row">
               <span class="creds__label">Education</span>
-              <span class="creds__value">London School of Economics</span>
+              <span class="creds__value">
+                <a class="creds__chip" href="https://www.lse.ac.uk" target="_blank" rel="noopener" aria-label="London School of Economics">
+                  <img class="creds__chip-logo" src="logos/London_school_of_economics_logo_with_name.svg.png" alt="" loading="lazy">
+                  London School of Economics
+                </a>
+              </span>
             </div>
             <div class="creds__row">
               <span class="creds__label">Career</span>
-              <span class="creds__value">Investcorp · Triton · Axcel</span>
+              <span class="creds__value">
+                <a class="creds__chip" href="https://www.investcorp.com" target="_blank" rel="noopener" aria-label="Investcorp">
+                  <img class="creds__chip-logo" src="logos/Investcorp-logo.png" alt="" loading="lazy">Investcorp
+                </a>
+                <a class="creds__chip" href="https://www.triton-partners.com" target="_blank" rel="noopener" aria-label="Triton Partners">
+                  <img class="creds__chip-logo" src="logos/Triton-Logo-1.png" alt="" loading="lazy">Triton
+                </a>
+                <a class="creds__chip" href="https://www.axcel.dk" target="_blank" rel="noopener" aria-label="Axcel">
+                  <img class="creds__chip-logo" src="logos/Axcel_logo.svg.png" alt="" loading="lazy">Axcel
+                </a>
+              </span>
             </div>
             <div class="creds__row">
               <span class="creds__label">Boards</span>
-              <span class="creds__value">Myoroface · Chordate Medical</span>
+              <span class="creds__value">
+                <a class="creds__chip" href="https://myoroface.com" target="_blank" rel="noopener" aria-label="Myoroface">
+                  <img class="creds__chip-logo" src="logos/iq_logo_myoroface_696x696.webp" alt="" loading="lazy">Myoroface
+                </a>
+                <a class="creds__chip" href="https://chordate.com" target="_blank" rel="noopener" aria-label="Chordate Medical">
+                  <img class="creds__chip-logo" src="logos/220620_chordate_logo_600x101px.png" alt="" loading="lazy">Chordate Medical
+                </a>
+              </span>
             </div>
           </div>
         </div>
