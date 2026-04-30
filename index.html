@@ -1005,31 +1005,27 @@
       font-family: 'Fraunces', Georgia, serif;
       font-size: 16px; line-height: 1.5; color: var(--ink);
       font-variation-settings: "opsz" 36;
-      display: flex; flex-wrap: wrap; gap: 6px 14px;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px;
     }
-    .creds__chip {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 4px 10px 4px 6px;
-      border: 1px solid transparent;
-      border-radius: 999px;
-      color: var(--ink);
-      text-decoration: none;
-      transition: background 180ms var(--ease), border-color 180ms var(--ease), color 180ms var(--ease);
+    .creds__logo-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 44px;
+      transition: opacity 180ms var(--ease), transform 180ms var(--ease);
     }
-    .creds__chip:hover, .creds__chip:focus-visible {
-      background: rgba(31, 60, 47, 0.05);
-      border-color: rgba(31, 60, 47, 0.18);
-      color: var(--ink);
-    }
-    .creds__chip-logo {
-      width: 18px; height: 18px;
+    .creds__logo-link img {
+      max-height: 44px;
+      max-width: 160px;
+      width: auto;
       object-fit: contain;
       filter: grayscale(1) opacity(0.55);
       transition: filter 180ms var(--ease);
     }
-    .creds__chip:hover .creds__chip-logo,
-    .creds__chip:focus-visible .creds__chip-logo {
+    .creds__logo-link:hover img,
+    .creds__logo-link:focus-visible img {
       filter: grayscale(0) opacity(1);
+    }
+    @media (max-width: 640px) {
+      .creds__logo-link img { max-height: 36px; max-width: 130px; }
     }
 
     /* ── Primary CTA — orange, sparing use ── */
@@ -1336,12 +1332,11 @@
           <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(22px, 2.4vw, 28px); font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; margin-top: 16px; font-variation-settings: 'opsz' 96, 'SOFT' 25;">In European PE, the executive still walks into the room alone.</p>
           <p class="audience__pitch" style="margin-top: 16px;">VCG walks in with them.</p>
           <p class="audience__pitch" style="margin-top: 24px;">The Principal Gap is closed one operator at a time. By individual executives who know which company can be bought, who the seller will hand it to, and what to do with it once they have it &mdash; and who refuse to give that knowledge away again.</p>
-          <p class="audience__pitch" style="margin-top: 18px; font-style: italic; color: var(--accent);">VCG exists for those executives.</p>
         </div>
         <div class="audience__body reveal d1">
 
           <!-- Who this is for -->
-          <p class="audience__subhead">Typical executives VCG works with</p>
+          <p class="audience__subhead">Typical executives VCG works with have:</p>
           <div class="who-this" style="margin-top: 12px;">
             <div class="who-this__row">
               <span class="who-this__name">Sector view sharp enough to source the deal</span>
@@ -1353,7 +1348,7 @@
               <span class="who-this__name">Standing as the seller's preferred custodian of the business</span>
             </div>
           </div>
-          <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 18px; max-width: 50ch;">Most senior executives have one of the three. The minority who have all three are the executives VCG was built for.</p>
+          <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 18px; max-width: 50ch; font-style: italic;">On your side, for the life of the deal, and beyond.</p>
 
           <!-- What originating means -->
           <p class="audience__subhead" style="margin-top: 36px;">What originating means</p>
@@ -1410,9 +1405,8 @@
         <div class="rule"></div>
         <p class="eyebrow" style="margin-bottom: 28px;">The method</p>
         <h3 class="block-heading" style="max-width: 22ch;"><em>Lead with the operator.</em> Then shape the role.</h3>
-        <p class="block-lede block-lede--soft" style="max-width: 62ch;">Standard PE works backwards. Firm finds target. Firm builds thesis. Firm hires manager to execute.</p>
-        <p class="block-lede" style="max-width: 62ch; margin-top: -8px;">VCG inverts the sequence. The operator's view is the deal. The role follows.</p>
-        <p class="block-lede" style="max-width: 64ch; margin-top: 16px;">In standard PE, the company's board appoints a CEO after close. In VCG's model, the operator's name is on the deal before the firm signs &mdash; usually as chairman, sometimes as CEO.</p>
+        <p class="block-lede" style="max-width: 62ch;">Standard PE works backwards. Firm finds target. Firm builds thesis. Firm hires manager to execute.</p>
+        <p class="block-lede" style="max-width: 62ch; margin-top: 12px;">VCG inverts the sequence. The operator's view is the deal. The role follows, usually as chairman, sometimes as CEO.</p>
         <p class="block-lede" style="max-width: 62ch; margin-top: 24px;">Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em> &mdash; the operator's deal, written down before the PE firm signs.</p>
       </div>
 
@@ -1468,42 +1462,14 @@
           <tbody>
             <tr><td>Investment bank</td><td>Transaction fee on the close</td></tr>
             <tr><td>Search firm</td><td>Placement fee on the candidate</td></tr>
-            <tr><td>PE firm</td><td>Carry on a thesis they bought into</td></tr>
+            <tr><td>PE firm</td><td>Management fee on the fund. Carry on the thesis they bought into.</td></tr>
             <tr class="fairness-table__originator"><td>Originator</td><td>Salary, uncertain options, and the operating &amp; employment risk</td></tr>
           </tbody>
         </table>
 
-        <p class="block-lede" style="max-width: 64ch; margin-top: 36px; margin-bottom: 12px;">Banks pay themselves. Search firms pay themselves. PE firms pay themselves. The originator is paid for executing someone else's deal.</p>
-        <div class="pullquote" style="margin: 24px 0 48px;">
-          <p>We think <em>that is the wrong split.</em></p>
-        </div>
+        <p class="block-lede" style="max-width: 64ch; margin-top: 36px; margin-bottom: 12px;">Banks, search firms and PE firms (management fee) pay themselves regardless. The originator is paid for executing someone else's deal. <em style="font-style: italic; color: var(--accent);">Outcome should pay significantly more than activity.</em></p>
 
-        <p class="audience__subhead" style="margin-bottom: 16px;">The VCG split</p>
-        <table class="split-table" aria-label="The VCG split">
-          <thead>
-            <tr><th scope="col">Component</th><th scope="col">Recipient</th><th scope="col">Form</th></tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Origination fee on enterprise value</td>
-              <td>Split between you and VCG</td>
-              <td>Cash at close</td>
-            </tr>
-            <tr>
-              <td>Reinvestment</td>
-              <td>We reinvest half of the fee into the company, together</td>
-              <td>Equity</td>
-            </tr>
-            <tr>
-              <td>Further equity in the company you run</td>
-              <td>Negotiated as part of the deal (options, ratchets etc.)</td>
-              <td>Operator package</td>
-            </tr>
-          </tbody>
-        </table>
-
-        <p class="block-lede" style="max-width: 64ch; margin-top: 36px; margin-bottom: 8px;">Half the origination fee in cash. Half reinvested into the company alongside you. Further equity negotiated as part of the operator package.</p>
-        <p style="font-size: 17px; font-style: italic; color: var(--ink-soft); line-height: 1.55; max-width: 56ch; margin-top: 8px;">Three layers of skin in the same game, on the same terms.</p>
+        <p class="block-lede" style="max-width: 64ch; margin-top: 28px;">With VCG, you get half the origination fee in cash, half reinvested into the company alongside you, further equity negotiated as part of the operator package.</p>
       </div>
 
     </div>
@@ -1519,7 +1485,8 @@
           <h2 class="section__title" id="pe-heading">For <em>PE firms.</em></h2>
         </div>
         <div class="audience__body reveal d1">
-          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); max-width: 64ch;">PE firms need a sector-credible operator driving the deal, shaped into the role the deal actually requires. We find nuggets &mdash; even top-quartile PE firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup> Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em>: a defined target, an operator pre-committed, and VCG's reinvestment of half its fee, alongside the operator's rollover.</p>
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); max-width: 64ch;">PE firms need a sector-credible operator driving the deal, shaped into the role the deal actually requires. We find deal nuggets &mdash; even top-quartile PE firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup></p>
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); max-width: 64ch; margin-top: 20px;">Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em>: a defined target, an operator pre-committed, and VCG's reinvestment of half its fee, alongside the operator's rollover.</p>
           <p class="pillars__footnote" style="margin-top: 24px;"><span aria-hidden="true">1.</span> <a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener">Sutton Place Strategies, <em>2024 Deal Origination Benchmark Report</em></a></p>
         </div>
       </div>
@@ -1556,34 +1523,33 @@
             <div class="creds__row">
               <span class="creds__label">Education</span>
               <span class="creds__value">
-                <a class="creds__chip" href="https://www.lse.ac.uk" target="_blank" rel="noopener" aria-label="London School of Economics">
-                  <img class="creds__chip-logo" src="logos/London_school_of_economics_logo_with_name.svg.png" alt="" loading="lazy">
-                  London School of Economics
+                <a class="creds__logo-link" href="https://www.lse.ac.uk" target="_blank" rel="noopener" aria-label="London School of Economics">
+                  <img src="logos/London_school_of_economics_logo_with_name.svg.png" alt="London School of Economics" loading="lazy">
                 </a>
               </span>
             </div>
             <div class="creds__row">
               <span class="creds__label">Career</span>
               <span class="creds__value">
-                <a class="creds__chip" href="https://www.investcorp.com" target="_blank" rel="noopener" aria-label="Investcorp">
-                  <img class="creds__chip-logo" src="logos/Investcorp-logo.png" alt="" loading="lazy">Investcorp
+                <a class="creds__logo-link" href="https://www.investcorp.com" target="_blank" rel="noopener" aria-label="Investcorp">
+                  <img src="logos/Investcorp-logo.png" alt="Investcorp" loading="lazy">
                 </a>
-                <a class="creds__chip" href="https://www.triton-partners.com" target="_blank" rel="noopener" aria-label="Triton Partners">
-                  <img class="creds__chip-logo" src="logos/Triton-Logo-1.png" alt="" loading="lazy">Triton
+                <a class="creds__logo-link" href="https://www.triton-partners.com" target="_blank" rel="noopener" aria-label="Triton Partners">
+                  <img src="logos/Triton-Logo-1.png" alt="Triton" loading="lazy">
                 </a>
-                <a class="creds__chip" href="https://www.axcel.dk" target="_blank" rel="noopener" aria-label="Axcel">
-                  <img class="creds__chip-logo" src="logos/Axcel_logo.svg.png" alt="" loading="lazy">Axcel
+                <a class="creds__logo-link" href="https://www.axcel.dk" target="_blank" rel="noopener" aria-label="Axcel">
+                  <img src="logos/Axcel_logo.svg.png" alt="Axcel" loading="lazy">
                 </a>
               </span>
             </div>
             <div class="creds__row">
               <span class="creds__label">Boards</span>
               <span class="creds__value">
-                <a class="creds__chip" href="https://myoroface.com" target="_blank" rel="noopener" aria-label="Myoroface">
-                  <img class="creds__chip-logo" src="logos/iq_logo_myoroface_696x696.webp" alt="" loading="lazy">Myoroface
+                <a class="creds__logo-link" href="https://myoroface.com" target="_blank" rel="noopener" aria-label="Myoroface">
+                  <img src="logos/iq_logo_myoroface_696x696.webp" alt="Myoroface" loading="lazy">
                 </a>
-                <a class="creds__chip" href="https://chordate.com" target="_blank" rel="noopener" aria-label="Chordate Medical">
-                  <img class="creds__chip-logo" src="logos/220620_chordate_logo_600x101px.png" alt="" loading="lazy">Chordate Medical
+                <a class="creds__logo-link" href="https://chordate.com" target="_blank" rel="noopener" aria-label="Chordate Medical">
+                  <img src="logos/220620_chordate_logo_600x101px.png" alt="Chordate Medical" loading="lazy">
                 </a>
               </span>
             </div>
@@ -1601,11 +1567,11 @@
         <p class="eyebrow reveal" style="color: #B8C7BC; margin-bottom: 28px;">Contact</p>
         <h2 class="reveal d1" id="contact-heading">I'd like to start <em>a conversation.</em></h2>
         <p class="contact__para reveal d2">A strategic conversation about the deal you would build if you owned the process.</p>
-        <div class="contact__email-wrap reveal d3">
+        <p class="contact__signoff reveal d2" style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 22px; color: #B8C7BC; margin-top: 28px; letter-spacing: 0.01em; font-variation-settings: 'opsz' 72, 'SOFT' 30;">— Henrik</p>
+        <p class="contact__meta reveal d2" style="margin-top: 6px;">Henrik Rammer · Stockholm</p>
+        <div class="contact__email-wrap reveal d3" style="margin-top: 40px;">
           <a href="mailto:henrik@valuecatalyst.group" class="contact__email">Talk to Henrik <span class="arr" style="display:inline-block;">→</span></a>
           <span class="contact__email-sub"><a href="mailto:henrik@valuecatalyst.group">henrik@valuecatalyst.group</a> · <a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer</a></span>
-          <p class="contact__signoff reveal d3" style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 22px; color: #B8C7BC; margin-top: 36px; letter-spacing: 0.01em; font-variation-settings: 'opsz' 72, 'SOFT' 30;">— Henrik</p>
-          <p class="contact__meta">Henrik Rammer · Stockholm</p>
         </div>
       </div>
     </div>
