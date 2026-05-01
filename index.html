@@ -823,6 +823,28 @@
       color: var(--ink);
     }
 
+    /* 3-column variant for full-width row of "things they have" */
+    .who-this--cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+    }
+    .who-this__col {
+      display: flex;
+      flex-direction: column;
+    }
+    .who-this__col-text {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--ink);
+      letter-spacing: -0.008em;
+      font-variation-settings: "opsz" 36, "SOFT" 20;
+      max-width: 32ch;
+    }
+
     /* ── Fairness table (what they take) ── */
     .fairness-table, .split-table, .role-table {
       width: 100%;
@@ -1159,6 +1181,8 @@
       .bring-grid { grid-template-columns: 1fr; gap: 32px; }
       .who-this__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
       .who-this__name { font-size: 17px; }
+      .who-this--cols { grid-template-columns: 1fr; gap: 28px; padding-top: 20px; }
+      .who-this__col-text { font-size: 17px; max-width: 56ch; }
       .thesis-block { grid-template-columns: 1fr !important; gap: 40px !important; }
       .package-block { grid-template-columns: 1fr !important; gap: 40px !important; }
 
@@ -1309,8 +1333,8 @@
         <p class="eyebrow reveal" style="margin-bottom: 28px;">The diagnosis</p>
         <h2 class="section__title reveal d1" id="principal-gap-heading" style="max-width: 22ch;">The <em>Principal Gap.</em></h2>
         <div class="reveal d2" style="margin-top: 8px;">
-          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); margin-bottom: 16px; max-width: 64ch;">Operating executives generate the value PE firms capture. They identify the target before the auction. They run the company for five years. The returns trace to them.</p>
-          <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 3.6vw, 44px); font-style: italic; color: var(--accent); line-height: 1.2; max-width: 30ch; margin-bottom: 32px; font-weight: 400; letter-spacing: -0.018em; font-variation-settings: 'opsz' 144, 'SOFT' 30;">The pay does not.</p>
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); margin-bottom: 16px; max-width: 64ch;">Operating executives generate the value PE firms capture. They identify the target before the auction. They run the company for five years.</p>
+          <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 3.6vw, 44px); font-style: italic; color: var(--accent); line-height: 1.2; max-width: 38ch; margin-bottom: 32px; font-weight: 400; letter-spacing: -0.018em; font-variation-settings: 'opsz' 144, 'SOFT' 30;">The returns trace back to the executive. The pay does not.</p>
           <p style="font-size: 19px; line-height: 1.62; color: var(--ink); margin-bottom: 24px; max-width: 64ch;">Banks charge a transaction fee. Search firms collect a placement fee. PE firms get a management fee and claim carry on somebody else's thesis. The originator &mdash; the executive who knew which company could be bought and what to do with it once they had it &mdash; takes a salary and an uncertain options package.</p>
 
           <table class="fairness-table" style="margin-top: 8px; margin-bottom: 32px;" aria-label="What each actor takes">
@@ -1336,35 +1360,34 @@
   <section class="section" id="executives" aria-labelledby="exec-heading">
     <div class="container">
 
-      <!-- Section opening -->
-      <div class="audience">
-        <div class="audience__head reveal">
-          <div class="rule"></div>
-          <p class="eyebrow" style="margin-bottom: 28px;">For executives</p>
-          <h2 class="section__title" id="exec-heading">Built for executives <em>across a career.</em></h2>
-          <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(22px, 2.4vw, 28px); font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; margin-top: 16px; font-variation-settings: 'opsz' 96, 'SOFT' 25;">In European PE, the executive still walks into the room alone.</p>
-          <p class="audience__pitch" style="margin-top: 16px;">VCG walks in with them.</p>
-          <p class="audience__pitch" style="margin-top: 24px;">Individual executives know which companies can be bought, who the seller will hand it to, and what to do with it once they have it &mdash; and who refuse to give that knowledge away again.</p>
+      <!-- Section opening (full-width head, then full-width row table) -->
+      <div class="reveal" style="max-width: 760px;">
+        <div class="rule"></div>
+        <p class="eyebrow" style="margin-bottom: 28px;">For executives</p>
+        <h2 class="section__title" id="exec-heading">Built for executives <em>across a career.</em></h2>
+        <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(22px, 2.4vw, 28px); font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; margin-top: 16px; font-variation-settings: 'opsz' 96, 'SOFT' 25;">In European PE, the executive still walks into the room alone.</p>
+        <p class="audience__pitch" style="margin-top: 16px; max-width: 64ch;">VCG walks in with them.</p>
+        <p class="audience__pitch" style="margin-top: 24px; max-width: 64ch;">Individual executives know which companies can be bought, who the seller will hand it to, and what to do with it once they have it &mdash; and who refuse to give that knowledge away again.</p>
+        <p class="audience__pitch" style="margin-top: 24px; max-width: 64ch;">Originating means having a seat at the table where the deal gets made and the conviction to run the company for the next five to seven years.</p>
+      </div>
+
+      <!-- Typical executives — full-width 3-column row -->
+      <div class="reveal d1" style="margin-top: 64px;">
+        <p class="audience__subhead">Typical executives VCG works with have:</p>
+        <div class="who-this who-this--cols" style="margin-top: 16px;">
+          <div class="who-this__col">
+            <p class="who-this__col-text">A sector view sharp enough to see the company that can be bought before the auction begins.</p>
+          </div>
+          <div class="who-this__col">
+            <p class="who-this__col-text">The network and standing to reach the seller directly &mdash; and to be received as the preferred custodian of the business.</p>
+          </div>
+          <div class="who-this__col">
+            <p class="who-this__col-text">The conviction to run the company for the next five to seven years and carry the outcome themselves.</p>
+          </div>
         </div>
-        <div class="audience__body reveal d1">
 
-          <p class="audience__subhead">Typical executives VCG works with have:</p>
-          <div class="who-this" style="margin-top: 12px;">
-            <div class="who-this__row" style="grid-template-columns: 1fr;">
-              <span class="who-this__name" style="font-size: 18px; line-height: 1.5; color: var(--ink); font-weight: 400;">A sector view sharp enough to see the company that can be bought before the auction begins.</span>
-            </div>
-            <div class="who-this__row" style="grid-template-columns: 1fr;">
-              <span class="who-this__name" style="font-size: 18px; line-height: 1.5; color: var(--ink); font-weight: 400;">The network and standing to reach the seller directly &mdash; and to be received as the preferred custodian of the business.</span>
-            </div>
-            <div class="who-this__row" style="grid-template-columns: 1fr;">
-              <span class="who-this__name" style="font-size: 18px; line-height: 1.5; color: var(--ink); font-weight: 400;">The conviction to run the company for the next five to seven years and carry the outcome themselves.</span>
-            </div>
-          </div>
-
-          <div class="pullquote" style="margin: 36px 0 0; padding-left: 0; border-left: none;">
-            <p>You do not get paid to develop a view. <em>You get paid for the view you already have.</em></p>
-          </div>
-
+        <div class="pullquote" style="margin: 56px 0 0; padding-left: 0; border-left: none;">
+          <p>You do not get paid to develop a view. <em>You get paid for the view you already have.</em></p>
         </div>
       </div>
 
