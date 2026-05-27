@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="172" viewBox="0 0 320 172" role="img" aria-label="LGT Logistics">
+  <!-- dark-green corner accents behind the banner -->
+  <polygon points="58,28 116,28 58,96" fill="#0E5C42"/>
+  <polygon points="284,62 284,124 224,124" fill="#0E5C42"/>
+  <!-- red banner (right-leaning parallelogram) -->
+  <polygon points="96,28 284,28 248,124 60,124" fill="#E2001A"/>
+  <!-- LGT wordmark -->
+  <text x="170" y="104" text-anchor="middle"
+        font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+        font-weight="900" font-style="italic" font-size="84"
+        letter-spacing="-3" fill="#FFFFFF">LGT</text>
+  <!-- LOGISTICS lockup -->
+  <text x="170" y="162" text-anchor="middle"
+        font-family="'Arial Black','Helvetica Neue',Arial,sans-serif"
+        font-weight="800" font-size="22" letter-spacing="7"
+        fill="#E2001A">LOGISTICS</text>
+</svg>
