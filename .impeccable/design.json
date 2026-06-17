@@ -1,0 +1,243 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-17T00:00:00Z",
+  "title": "Design System: VCG — Value Creation Group",
+  "extensions": {
+    "colorMeta": {
+      "paper": {
+        "role": "neutral",
+        "displayName": "Bond Paper",
+        "canonical": "#F5F1EA",
+        "tonalRamp": ["#2A2620", "#3E3A33", "#5A534A", "#756E63", "#958E81", "#B5AFA4", "#D9D2C3", "#F5F1EA"]
+      },
+      "paper-soft": {
+        "role": "neutral",
+        "displayName": "Paper Soft",
+        "canonical": "#EFEAE1",
+        "tonalRamp": ["#262218", "#3A3630", "#55504A", "#706B62", "#908B80", "#B0AA9E", "#CFC9BB", "#EFEAE1"]
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Press Ink",
+        "canonical": "#1A1612",
+        "tonalRamp": ["#0E0B08", "#1A1612", "#2E2A24", "#443F38", "#5C554D", "#7A736A", "#A09890", "#CCC7C1"]
+      },
+      "ink-soft": {
+        "role": "neutral",
+        "displayName": "Ink Soft",
+        "canonical": "#5A534A",
+        "tonalRamp": ["#1A1612", "#2E2A24", "#443F38", "#5A534A", "#726B62", "#8F897F", "#B0AA9E", "#D9D2C3"]
+      },
+      "ink-faint": {
+        "role": "neutral",
+        "displayName": "Ink Faint",
+        "canonical": "#8A8278",
+        "tonalRamp": ["#2A2620", "#3E3A33", "#554E47", "#6A6358", "#8A8278", "#A09890", "#BFBAB2", "#DDD9D2"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Rule Grey",
+        "canonical": "#D9D2C3",
+        "tonalRamp": ["#44403A", "#5C574F", "#746F66", "#8E887E", "#A8A29A", "#BFBBB4", "#D9D2C3", "#EDE9E0"]
+      },
+      "accent": {
+        "role": "primary",
+        "displayName": "Deal Room Forest",
+        "canonical": "#1E4A3A",
+        "tonalRamp": ["#091A13", "#112B1E", "#1E4A3A", "#2A6650", "#377F64", "#4F9E80", "#7DBEA3", "#AEDAC8"]
+      },
+      "accent-deep": {
+        "role": "primary",
+        "displayName": "Forest Deep",
+        "canonical": "#143428",
+        "tonalRamp": ["#061410", "#0E221A", "#143428", "#1B4736", "#226045", "#357A5B", "#5A9E80", "#8CC2A8"]
+      },
+      "accent-faint": {
+        "role": "primary",
+        "displayName": "Forest Faint",
+        "canonical": "#E8E3D3",
+        "tonalRamp": ["#2A3028", "#3C4438", "#506050", "#6A806A", "#8AA08A", "#AABFAA", "#CADACA", "#E8E3D3"]
+      },
+      "cta": {
+        "role": "secondary",
+        "displayName": "Campaign Copper",
+        "canonical": "#C97455",
+        "tonalRamp": ["#3D1A0A", "#622B12", "#8A3D1E", "#A8512D", "#C97455", "#D9946C", "#E8B48A", "#F4D4B8"]
+      },
+      "cta-deep": {
+        "role": "secondary",
+        "displayName": "Copper Deep",
+        "canonical": "#A85C40",
+        "tonalRamp": ["#321408", "#52200E", "#7A3318", "#A85C40", "#C47858", "#D69878", "#E6B898", "#F2D8C0"]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display",
+        "purpose": "Hero headings only. One per page. The optical size 144 opens Fraunces to its most generous, open form — near-monumental at maximum scale.",
+        "notes": "font-variation-settings: 'opsz' 144 is non-negotiable. Without it the heading looks identical to body-scaled Fraunces."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "Section headings. Never italicised in this role. The opsz 72 setting gives structural weight without the open letterforms of display.",
+        "notes": "font-variation-settings: 'opsz' 72"
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Subsection labels, stat numerals, emphasis callouts. The slight weight increase to 400 at opsz 36 is deliberate — the axis makes it feel decisive.",
+        "notes": "font-variation-settings: 'opsz' 36"
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "All prose. Max 68ch line length. Fraunces at opsz 12 is the voice of the site — warm, dense, careful.",
+        "notes": "font-variation-settings: 'opsz' 12. Line length enforced at max-width: 68ch."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Eyebrows above statistics, navigation links, table column heads, footnote attributions. Uppercase, tracked. Never in paragraph prose.",
+        "notes": "JetBrains Mono only. Prohibition on paragraph use is absolute."
+      }
+    },
+    "shadows": [
+      {
+        "name": "nav-anchor",
+        "value": "0 4px 24px rgba(26, 22, 18, 0.08)",
+        "purpose": "Fixed navigation bar only, on scroll. Warm-tinted using Press Ink at 8% opacity. Grounds the nav as the persistent layer above changing content. The only shadow in the system."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-reveal",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for all reveal animations. Slow, unhurried — matches the reading register of the site. Not a snappy product ease."
+      },
+      {
+        "name": "reveal-duration",
+        "value": "360ms",
+        "purpose": "Duration for section reveal animations (opacity + translateY 8px). Staggered delays: first element at 0ms, each subsequent +80ms."
+      },
+      {
+        "name": "transition-standard",
+        "value": "220ms ease-out",
+        "purpose": "Interactive state transitions — button hover, link colour change, card hover treatment. Faster than reveal; these are responses to input, not entrances."
+      }
+    ],
+    "breakpoints": [
+      { "name": "tablet", "value": "900px", "purpose": "Primary layout shift. Three-column figures collapse to one. Navigation may adapt." },
+      { "name": "mobile", "value": "760px", "purpose": "Full mobile layout. Hero padding reduces. All multi-column grids become single-column." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (CTA)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The sole call-to-action button. Campaign Copper. Every 'start a conversation' and primary action link.",
+      "html": "<button class=\"ds-btn-primary\">START A CONVERSATION</button>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap'); .ds-btn-primary { display: inline-block; background: #C97455; color: #F5F1EA; padding: 16px 40px; border: none; border-radius: 0; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 220ms ease-out, transform 220ms ease-out; } .ds-btn-primary:hover { background: #A85C40; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #1E4A3A; outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(0); }"
+    },
+    {
+      "name": "Ghost Button (Secondary)",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action link that needs button affordance without the urgency of Campaign Copper.",
+      "html": "<button class=\"ds-btn-ghost\">SEE THE MODEL</button>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap'); .ds-btn-ghost { display: inline-block; background: transparent; color: #1E4A3A; padding: 14px 32px; border: 1px solid #D9D2C3; border-radius: 0; font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; cursor: pointer; transition: background 220ms ease-out, border-color 220ms ease-out, color 220ms ease-out; } .ds-btn-ghost:hover { background: #E8E3D3; border-color: #143428; color: #143428; } .ds-btn-ghost:focus-visible { outline: 2px solid #1E4A3A; outline-offset: 2px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": null,
+      "description": "Fixed navigation bar. Blur background at rest; adds nav-anchor shadow on scroll. Links in JetBrains Mono.",
+      "html": "<nav class=\"ds-nav ds-nav--scrolled\" aria-label=\"Primary navigation\"><a class=\"ds-nav__brand\" href=\"/\">VCG</a><ul class=\"ds-nav__links\"><li><a href=\"#thesis\" class=\"ds-nav__link\">THE THESIS</a></li><li><a href=\"#for-whom\" class=\"ds-nav__link\">FOR WHOM</a></li><li><a href=\"#economics\" class=\"ds-nav__link\">ECONOMICS</a></li><li><a href=\"#contact\" class=\"ds-nav__cta\">START A CONVERSATION</a></li></ul></nav>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap'); .ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 20px 48px; background: rgba(245, 241, 234, 0.92); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); transition: box-shadow 220ms ease-out; } @supports not (backdrop-filter: blur(10px)) { .ds-nav { background: #F5F1EA; } } .ds-nav--scrolled { box-shadow: 0 4px 24px rgba(26, 22, 18, 0.08); } .ds-nav__brand { font-family: 'JetBrains Mono', monospace; font-size: 0.875rem; font-weight: 500; letter-spacing: 0.1em; color: #1A1612; text-decoration: none; } .ds-nav__links { display: flex; align-items: center; gap: 32px; list-style: none; margin: 0; padding: 0; } .ds-nav__link { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.06em; text-transform: uppercase; color: #5A534A; text-decoration: none; transition: color 220ms ease-out; } .ds-nav__link:hover { color: #1E4A3A; } .ds-nav__cta { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #C97455; text-decoration: none; transition: color 220ms ease-out; } .ds-nav__cta:hover { color: #A85C40; }"
+    },
+    {
+      "name": "Stat Figure",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A single sourced statistic. The source attribution is the trust mechanism — never omit it.",
+      "html": "<figure class=\"ds-stat\"><figcaption class=\"ds-stat__source\">EUROPEAN PE COUNCIL, 2024</figcaption><div class=\"ds-stat__number\">53%</div><p class=\"ds-stat__description\">of value creation attributed to executive-identified opportunities</p></figure>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=JetBrains+Mono:wght@500&display=swap'); .ds-stat { margin: 0; text-align: left; max-width: 240px; } .ds-stat__source { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #1E4A3A; margin-bottom: 12px; display: block; } .ds-stat__number { font-family: 'Fraunces', Georgia, serif; font-size: clamp(2rem, 5vw, 3rem); font-weight: 400; font-variation-settings: 'opsz' 36; line-height: 1; color: #1A1612; margin-bottom: 12px; } .ds-stat__description { font-family: 'Fraunces', Georgia, serif; font-size: 1.0625rem; font-weight: 300; font-variation-settings: 'opsz' 12; line-height: 1.5; color: #5A534A; margin: 0; }"
+    },
+    {
+      "name": "Thesis Card",
+      "kind": "card",
+      "refersTo": null,
+      "description": "Used in the 'pillars' section. Thin border, flat, sharp corners. Hover shifts to a warm tint, no elevation change.",
+      "html": "<article class=\"ds-thesis-card\"><span class=\"ds-thesis-card__eyebrow\">THE PRINCIPAL GAP</span><h3 class=\"ds-thesis-card__heading\">Executives generate the returns. They rarely keep them.</h3><p class=\"ds-thesis-card__body\">The standard playbook is driven by the PE firm and the auction process. The executive executes a plan they did not originate, for economics structured before they arrived.</p></article>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&family=JetBrains+Mono:wght@500&display=swap'); .ds-thesis-card { padding: 40px; border: 1px solid #D9D2C3; border-radius: 0; background: #F5F1EA; transition: background 220ms ease-out, border-color 220ms ease-out; } .ds-thesis-card:hover { background: #E8E3D3; border-color: #B5AFA4; } .ds-thesis-card__eyebrow { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: #1E4A3A; margin-bottom: 20px; } .ds-thesis-card__heading { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 300; font-variation-settings: 'opsz' 36; line-height: 1.2; color: #1A1612; margin: 0 0 20px 0; } .ds-thesis-card__body { font-family: 'Fraunces', Georgia, serif; font-size: 1.0625rem; font-weight: 300; font-variation-settings: 'opsz' 12; line-height: 1.65; color: #5A534A; margin: 0; max-width: 68ch; }"
+    },
+    {
+      "name": "Pull-Quote",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A single centred sentence that earns its isolation. Rule above and below, narrow width, no background.",
+      "html": "<blockquote class=\"ds-pullquote\"><p>The firm is small by design. Henrik is the brand; the institution is his philosophy made structural.</p></blockquote>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..700&display=swap'); .ds-pullquote { margin: 80px auto; padding: 40px 0; max-width: 52ch; text-align: center; border-top: 1px solid #D9D2C3; border-bottom: 1px solid #D9D2C3; } .ds-pullquote p { font-family: 'Fraunces', Georgia, serif; font-size: clamp(1.25rem, 2.5vw, 1.75rem); font-weight: 300; font-variation-settings: 'opsz' 36; line-height: 1.35; color: #5A534A; margin: 0; text-wrap: balance; }"
+    },
+    {
+      "name": "CTA Primary (Hero)",
+      "kind": "custom",
+      "refersTo": "button-primary",
+      "description": "The hero-level call to action — a button with a single supporting micro-label beneath.",
+      "html": "<div class=\"ds-cta-primary\"><a href=\"#contact\" class=\"ds-cta-primary__btn\">START A CONVERSATION</a><span class=\"ds-cta-primary__meta\">45 minutes. No prior relationship required.</span></div>",
+      "css": "@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap'); .ds-cta-primary { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; } .ds-cta-primary__btn { display: inline-block; background: #C97455; color: #F5F1EA; padding: 16px 40px; border: none; border-radius: 0; font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; text-decoration: none; cursor: pointer; transition: background 220ms ease-out, transform 220ms ease-out; } .ds-cta-primary__btn:hover { background: #A85C40; transform: translateY(-1px); } .ds-cta-primary__btn:focus-visible { outline: 2px solid #1E4A3A; outline-offset: 2px; } .ds-cta-primary__meta { font-family: 'JetBrains Mono', monospace; font-size: 0.6875rem; font-weight: 400; letter-spacing: 0.04em; color: #8A8278; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Private Correspondent",
+    "overview": "The design system reads like a letter that wasn't written for general circulation. The surface — warm bond paper, dense ink, no embellishment — says: this was composed for one specific reader who already qualifies. Authority is assumed, not established. The site does not explain itself to the uninitiated; it speaks directly to the person who already recognises the problem.\n\nThree visual moves enforce this. First, ink on paper — the classic weight of record. No colour decorates; every pixel of colour carries semantic load. Second, Fraunces at full optical scale — a variable typeface used at both its upper limit (hero display, opsz 144, barely tracked, almost monumental) and its lower limit (body prose, opsz 12, optically tuned for the reading distance of a briefing document). Third, no radius anywhere — sharp corners throughout, the register of the typed memorandum, not the tech product.\n\nThis is not the editorial-magazine lane. The warm palette earns its warmth through functional hierarchy. The colour green is present and controlled: used on all interactive states and structural anchors, restrained everywhere else. The terracotta CTA carries the warmth of invitation, not the urgency of acquisition.",
+    "keyCharacteristics": [
+      "Ink-on-paper surface discipline: colour only where it signals meaning",
+      "Zero radius throughout — the artefact aesthetic, not the product aesthetic",
+      "Fraunces variable driven by optical-size axis: three characters from one typeface",
+      "Present-but-controlled colour: green for all interactive states, terracotta for all CTAs",
+      "One structural shadow only, on the fixed navigation",
+      "Motion restrained to a single reveal pattern; reduced-motion honoured absolutely"
+    ],
+    "rules": [
+      {
+        "name": "The One-Function Rule",
+        "body": "Each colour role is exclusive. Green appears on interactive states and structural anchors only — never on decorative headings, never on backgrounds. Terracotta appears on CTAs only. If you reach for green to add personality to a heading, stop.",
+        "section": "colors"
+      },
+      {
+        "name": "The Optical-Size Doctrine",
+        "body": "The variable axis 'opsz' is non-negotiable. Every Fraunces instance must declare its optical size via font-variation-settings. Display: opsz 144. Headline: opsz 72. Title: opsz 36. Body: opsz 12. Missing it collapses all weights to an indistinguishable midpoint.",
+        "section": "typography"
+      },
+      {
+        "name": "The Mono Restriction",
+        "body": "JetBrains Mono is prohibited in paragraph prose. It may only appear in label roles — short, often uppercase, clearly structured context. A sentence in mono reads as costume; a label in mono reads as precision.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. The one nav shadow exists because the nav is a persistent layer above changing content — it needs functional grounding, not visual interest. No card, section, or content element in the scroll stream gets a shadow. A shadow added for visual interest is the wrong answer.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Deal Room Forest (#1E4A3A) on all interactive states — links, hover treatments, section anchors, navigation.",
+      "Do set font-variation-settings: 'opsz' N on every Fraunces instance. The optical size axis is the hierarchy.",
+      "Do carry a named source on every statistic. The source is the artefact; the artefact is the trust mechanism.",
+      "Do keep JetBrains Mono to label roles — eyebrows above figures, navigation links, table column heads. Nothing in paragraph prose.",
+      "Do let the dark contact section be the only full-register reversal. One is a deliberate accent; two implies a pattern.",
+      "Do honour prefers-reduced-motion absolutely. The reveal animation must instantly resolve for users who opt out.",
+      "Do cap body prose at 68ch line length.",
+      "Do write copy that assumes the reader already understands the problem."
+    ],
+    "donts": [
+      "Don't add a tagline. The wordmark stands alone. Remove 'The executive claims the deal' from meta, OG, hero H1, and footer.",
+      "Don't write copy that could appear on any Big-4 or McKinsey advisory site. Every sentence must be specific to VCG's mechanism.",
+      "Don't use border-left coloured stripes on cards, callouts, or list items.",
+      "Don't add a shadow to cards, sections, or content containers. The Flat-By-Default Rule is absolute.",
+      "Don't render statistics without named sources.",
+      "Don't add a third typeface. Fraunces and JetBrains Mono are the system.",
+      "Don't use gradient text, glassmorphism, large rounded-corner icon badges, or identical card grids.",
+      "Don't explain VCG to an audience that doesn't already know.",
+      "Don't optimise for the wrong reader. The site generates one outcome: a qualified first conversation."
+    ]
+  }
+}

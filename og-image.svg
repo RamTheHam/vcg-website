@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <defs>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500&amp;family=JetBrains+Mono:wght@500&amp;display=swap');
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F5F1EA"/>
+
+  <!-- Subtle rule at bottom -->
+  <rect x="0" y="620" width="1200" height="1" fill="#D9D2C3"/>
+
+  <!-- Vertical forest-green rule — left anchor -->
+  <rect x="80" y="80" width="2" height="470" fill="#1E4A3A"/>
+
+  <!-- Wordmark: single text element so word spacing flows naturally -->
+  <text x="112" y="148"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="52"
+        font-weight="400"
+        fill="#1A1612">Value <tspan fill="#1E4A3A" font-style="italic">Catalyst</tspan> Group</text>
+
+  <!-- Divider rule below wordmark -->
+  <rect x="112" y="172" width="320" height="1" fill="#D9D2C3"/>
+
+  <!-- Main headline -->
+  <text x="112" y="290"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="72"
+        font-weight="300"
+        fill="#1A1612"
+        font-style="italic">For the few</text>
+  <text x="112" y="378"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="72"
+        font-weight="300"
+        fill="#1A1612">who can originate</text>
+  <text x="112" y="466"
+        font-family="'Fraunces', Georgia, serif"
+        font-size="72"
+        font-weight="300"
+        fill="#1A1612">the deal.</text>
+
+  <!-- Bottom label -->
+  <text x="112" y="568"
+        font-family="'JetBrains Mono', 'Courier New', monospace"
+        font-size="14"
+        font-weight="500"
+        fill="#8A8278"
+        letter-spacing="3"
+        text-transform="uppercase">VALUECATALYST.GROUP</text>
+
+  <!-- Right accent — terracotta CTA dot -->
+  <circle cx="1120" cy="315" r="4" fill="#C97455"/>
+</svg>
