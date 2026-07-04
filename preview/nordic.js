@@ -7,6 +7,9 @@
   var html = document.documentElement;
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var saveData = navigator.connection && navigator.connection.saveData;
+  /* Phones get the poster frame: an ambient background is not worth the
+     decode cost and data on a small screen. */
+  var posterOnly = window.matchMedia('(max-width: 767px)').matches;
 
   function clockState() {
     var h = new Date().getHours();
@@ -80,6 +83,7 @@
   var filmEls = null;
   var filmActive = 0;
   var canWebm = null;
+  var filmPrimed = false;
 
   function filmSrc(state) {
     if (canWebm === null) {
@@ -94,7 +98,7 @@
     var film = document.querySelector('.nl-film');
     if (!film) return;
 
-    if (reduced || saveData) {
+    if (reduced || saveData || posterOnly) {
       var img = film.querySelector('img.nl-film__poster');
       if (!img) {
         img = document.createElement('img');
@@ -110,6 +114,12 @@
 
     if (!filmEls) filmEls = film.querySelectorAll('video');
     if (!filmEls.length) return;
+    if (!filmPrimed) {
+      // before window load: show the state's poster only, no video decode yet
+      filmEls[0].setAttribute('poster', filmBase + '/' + state + '.jpg');
+      filmEls[0].classList.add('nl-film--on');
+      return;
+    }
     var current = filmEls[filmActive];
     var next = filmEls[1 - filmActive];
     var src = filmSrc(state);
@@ -126,9 +136,25 @@
     filmActive = 1 - filmActive;
   }
 
+  /* Poster paints first; the film attaches only after the page has loaded,
+     so first paint and interactivity are never competing with video decode. */
+  function primeFilm(state) {
+    if (!filmBase) return;
+    swapFilm(state, false); // poster paints now (video attach is gated below)
+    if (reduced || saveData || posterOnly) return;
+    var start = function () {
+      setTimeout(function () {
+        filmPrimed = true;
+        swapFilm(html.getAttribute('data-nl'), false);
+      }, 1200);
+    };
+    if (document.readyState === 'complete') start();
+    else window.addEventListener('load', start, { once: true });
+  }
+
   /* Pause the film when the hero has scrolled away */
   function wireFilmPause() {
-    if (!filmBase || reduced || saveData) return;
+    if (!filmBase || reduced || saveData || posterOnly) return;
     var hero = document.querySelector('.hero');
     if (!hero || !('IntersectionObserver' in window)) return;
     new IntersectionObserver(function (entries) {
@@ -193,7 +219,7 @@
     wireCounts();
     wireInversion();
     wireFilmPause();
-    swapFilm(html.getAttribute('data-nl'), false);
+    primeFilm(html.getAttribute('data-nl'));
     setTimeout(function () { html.classList.add('nl-ready'); }, 60);
   }
 
