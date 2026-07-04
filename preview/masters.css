@@ -1,0 +1,199 @@
+/* ─────────────────────────────────────────────────────────────
+   Masters preview — VCG's own palette, with cropped Nordic
+   paintings as full-bleed chapter bands down the page.
+   The site's colours (:root in index.html) are left untouched.
+   ───────────────────────────────────────────────────────────── */
+
+/* Full-bleed painting chapter band ------------------------------ */
+.mb-band {
+  position: relative;
+  isolation: isolate;
+  padding: clamp(96px, 17vh, 210px) 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+.mb-band > .container { position: relative; z-index: 1; }
+
+/* Warm paper scrim — heavier on the left where the text sits,
+   the painting breathes open on the right. Keeps ink legible. */
+.mb-band::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    104deg,
+    rgba(245, 241, 234, 0.90) 0%,
+    rgba(245, 241, 234, 0.74) 40%,
+    rgba(245, 241, 234, 0.44) 78%,
+    rgba(245, 241, 234, 0.34) 100%
+  );
+}
+
+.mb-band--diagnosis  { background-image: url('/preview/media/masters-bands/diagnosis.jpg');  background-position: center 42%; }
+.mb-band--executives { background-image: url('/preview/media/masters-bands/executives.jpg'); background-position: center 58%; }
+.mb-band--method     { background-image: url('/preview/media/masters-bands/method.jpg');     background-position: center 60%; }
+
+/* The band's own eyebrow keeps a touch more air below it */
+.mb-band .eyebrow { margin-bottom: 24px; }
+
+/* Hero as a painting band ------------------------------------- */
+.hero.mb-hero {
+  position: relative;
+  isolation: isolate;
+  background-image: url('/preview/media/masters-bands/hero.jpg');
+  background-size: cover;
+  background-position: center 46%;
+  background-repeat: no-repeat;
+}
+.hero.mb-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: linear-gradient(
+    104deg,
+    rgba(245, 241, 234, 0.92) 0%,
+    rgba(245, 241, 234, 0.80) 44%,
+    rgba(245, 241, 234, 0.52) 82%,
+    rgba(245, 241, 234, 0.40) 100%
+  );
+}
+.hero.mb-hero > .container { position: relative; z-index: 1; }
+
+/* Contact as a deep-nocturne band ----------------------------- */
+.section--ink.mb-contact {
+  position: relative;
+  isolation: isolate;
+  background-image: url('/preview/media/masters-bands/contact.jpg');
+  background-size: cover;
+  background-position: center 30%;
+  background-repeat: no-repeat;
+}
+.section--ink.mb-contact::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  /* the ink section already carries dark text-on-light-accent; keep
+     the crop deep so the existing light type stays readable */
+  background: linear-gradient(
+    104deg,
+    rgba(18, 20, 24, 0.86) 0%,
+    rgba(18, 21, 27, 0.70) 46%,
+    rgba(20, 24, 32, 0.52) 100%
+  );
+}
+.section--ink.mb-contact > .container { position: relative; z-index: 1; }
+
+/* ── The inversion — the single narrative beat, in VCG green ── */
+.nl-inversion {
+  margin-top: 56px;
+  padding-top: 8px;
+}
+.nl-inv-row {
+  padding: 20px 0 22px;
+  border-top: 1px solid var(--rule);
+}
+.nl-inv-label {
+  display: block;
+  margin-bottom: 12px;
+  font-family: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+.nl-inv-cells {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 12px;
+}
+.nl-inv-cell {
+  padding: 11px 17px;
+  border: 1px solid var(--rule);
+  border-radius: 2px;
+  font-size: 15px;
+  line-height: 1.3;
+  color: var(--ink-soft);
+  background: color-mix(in srgb, var(--paper) 62%, transparent);
+  transition: opacity 0.55s ease, border-color 0.6s ease, color 0.6s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.nl-inv-arr {
+  color: var(--ink-faint);
+  transition: opacity 0.5s ease, color 0.6s ease;
+}
+
+/* Standard-PE row present but muted; dims further once fired */
+.nl-inv-row--vcg .nl-inv-cell { opacity: 0.5; transform: translateY(3px); }
+.nl-inv-row--vcg .nl-inv-arr  { opacity: 0.35; }
+
+.nl-fired .nl-inv-row--std { opacity: 0.26; transition: opacity 1.15s ease; }
+
+.nl-fired .nl-inv-row--vcg .nl-inv-cell {
+  opacity: 1;
+  transform: none;
+  border-color: var(--accent);
+  color: var(--accent-deep);
+  background: var(--accent-faint);
+}
+.nl-fired .nl-inv-row--vcg .nl-inv-arr { opacity: 1; color: var(--accent); }
+
+/* cell-by-cell sweep */
+.nl-fired .nl-inv-row--vcg .nl-inv-cell:nth-of-type(1) { transition-delay: 0.15s; }
+.nl-fired .nl-inv-row--vcg .nl-inv-cell:nth-of-type(3) { transition-delay: 0.5s; }
+.nl-fired .nl-inv-row--vcg .nl-inv-cell:nth-of-type(5) { transition-delay: 0.85s; }
+.nl-fired .nl-inv-row--vcg .nl-inv-arr:nth-of-type(2)  { transition-delay: 0.35s; }
+.nl-fired .nl-inv-row--vcg .nl-inv-arr:nth-of-type(4)  { transition-delay: 0.7s; }
+
+.nl-inv-verdict {
+  margin-top: 30px;
+  font-family: 'Fraunces', Georgia, serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(22px, 2.7vw, 31px);
+  line-height: 1.28;
+  letter-spacing: -0.014em;
+  color: var(--accent);
+  max-width: 40ch;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.9s ease 1.05s, transform 0.9s cubic-bezier(0.16, 1, 0.3, 1) 1.05s;
+}
+.nl-inv-verdict em { font-style: italic; color: var(--ink); }
+.nl-fired .nl-inv-verdict { opacity: 1; transform: none; }
+
+/* Footer public-domain credit --------------------------------- */
+.mb-credit {
+  display: block;
+  max-width: 48ch;
+  color: var(--ink-faint);
+  font-size: 12.5px;
+  line-height: 1.5;
+}
+
+/* Reduced motion: everything already visible, nothing sweeps ---- */
+@media (prefers-reduced-motion: reduce) {
+  .nl-inv-row--vcg .nl-inv-cell { opacity: 1; transform: none; border-color: var(--accent); color: var(--accent-deep); background: var(--accent-faint); }
+  .nl-inv-row--vcg .nl-inv-arr  { opacity: 1; color: var(--accent); }
+  .nl-inv-row--std { opacity: 0.4; }
+  .nl-inv-verdict  { opacity: 1; transform: none; transition: none; }
+  .nl-inv-cell     { transition: none; }
+}
+
+/* Phones: shorter bands, gentler scrim so type never crowds ---- */
+@media (max-width: 640px) {
+  .mb-band { padding: clamp(64px, 12vh, 120px) 0; }
+  .mb-band::before {
+    background: linear-gradient(
+      160deg,
+      rgba(245, 241, 234, 0.90) 0%,
+      rgba(245, 241, 234, 0.72) 60%,
+      rgba(245, 241, 234, 0.5) 100%
+    );
+  }
+}
