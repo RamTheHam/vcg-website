@@ -218,11 +218,11 @@ html[data-nl="night"] ::selection { background: var(--accent); color: var(--pape
    ───────────────────────────────────────────────────────────── */
 .nl-inversion { margin-top: 56px; max-width: 720px; }
 .nl-inv-row {
-  display: grid; grid-template-columns: 110px 1fr; gap: 24px;
-  padding: 22px 0; border-top: 1px solid var(--rule); align-items: center;
+  padding: 20px 0 22px; border-top: 1px solid var(--rule);
 }
 .nl-inv-row:last-of-type { border-bottom: 1px solid var(--rule); }
 .nl-inv-label {
+  display: block; margin-bottom: 12px;
   font-family: 'JetBrains Mono', ui-monospace, monospace;
   font-size: 10.5px; letter-spacing: .14em; text-transform: uppercase;
   color: var(--ink-faint);
