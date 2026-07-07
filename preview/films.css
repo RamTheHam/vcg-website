@@ -1,0 +1,55 @@
+/* ─────────────────────────────────────────────────────────────
+   Light-films layout — the four 10s ambient clips as full-bleed
+   chapter bands down one page. Palette is pinned (morning or blue
+   hour) via html[data-nl] from nordic.css; the tint reads var(--paper)
+   so the same rules work warm or deep-blue.
+   ───────────────────────────────────────────────────────────── */
+
+.fb { position: relative; isolation: isolate; overflow: hidden; }
+
+.fb:not(.hero) {
+  padding: clamp(120px, 24vh, 288px) 0;
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+}
+
+.fb > .container { position: relative; z-index: 2; }
+
+.fb__media { position: absolute; inset: 0; z-index: 0; background: var(--paper); }
+.fb__media video {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* Palette-tinted veil — heavier on the text side, film breathes on the right */
+.fb__tint {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(
+    104deg,
+    color-mix(in srgb, var(--paper) 86%, transparent) 0%,
+    color-mix(in srgb, var(--paper) 68%, transparent) 44%,
+    color-mix(in srgb, var(--paper) 42%, transparent) 82%,
+    color-mix(in srgb, var(--paper) 30%, transparent) 100%
+  );
+}
+
+/* Hero keeps its own vertical rhythm; just sit the film behind it */
+.hero.fb { background: var(--paper); }
+
+@media (max-width: 640px) {
+  .fb:not(.hero) { padding: clamp(84px, 16vh, 168px) 0; }
+  .fb__tint {
+    background: linear-gradient(
+      158deg,
+      color-mix(in srgb, var(--paper) 84%, transparent) 0%,
+      color-mix(in srgb, var(--paper) 62%, transparent) 100%
+    );
+  }
+}
+
+/* Reduced motion: the poster frame carries the band, nothing plays */
+@media (prefers-reduced-motion: reduce) {
+  .fb__media video { display: none; }
+  .fb__media { background-size: cover; background-position: center; }
+}

@@ -1,0 +1,1709 @@
+<!DOCTYPE html>
+<html lang="en" data-nl="bluehour">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VCG &mdash; Light films &middot; Blue hour</title>
+  <meta name="description" content="Most senior executives spend their careers generating value that flows to other people. We call this the Principal Gap. VCG closes it: we lead with the operator, open the door to the right PE firm, and split the deal fee fifty-fifty.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <meta property="og:title" content="Value Catalyst Group — For the few who can originate the deal">
+  <meta property="og:description" content="Most senior executives spend their careers generating value that flows to other people. We call this the Principal Gap. VCG closes it: we lead with the operator, open the door to the right PE firm, and split the deal fee fifty-fifty.">
+  <meta property="og:image" content="https://valuecatalyst.group/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://valuecatalyst.group/">
+  <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Fraunces', Georgia, serif;
+      font-variation-settings: "opsz" 14, "SOFT" 50;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-feature-settings: "ss01", "ss02", "lnum";
+    }
+    a { text-decoration: none; color: inherit; }
+    img, svg { max-width: 100%; display: block; }
+
+    :root {
+      --paper: #F5F1EA;
+      --paper-soft: #EFEAE1;
+      --ink: #1A1612;
+      --ink-soft: #5A534A;
+      --ink-faint: #8A8278;
+      --rule: #D9D2C3;
+      --accent: #1E4A3A;
+      --accent-deep: #143428;
+      --accent-faint: #E8E3D3;
+      --cta: #C97455;          /* Claude orange — reserved for primary CTA */
+      --cta-deep: #A85C40;
+      --max: 1120px;
+      --max-narrow: 760px;
+      --ease: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    ::selection { background: var(--accent); color: var(--paper); }
+
+    .container { max-width: var(--max); margin: 0 auto; padding: 0 32px; }
+    .narrow { max-width: var(--max-narrow); margin: 0 auto; padding: 0 32px; }
+
+    .eyebrow {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .eyebrow--ink { color: var(--ink-soft); }
+
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      margin: 0 0 28px;
+    }
+
+    /* Typography base */
+    h1, h2, h3, h4 {
+      font-family: 'Fraunces', Georgia, serif;
+      font-weight: 400;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+    }
+    p { font-size: 18px; line-height: 1.55; color: var(--ink); }
+
+    /* ── Nav ── */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+      background: var(--nl-nav);
+      backdrop-filter: saturate(140%) blur(10px);
+      -webkit-backdrop-filter: saturate(140%) blur(10px);
+      border-bottom: 1px solid transparent;
+      transition: border-color 240ms var(--ease), background 240ms var(--ease);
+    }
+    .nav.scrolled { border-bottom-color: var(--rule); }
+    .nav__inner {
+      max-width: var(--max); margin: 0 auto; padding: 0 32px;
+      height: 68px; display: flex; align-items: center; justify-content: space-between;
+    }
+    /* ── VCG mark ──────────────────────────────────── */
+    .vcg-mark {
+      display: inline-flex; align-items: stretch; gap: 16px;
+      font-family: 'Fraunces', Georgia, serif;
+      color: var(--ink); text-decoration: none;
+    }
+    .vcg-mark__rule {
+      width: 1.5px; background: var(--accent); flex-shrink: 0;
+      align-self: stretch;
+    }
+    .vcg-mark__body {
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .vcg-mark__word {
+      font-size: 22px; line-height: 1; font-weight: 400;
+      letter-spacing: -0.015em; word-spacing: 0.14em; white-space: nowrap;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+      color: var(--ink);
+    }
+    .vcg-mark__word em {
+      font-style: italic; color: var(--accent); font-weight: 400;
+      font-variation-settings: "opsz" 72, "SOFT" 30;
+    }
+    /* Nav: smaller */
+    .vcg-mark--nav .vcg-mark__word { font-size: 24px; }
+    .vcg-mark--nav { gap: 14px; }
+
+    /* Hero / large display */
+    .vcg-mark--hero .vcg-mark__word { font-size: 40px; }
+
+    /* Reversed on forest — card backs, signage */
+    .vcg-mark--reversed { color: var(--paper); }
+    .vcg-mark--reversed .vcg-mark__word { color: var(--paper); }
+    .vcg-mark--reversed .vcg-mark__word em { color: var(--nl-panel-accent); }
+    .vcg-mark--reversed .vcg-mark__rule { background: var(--nl-panel-accent); }
+    .nav__links { display: flex; gap: 36px; align-items: center; }
+    .nav__link {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--ink-soft);
+      transition: color 180ms var(--ease);
+    }
+    .nav__link:hover { color: var(--accent); }
+    .nav__cta {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--cta); padding-bottom: 3px;
+      border-bottom: 1px solid var(--cta);
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+    }
+    .nav__cta:hover { color: var(--cta-deep); border-color: var(--cta-deep); }
+
+    .nav__toggle { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+    .nav__toggle span { display: block; width: 22px; height: 1.5px; background: var(--ink); margin: 5px 0; transition: transform 200ms var(--ease); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 184px 0 120px;
+      position: relative;
+    }
+    .hero__eyebrow { margin-bottom: 40px; }
+    .hero h1 {
+      font-size: clamp(48px, 7.2vw, 92px);
+      line-height: 1.0;
+      letter-spacing: -0.034em;
+      font-weight: 400;
+      font-variation-settings: "opsz" 144, "SOFT" 10;
+      max-width: 16ch;
+      margin-bottom: 32px;
+      color: var(--ink);
+    }
+    .hero h1 em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--accent);
+    }
+    .hero__sub {
+      font-size: 22px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      max-width: 56ch;
+      margin-bottom: 56px;
+      font-weight: 400;
+      font-variation-settings: "opsz" 72, "SOFT" 30;
+    }
+    .hero__sub strong {
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .hero__entry {
+      display: flex; flex-wrap: wrap; gap: 56px; align-items: baseline;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      max-width: 560px;
+    }
+    .entry {
+      display: flex; flex-direction: column; gap: 6px;
+    }
+    .entry__label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .entry__link {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 18px; font-weight: 500;
+      color: var(--ink);
+      border-bottom: 1px solid var(--ink);
+      padding-bottom: 2px;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+      font-variation-settings: "opsz" 36;
+    }
+    .entry__link:hover { color: var(--accent); border-color: var(--accent); }
+    .entry__link .arr { display: inline-block; transition: transform 240ms var(--ease); margin-left: 4px; }
+    .entry__link:hover .arr { transform: translateX(4px); }
+
+    /* ── Three figures (stats) ── */
+    .figures {
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      padding: 72px 0;
+    }
+    .figures__grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+    }
+    .figure {
+      padding: 0 40px;
+      border-right: 1px solid var(--rule);
+      position: relative;
+    }
+    .figure:first-child { padding-left: 0; }
+    .figure:last-child { border-right: none; padding-right: 0; }
+    .figure__number {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(54px, 7vw, 88px);
+      font-weight: 300;
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      color: var(--ink);
+      font-variation-settings: "opsz" 144, "SOFT" 0;
+      margin-bottom: 18px;
+      font-feature-settings: "lnum", "ss01";
+    }
+    .figure__number em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+    .figure__desc {
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--ink-soft);
+      max-width: 28ch;
+    }
+    .figure__src {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      margin-top: 14px;
+      text-transform: uppercase;
+    }
+    .figure__src a { color: var(--ink-faint); border-bottom: 1px solid transparent; transition: color 180ms var(--ease), border-color 180ms var(--ease); }
+    .figure__src a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+    .figures__caption {
+      margin-top: 56px;
+      padding-top: 28px;
+      border-top: 1px solid var(--rule);
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(18px, 1.8vw, 22px);
+      font-style: italic;
+      font-weight: 400;
+      line-height: 1.45;
+      letter-spacing: -0.008em;
+      color: var(--ink);
+      text-align: left;
+      max-width: 62ch;
+      margin-left: auto;
+      margin-right: auto;
+      font-variation-settings: "opsz" 72, "SOFT" 30;
+    }
+
+    /* ── Section ── */
+    .section { padding: 144px 0; position: relative; }
+    .section--paper-soft { background: var(--paper-soft); }
+    .section--ink { background: var(--ink); }
+    .section--ink p, .section--ink h2, .section--ink h3 { color: var(--paper); }
+    .section--ink p { color: var(--nl-panel-soft); }
+
+    .section__lede {
+      max-width: 70ch;
+      margin-bottom: 56px;
+    }
+    .section h2.section__title {
+      font-size: clamp(32px, 4.4vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.022em;
+      font-weight: 400;
+      max-width: 22ch;
+      margin-bottom: 32px;
+      font-variation-settings: "opsz" 144, "SOFT" 20;
+    }
+    .section h2.section__title em { font-style: italic; color: var(--accent); font-weight: 400; }
+    .section--ink h2.section__title em { color: var(--nl-panel-accent); }
+
+    /* ── Proof band: relocated 53% with full citation ── */
+    .proof-band {
+      padding: 96px 0;
+      background: var(--paper);
+      border-bottom: 1px solid var(--rule);
+      text-align: left;
+    }
+    .proof-band__number {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(96px, 14vw, 184px);
+      font-weight: 300;
+      line-height: 0.9;
+      letter-spacing: -0.04em;
+      color: var(--ink);
+      font-variation-settings: "opsz" 144, "SOFT" 0;
+      margin-bottom: 32px;
+      font-feature-settings: "lnum", "ss01";
+    }
+    .proof-band__number em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--accent);
+    }
+    .proof-band__claim {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 400;
+      line-height: 1.25;
+      letter-spacing: -0.018em;
+      color: var(--ink);
+      max-width: 28ch;
+      margin-bottom: 28px;
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+    }
+    .proof-band__claim--editorial {
+      font-size: clamp(28px, 3.8vw, 46px);
+      max-width: 38ch;
+      margin-bottom: 0;
+      line-height: 1.22;
+    }
+    .proof-band__claim--editorial em {
+      font-style: italic;
+      color: var(--accent);
+    }
+    .proof-band__source {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      line-height: 1.7;
+    }
+    .proof-band__source em {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      text-transform: none;
+      letter-spacing: -0.005em;
+      font-size: 13px;
+      color: var(--ink-soft);
+    }
+    .proof-band__source a {
+      color: var(--ink-faint);
+      border-bottom: 1px solid transparent;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+    }
+    .proof-band__source a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── Audience sections ── */
+    .audience {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .audience__head .section__title { margin-bottom: 24px; }
+    .audience__head p.audience__pitch {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 38ch;
+    }
+    .audience__body p {
+      font-size: 18px;
+      line-height: 1.62;
+      color: var(--ink);
+      margin-bottom: 26px;
+    }
+    .audience__body p.audience__note {
+      color: var(--ink-soft);
+    }
+    .audience__list {
+      list-style: none;
+      margin: 28px 0 32px;
+      padding-top: 20px;
+      border-top: 1px solid var(--rule);
+    }
+    .audience__list li {
+      font-size: 17px;
+      line-height: 1.5;
+      color: var(--ink);
+      padding: 14px 0;
+      border-bottom: 1px solid var(--rule);
+      display: grid;
+      grid-template-columns: 32px 1fr;
+      align-items: baseline;
+    }
+    .audience__list li::before {
+      content: counter(li, decimal-leading-zero);
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      color: var(--accent);
+      counter-increment: li;
+    }
+    .audience__list { counter-reset: li; }
+
+    .audience__subhead {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px;
+      font-weight: 500;
+      font-style: italic;
+      color: var(--accent);
+      margin: 20px 0 10px;
+      font-variation-settings: "opsz" 36;
+    }
+
+    .terms {
+      margin-top: 40px;
+      padding: 28px 32px;
+      background: var(--accent-faint);
+      border-left: 2px solid var(--accent);
+    }
+    .terms__label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 10px;
+    }
+    .terms p {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    /* ── Pull quote ── */
+    .pullquote {
+      margin: 40px 0;
+      padding: 32px 0 32px 32px;
+      border-left: 2px solid var(--accent);
+      max-width: 60ch;
+    }
+    .pullquote p {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 28px;
+      line-height: 1.32;
+      letter-spacing: -0.012em;
+      font-style: italic;
+      color: var(--ink);
+      font-variation-settings: "opsz" 144, "SOFT" 30;
+    }
+    .pullquote p em { font-style: italic; color: var(--accent); }
+    .section--paper-soft .pullquote { border-left-color: var(--accent); }
+
+    /* ── Pillars (Access / Alignment / Execution) ── */
+    .pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      margin-top: 8px;
+    }
+    .pillar {
+      border-top: 1px solid var(--rule);
+      padding-top: 24px;
+    }
+    .pillar__name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.012em;
+      color: var(--accent);
+      margin-bottom: 14px;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+    }
+    .pillar__text {
+      font-size: 16.5px;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+    .pillar__cite {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9px;
+      vertical-align: super;
+      line-height: 0;
+      margin-left: 1px;
+    }
+    .pillar__cite a {
+      color: var(--accent);
+      border-bottom: none;
+      transition: color 180ms var(--ease);
+    }
+    .pillar__cite a:hover { color: var(--ink); }
+    .pillars__footnote {
+      margin-top: 28px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      color: var(--ink-faint);
+      line-height: 1.6;
+    }
+    .pillars__footnote em {
+      font-family: 'Fraunces', Georgia, serif;
+      font-style: italic;
+      letter-spacing: -0.005em;
+      font-size: 12.5px;
+      color: var(--ink-soft);
+    }
+    .pillars__footnote a {
+      color: var(--ink-faint);
+      border-bottom: 1px solid transparent;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+    }
+    .pillars__footnote a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── About ── */
+    .about__grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 96px;
+      align-items: start;
+    }
+    .about__meta {
+      position: sticky;
+      top: 100px;
+    }
+    .about__meta .eyebrow { margin-bottom: 16px; }
+    .about__name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+    .about__role {
+      font-size: 15px;
+      color: var(--ink-soft);
+      line-height: 1.5;
+    }
+    .about__linkedin {
+      margin-top: 16px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11.5px;
+      letter-spacing: 0.06em;
+    }
+    .about__linkedin a {
+      color: var(--accent);
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 2px;
+      transition: opacity 180ms var(--ease);
+    }
+    .about__linkedin a:hover { opacity: 0.7; }
+    .about__body p {
+      font-size: 19px;
+      line-height: 1.62;
+      color: var(--ink);
+      margin-bottom: 24px;
+    }
+    .about__body p:first-child {
+      font-size: 22px;
+      line-height: 1.45;
+      color: var(--ink);
+      margin-bottom: 32px;
+      font-variation-settings: "opsz" 72, "SOFT" 30;
+    }
+    .about__body p:first-child em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    /* ── Contact ── */
+    .contact__inner {
+      max-width: 68ch;
+      margin: 0 auto;
+      text-align: left;
+    }
+    .contact h2 {
+      font-size: clamp(48px, 6.8vw, 88px);
+      line-height: 1.0;
+      letter-spacing: -0.03em;
+      color: var(--paper);
+      margin-bottom: 48px;
+      font-weight: 400;
+      font-variation-settings: "opsz" 144, "SOFT" 10;
+      max-width: 18ch;
+    }
+    .contact h2 em { font-style: italic; color: var(--nl-panel-accent); }
+    .contact__para {
+      font-size: 19px;
+      line-height: 1.62;
+      color: var(--nl-panel-soft);
+      margin-bottom: 24px;
+      max-width: 64ch;
+    }
+    .contact__email-wrap {
+      margin-top: 48px;
+      padding-top: 36px;
+      border-top: 1px solid var(--nl-panel-rule);
+    }
+    .contact__email {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(14px, 1.7vw, 22px);
+      font-weight: 500;
+      color: var(--cta);
+      border-bottom: 1px solid var(--cta);
+      padding-bottom: 3px;
+      font-variation-settings: "opsz" 36, "SOFT" 20;
+      transition: opacity 200ms var(--ease);
+      letter-spacing: -0.008em;
+    }
+    .contact__email:hover { opacity: 0.78; }
+    .contact__email-sub {
+      display: block;
+      margin-top: 18px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      color: var(--nl-panel-faint);
+    }
+    .contact__email-sub a { color: var(--nl-panel-ink); border-bottom: 1px solid var(--nl-panel-rule); }
+    .contact__email-sub a:hover { color: var(--paper); }
+    .contact__meta {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--nl-panel-faint);
+      margin-top: 18px;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      background: var(--ink);
+      padding: 32px 0 48px;
+      border-top: 1px solid var(--nl-panel-rule);
+    }
+    .footer__inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .footer__brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .footer__brand svg { width: 22px; }
+    .footer__brand span {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px;
+      color: var(--paper);
+      font-variation-settings: "opsz" 36;
+    }
+    .footer__copy {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--nl-panel-faint);
+    }
+
+    /* ── Credibility logo strip ── */
+    .credibility {
+      padding: 56px 0;
+      border-top: 1px solid var(--rule);
+      border-bottom: 1px solid var(--rule);
+      background: var(--paper);
+    }
+    .credibility__head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 24px; margin-bottom: 28px; flex-wrap: wrap;
+    }
+    .credibility__note {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px; font-style: italic; color: var(--ink-soft);
+      max-width: 36ch;
+    }
+    .credibility__logos {
+      display: flex; flex-wrap: wrap; gap: 20px; align-items: center;
+    }
+    .credibility__logo {
+      display: inline-flex; align-items: center;
+    }
+    .credibility__logo img {
+      width: auto;
+      opacity: 0.45;
+      transition: opacity 240ms var(--ease);
+    }
+    .credibility__logo:hover img { opacity: 0.85; }
+    /* Per-logo height tuning so the actual letterforms read at a similar x-height (~22-26px) across the row */
+    .credibility__logo--lse img        { max-height: 40px; }
+    .credibility__logo--investcorp     { min-width: 160px; justify-content: center; }
+    .credibility__logo--investcorp img { max-height: 18px; }
+    .credibility__logo--triton img     { max-height: 44px; mix-blend-mode: multiply; }
+    .credibility__logo--axcel img      { max-height: 26px; mix-blend-mode: multiply; }
+    .credibility__logo--chordate img   { max-height: 30px; }
+    /* Myoroface source is 1:1 with deep whitespace padding — crop the canvas to lift the wordmark to row height */
+    .credibility__logo--myoroface {
+      height: 28px; width: 144px; overflow: hidden;
+      justify-content: center;
+    }
+    .credibility__logo--myoroface img { height: 144px; max-height: none; mix-blend-mode: multiply; }
+    .credibility__logo--text {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 18px; font-weight: 500; letter-spacing: -0.005em;
+      color: var(--ink-soft); font-variation-settings: "opsz" 36;
+    }
+
+    /* ── Alignment diagram (who's on your side) ── */
+    .alignments { padding: 144px 0; background: var(--paper-soft); }
+    .alignments__head { max-width: var(--max-narrow); margin: 0 auto 48px; padding: 0 32px; }
+    .alignments__title {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(28px, 3.4vw, 44px);
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      font-weight: 400;
+      max-width: 26ch;
+      margin-top: 18px;
+      font-variation-settings: "opsz" 144, "SOFT" 20;
+    }
+    .alignments__title em { font-style: italic; color: var(--accent); }
+    .alignments__grid {
+      max-width: var(--max); margin: 0 auto; padding: 0 32px;
+    }
+    .align-row {
+      display: grid;
+      grid-template-columns: 220px 1fr 220px;
+      gap: 32px;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: center;
+    }
+    .align-row:first-child {
+      border-top: 1px solid var(--rule);
+    }
+    .align-row--head {
+      padding: 12px 0;
+      border-bottom-color: var(--ink-faint);
+    }
+    .align-head {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .align-head--right { justify-self: end; }
+    .align-actor {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px; font-weight: 500;
+      color: var(--ink); letter-spacing: -0.01em;
+      font-variation-settings: "opsz" 36;
+    }
+    .align-motive {
+      font-size: 16.5px; line-height: 1.5;
+      color: var(--ink-soft); font-style: italic;
+    }
+    .align-side {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--ink-faint); justify-self: end; text-align: right;
+    }
+    .align-side .arr { display: inline-block; margin-right: 6px; }
+    .align-row--vcg {
+      background: linear-gradient(90deg, transparent, rgba(30,74,58,0.08));
+      border-bottom-color: var(--accent);
+    }
+    .align-row--vcg .align-actor { color: var(--accent); }
+    .align-row--vcg .align-side {
+      color: var(--accent); font-weight: 500; font-size: 13px;
+    }
+
+    /* ── Who-this-is-for block (3 required things) ── */
+    .who-this {
+      border-top: 1px solid var(--rule);
+      margin-top: 0;
+    }
+    .who-this__row {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 24px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: baseline;
+    }
+    .who-this__name {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--accent);
+      letter-spacing: -0.01em;
+      font-variation-settings: "opsz" 36, "SOFT" 20;
+    }
+    .who-this__desc {
+      font-size: 16.5px;
+      line-height: 1.5;
+      color: var(--ink);
+    }
+
+    /* 3-column variant for full-width row of "things they have" */
+    .who-this--cols {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 48px;
+      border-top: 1px solid var(--rule);
+      padding-top: 28px;
+    }
+    .who-this__col {
+      display: flex;
+      flex-direction: column;
+    }
+    .who-this__col-text {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      line-height: 1.5;
+      color: var(--ink);
+      letter-spacing: -0.008em;
+      font-variation-settings: "opsz" 36, "SOFT" 20;
+      max-width: 32ch;
+    }
+
+    /* ── Fairness table (what they take) ── */
+    .fairness-table, .split-table, .role-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+    }
+    .fairness-table th, .split-table th {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      text-align: left;
+      padding: 12px 16px 12px 0;
+      border-bottom: 1px solid var(--ink-faint);
+      font-weight: 500;
+    }
+    .fairness-table td, .split-table td, .role-table td {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px;
+      line-height: 1.45;
+      color: var(--ink);
+      padding: 18px 16px 18px 0;
+      border-bottom: 1px solid var(--rule);
+      vertical-align: top;
+      font-variation-settings: "opsz" 36;
+    }
+    .fairness-table td:first-child, .split-table td:first-child, .role-table td:first-child {
+      font-weight: 500;
+      color: var(--accent);
+      width: 28%;
+      letter-spacing: -0.005em;
+    }
+    .split-table td:first-child {
+      width: 32%;
+    }
+    .role-table td:first-child {
+      width: 38%;
+    }
+    .role-table tr:last-child td {
+      border-bottom: none;
+    }
+    .fairness-table tr:last-child td, .split-table tr:last-child td {
+      border-bottom: none;
+    }
+    /* Highlight the originator row — accent treatment in line with em throughout the page */
+    .fairness-table tr.fairness-table__originator td {
+      background: rgba(30, 74, 58, 0.04);
+      color: var(--ink);
+      font-weight: 500;
+    }
+    .fairness-table tr.fairness-table__originator td:first-child {
+      color: var(--accent);
+      font-style: italic;
+      font-weight: 500;
+    }
+
+    /* ── Bring grid (what we bring / what you bring) ── */
+    .bring-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 64px;
+      margin-top: 16px;
+    }
+
+    /* ── Sample thesis card ── */
+    .thesis-card {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 32px 32px 28px;
+      max-width: 380px;
+      box-shadow: 0 1px 0 rgba(26,22,18,0.03), 0 12px 32px -16px rgba(26,22,18,0.12);
+      position: relative;
+    }
+    .thesis-card__corner {
+      position: absolute; top: 18px; right: 24px;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 9.5px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .thesis-card__head {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 22px;
+      padding-bottom: 18px; border-bottom: 1px solid var(--rule);
+    }
+    .thesis-card__row {
+      display: grid; grid-template-columns: 96px 1fr; gap: 16px;
+      padding: 9px 0; align-items: baseline;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .thesis-card__row:last-of-type { border-bottom: none; }
+    .thesis-card__label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .thesis-card__value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 15px; line-height: 1.4; color: var(--ink);
+      font-variation-settings: "opsz" 36;
+    }
+    .thesis-card__value .redact {
+      background: var(--ink); color: var(--ink); border-radius: 1px;
+      padding: 0 16px; user-select: none;
+      font-variation-settings: "opsz" 12;
+    }
+    .thesis-card__foot {
+      margin-top: 22px; padding-top: 16px;
+      border-top: 1px solid var(--rule);
+      text-align: center;
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+
+    /* ── Deal-package card (PE-firm view) ── */
+    .package {
+      background: var(--paper);
+      border: 1px solid var(--rule);
+      border-radius: 2px;
+      padding: 36px 36px 28px;
+      max-width: 560px;
+      box-shadow: 0 1px 0 rgba(26,22,18,0.03), 0 16px 36px -18px rgba(26,22,18,0.14);
+      position: relative;
+    }
+    .package__head {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 20px;
+      padding-bottom: 16px; border-bottom: 1px solid var(--rule);
+      display: flex; justify-content: space-between; align-items: baseline;
+    }
+    .package__head span:last-child { color: var(--ink-faint); font-weight: 500; }
+    .package__row {
+      display: grid; grid-template-columns: 110px 1fr 28px; gap: 18px;
+      padding: 13px 0; align-items: baseline;
+      border-bottom: 1px dashed var(--rule);
+    }
+    .package__row:last-of-type { border-bottom: none; }
+    .package__label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--ink-faint);
+    }
+    .package__value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 16px; line-height: 1.4; color: var(--ink);
+      font-variation-settings: "opsz" 36;
+    }
+    .package__check {
+      color: var(--accent); font-size: 16px; text-align: center;
+    }
+    .package__foot {
+      margin-top: 24px; padding-top: 18px;
+      border-top: 1px solid var(--rule);
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 17px; font-style: italic; color: var(--accent);
+      text-align: right;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+    }
+
+    /* ── About credentials block ── */
+    .creds {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--rule);
+    }
+    .creds__row {
+      display: grid; grid-template-columns: 100px 1fr; gap: 16px;
+      padding: 8px 0;
+    }
+    .creds__label {
+      font-family: 'JetBrains Mono', ui-monospace, monospace;
+      font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--ink-faint); padding-top: 4px;
+    }
+    .creds__value {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 16px; line-height: 1.5; color: var(--ink);
+      font-variation-settings: "opsz" 36;
+      display: flex; flex-wrap: wrap; align-items: center; gap: 18px 32px;
+    }
+    .creds__logo-link {
+      display: inline-flex; align-items: center; justify-content: center;
+      height: 44px;
+      transition: opacity 180ms var(--ease), transform 180ms var(--ease);
+    }
+    .creds__logo-link img {
+      max-height: 44px;
+      max-width: 160px;
+      width: auto;
+      object-fit: contain;
+      filter: grayscale(1) opacity(0.55);
+      transition: filter 180ms var(--ease);
+    }
+    .creds__logo-link:hover img,
+    .creds__logo-link:focus-visible img {
+      filter: grayscale(0) opacity(1);
+    }
+    @media (max-width: 640px) {
+      .creds__logo-link img { max-height: 36px; max-width: 130px; }
+    }
+
+    /* ── Primary CTA — orange, sparing use ── */
+    .cta-primary {
+      display: inline-flex; align-items: baseline; gap: 8px;
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 19px;
+      font-weight: 500;
+      color: var(--cta);
+      border-bottom: 1.5px solid var(--cta);
+      padding-bottom: 3px;
+      transition: color 180ms var(--ease), border-color 180ms var(--ease);
+      font-variation-settings: "opsz" 36;
+    }
+    .cta-primary:hover { color: var(--cta-deep); border-color: var(--cta-deep); }
+    .cta-primary .arr { display: inline-block; transition: transform 240ms var(--ease); }
+    .cta-primary:hover .arr { transform: translateX(4px); }
+
+    .entry__label--cta { color: var(--cta); }
+
+    /* ── Henrik portrait block ── */
+    .portrait {
+      margin-bottom: 24px;
+    }
+    .portrait img {
+      width: 100%;
+      max-width: 280px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      object-position: center 20%;
+      border-radius: 2px;
+      filter: saturate(0.92) contrast(1.02);
+      display: block;
+    }
+    .portrait__bio {
+      font-size: 14.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      margin-top: 14px;
+      max-width: 280px;
+      font-style: italic;
+      font-variation-settings: "opsz" 36, "SOFT" 30;
+    }
+
+    /* ── Eyebrow line under section dividers ── */
+    .section-arc-rule {
+      width: 40px; height: 1px; background: var(--accent);
+      margin: 0 0 28px;
+    }
+
+    /* ── Block headings inside For Executives section ── */
+    .block-heading {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: clamp(28px, 3.6vw, 44px);
+      font-weight: 400;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin-bottom: 24px;
+      font-variation-settings: "opsz" 144, "SOFT" 20;
+    }
+    .block-heading em { font-style: italic; color: var(--accent); }
+    .block-lede {
+      font-size: 19px;
+      line-height: 1.6;
+      color: var(--ink);
+      max-width: 60ch;
+      margin-bottom: 36px;
+    }
+    .block-lede--soft { color: var(--ink-soft); }
+    .block-finisher {
+      font-family: 'Fraunces', Georgia, serif;
+      font-size: 22px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.4;
+      max-width: 50ch;
+      margin-top: 32px;
+      font-variation-settings: "opsz" 72, "SOFT" 20;
+    }
+    .block-finisher em { color: var(--accent); }
+
+    /* ── Animations ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .reveal {
+        opacity: 0;
+        transform: translateY(8px);
+        transition: opacity 360ms var(--ease), transform 360ms var(--ease);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .reveal.d1 { transition-delay: 40ms; }
+      .reveal.d2 { transition-delay: 80ms; }
+      .reveal.d3 { transition-delay: 120ms; }
+      .reveal.d4 { transition-delay: 160ms; }
+    }
+
+    /* ── Focus ── */
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .hero { padding: 152px 0 96px; }
+      .audience { grid-template-columns: 1fr; gap: 48px; }
+      .about__grid { grid-template-columns: 1fr; gap: 40px; }
+      .about__meta { position: static; }
+      .figures__grid { grid-template-columns: 1fr; }
+      .figure { padding: 32px 0; border-right: none; border-bottom: 1px solid var(--rule); }
+      .figure:first-child { padding-top: 0; }
+      .figure:last-child { border-bottom: none; padding-bottom: 0; }
+      .pillars { grid-template-columns: 1fr; gap: 24px; }
+      .pullquote { padding-left: 20px; }
+      .pullquote p { font-size: 24px; }
+      .align-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+      .align-row--head { display: none; }
+      .align-side { justify-self: start; text-align: left; }
+      .credibility__logos { gap: 36px; }
+      .credibility__logo--lse img        { max-height: 34px; }
+      .credibility__logo--investcorp img { max-height: 18px; }
+      .credibility__logo--triton img     { max-height: 46px; }
+      .credibility__logo--axcel img      { max-height: 24px; }
+      .credibility__logo--chordate img   { max-height: 28px; }
+      .credibility__logo--myoroface { height: 28px; width: 130px; }
+      .credibility__logo--myoroface img { height: 130px; }
+      .bring-grid { grid-template-columns: 1fr; gap: 32px; }
+      .who-this__row { grid-template-columns: 1fr; gap: 4px; padding: 14px 0; }
+      .who-this__name { font-size: 17px; }
+      .who-this--cols { grid-template-columns: 1fr; gap: 28px; padding-top: 20px; }
+      .who-this__col-text { font-size: 17px; max-width: 56ch; }
+      .thesis-block { grid-template-columns: 1fr !important; gap: 40px !important; }
+      .package-block { grid-template-columns: 1fr !important; gap: 40px !important; }
+
+      /* Mobile economics: collapse fairness table to a flat list, keep split table */
+      .fairness-table thead { display: none; }
+      .fairness-table tr { display: grid; grid-template-columns: 1fr; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+      .fairness-table tr:last-child { border-bottom: none; }
+      .fairness-table td { border-bottom: none; padding: 4px 0; font-size: 16px; }
+      .fairness-table td:first-child {
+        font-family: 'JetBrains Mono', ui-monospace, monospace;
+        font-size: 10.5px; letter-spacing: 0.14em; text-transform: uppercase;
+        color: var(--ink-faint); font-style: normal;
+      }
+      .fairness-table tr.fairness-table__originator td {
+        background: rgba(30, 74, 58, 0.04);
+      }
+      .fairness-table tr.fairness-table__originator td:first-child {
+        color: var(--accent);
+      }
+
+      /* Split table: stack each row */
+      .split-table thead { display: none; }
+      .split-table tr {
+        display: block;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--rule);
+      }
+      .split-table tr:last-child { border-bottom: none; }
+      .split-table td {
+        display: block;
+        border-bottom: none;
+        padding: 4px 0;
+        width: auto !important;
+      }
+      .split-table td:first-child {
+        font-family: 'Fraunces', Georgia, serif;
+        font-size: 18px;
+        font-weight: 500;
+        color: var(--accent);
+        margin-bottom: 4px;
+      }
+      .split-table td:not(:first-child) {
+        font-size: 15.5px;
+        color: var(--ink-soft);
+      }
+    }
+    @supports not (backdrop-filter: blur(10px)) {
+      .nav { background: var(--paper); }
+    }
+    @media (max-width: 760px) {
+      .nav__links { display: none; }
+      .nav__links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: var(--paper);
+        border-bottom: 1px solid var(--rule);
+        padding: 24px 32px; gap: 20px;
+        align-items: flex-start;
+      }
+      .nav__toggle { display: block; }
+      .hero { padding: 128px 0 80px; }
+      .section { padding: 88px 0; }
+      .alignments { padding: 88px 0; }
+      .proof-band { padding: 64px 0; }
+      .about__body p, .audience__body p { font-size: 17px; }
+      .about__body p:first-child { font-size: 20px; }
+      .hero__entry { gap: 36px; }
+      .section__lede { margin-bottom: 40px; }
+    }
+  </style>
+  <noscript>
+    <style>
+      /* No-JS fallback: ensure all reveal content is visible */
+      .reveal { opacity: 1 !important; transform: none !important; }
+    </style>
+  </noscript>
+  <link rel="stylesheet" href="/preview/nordic.css">
+  <link rel="stylesheet" href="/preview/films.css">
+  <script defer src="/preview/films.js"></script>
+</head>
+<body>
+
+  <nav class="nav" id="nav" aria-label="Primary">
+    <div class="nav__inner">
+      <a href="/" class="vcg-mark vcg-mark--nav" aria-label="Value Catalyst Group">
+        <span class="vcg-mark__rule" aria-hidden="true"></span>
+        <span class="vcg-mark__body">
+          <span class="vcg-mark__word">Value <em>Catalyst</em> Group</span>
+        </span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="#executives" class="nav__link">Executives</a>
+        <a href="#method" class="nav__link">How it works</a>
+        <a href="#about" class="nav__link">About</a>
+        <a href="#contact" class="nav__cta">Talk to Henrik</a>
+      </div>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero fb fb--hero" id="top">
+    <div class="fb__media" aria-hidden="true" style="background-image:url('/preview/media/light/bluehour.jpg')">
+      <video class="fb__video" muted loop playsinline preload="none" poster="/preview/media/light/bluehour.jpg" tabindex="-1">
+        <source src="/preview/media/light/bluehour.webm" type="video/webm">
+        <source src="/preview/media/light/bluehour.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="fb__tint" aria-hidden="true"></div>
+
+    <div class="container">
+      <p class="eyebrow hero__eyebrow reveal">Independent · Confidential · For the executive</p>
+      <h1 class="reveal d1"><em>For the few</em> who can originate the deal.</h1>
+      <p class="hero__sub reveal d2">Most senior executives spend their careers generating value that flows to other people. We call this <strong>the Principal Gap</strong>. VCG closes it &mdash; by leading with the operator, opening the door to the right PE firm, and splitting the deal fee fifty-fifty.</p>
+    </div>
+  </header>
+
+  <!-- Three figures: the bruise, then the offer -->
+  <section class="figures" aria-label="Why VCG exists">
+    <div class="container">
+      <div class="figures__grid">
+        <div class="figure reveal">
+          <div class="figure__number">50/50</div>
+          <p class="figure__desc">split of the deal-origination fee between VCG and the operator who brought it.</p>
+          <p class="figure__src">VCG fee structure</p>
+        </div>
+        <div class="figure reveal d1">
+          <div class="figure__number">53%</div>
+          <p class="figure__desc">of investment returns trace to the leadership of the portfolio company.</p>
+          <p class="figure__src"><a href="https://www.teneo.com/insights/articles/leadership-alpha-in-private-equity/" target="_blank" rel="noopener">Teneo · McKinsey CEO Alpha</a></p>
+        </div>
+        <div class="figure reveal d2">
+          <div class="figure__number">70%</div>
+          <p class="figure__desc">of CEOs at PE-backed companies are replaced during the typical hold — over half of them unplanned.</p>
+          <p class="figure__src"><a href="https://www.heidrick.com/en/insights/private-equity/closing-the-leadership-gap-in-private-equity" target="_blank" rel="noopener">Heidrick &amp; Struggles, 2026</a></p>
+        </div>
+      </div>
+      <p class="figures__caption reveal d3">Intermediaries are mainly paid for activity. The operator carries the outcome largely alone and does not get rewarded enough for network. Outcome and deal-sourcing should pay significantly more than activity.</p>
+    </div>
+  </section>
+
+  <!-- The Principal Gap — diagnosis section -->
+    <section class="fb fb--diagnosis">
+    <div class="fb__media" aria-hidden="true" style="background-image:url('/preview/media/light/midday.jpg')">
+      <video class="fb__video" muted loop playsinline preload="none" poster="/preview/media/light/midday.jpg" tabindex="-1">
+        <source src="/preview/media/light/midday.webm" type="video/webm">
+        <source src="/preview/media/light/midday.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="fb__tint" aria-hidden="true"></div>
+    <div class="container">
+      <div class="narrow" style="padding: 0;">
+        <p class="eyebrow reveal" style="margin-bottom: 24px;">The diagnosis</p>
+        <h2 class="section__title reveal d1" id="principal-gap-heading" style="max-width: 22ch;">The <em>Principal Gap.</em></h2>
+      </div>
+    </div>
+  </section>
+  <section class="section section--paper-soft" aria-labelledby="principal-gap-heading">
+    <div class="container">
+      <div class="narrow" style="padding: 0;">
+<div class="reveal d2" style="margin-top: 8px;">
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); margin-bottom: 16px; max-width: 64ch;">Operating executives generate the value PE firms capture. They identify the target before the auction. They run the company for five years.</p>
+          <p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(28px, 3.6vw, 44px); font-style: italic; color: var(--accent); line-height: 1.2; max-width: 38ch; margin-bottom: 32px; font-weight: 400; letter-spacing: -0.018em; font-variation-settings: 'opsz' 144, 'SOFT' 30;">The returns trace back to the executive. The pay does not.</p>
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); margin-bottom: 24px; max-width: 64ch;">Banks charge a transaction fee. Search firms collect a placement fee. PE firms get a management fee and claim carry on somebody else's thesis. The originator &mdash; the executive who knew which company could be bought and what to do with it once they had it &mdash; takes a salary and an uncertain options package.</p>
+
+          <table class="fairness-table" style="margin-top: 8px; margin-bottom: 32px;" aria-label="What each actor takes">
+            <thead>
+              <tr><th scope="col">Actor</th><th scope="col">What they take</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Investment bank</td><td>Transaction fee on the close</td></tr>
+              <tr><td>Search firm</td><td>Placement fee on the candidate</td></tr>
+              <tr><td>PE firm</td><td>Management fee on the fund. Carry on the thesis they bought into.</td></tr>
+              <tr class="fairness-table__originator"><td>Originator</td><td>Salary, uncertain options, and the operating &amp; employment risk</td></tr>
+            </tbody>
+          </table>
+
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink); margin-bottom: 24px; max-width: 64ch;">Intermediaries are paid for activity. The operator carries the outcome alone. <em style="font-style: italic; color: var(--accent);">Outcome should pay significantly more than activity.</em></p>
+          <p style="font-size: 19px; line-height: 1.62; color: var(--ink-soft); max-width: 64ch; font-style: italic;">We call this the Principal Gap. VCG closes it, one operator at a time.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- For executives -->
+    <section class="fb fb--executives">
+    <div class="fb__media" aria-hidden="true" style="background-image:url('/preview/media/light/night.jpg')">
+      <video class="fb__video" muted loop playsinline preload="none" poster="/preview/media/light/night.jpg" tabindex="-1">
+        <source src="/preview/media/light/night.webm" type="video/webm">
+        <source src="/preview/media/light/night.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="fb__tint" aria-hidden="true"></div>
+    <div class="container">
+      <div style="max-width: 760px;">
+        <p class="eyebrow reveal" style="margin-bottom: 24px;">For executives</p>
+        <h2 class="section__title reveal d1" id="exec-heading">Built for executives <em>across a career.</em></h2>
+      </div>
+    </div>
+  </section>
+  <section class="section" id="executives" aria-labelledby="exec-heading">
+    <div class="container">
+
+      <!-- Section opening (full-width head, then full-width row table) -->
+      <div class="reveal" style="max-width: 760px;">
+<p style="font-family: 'Fraunces', Georgia, serif; font-size: clamp(22px, 2.4vw, 28px); font-style: italic; color: var(--accent); line-height: 1.35; max-width: 36ch; margin-top: 16px; font-variation-settings: 'opsz' 96, 'SOFT' 25;">In European PE, the executive still walks into the room alone.</p>
+        <p class="audience__pitch" style="margin-top: 16px; max-width: 64ch;">VCG walks in with them.</p>
+        <p class="audience__pitch" style="margin-top: 24px; max-width: 64ch;">Individual executives know which companies can be bought, who the seller will hand it to, and what to do with it once they have it &mdash; and who refuse to give that knowledge away again.</p>
+        <p class="audience__pitch" style="margin-top: 24px; max-width: 64ch;">Originating means having a seat at the table where the deal gets made and the conviction to run the company for the next five to seven years.</p>
+      </div>
+
+      <!-- Typical executives — full-width 3-column row -->
+      <div class="reveal d1" style="margin-top: 64px;">
+        <p class="audience__subhead">Typical executives VCG works with have:</p>
+        <div class="who-this who-this--cols" style="margin-top: 16px;">
+          <div class="who-this__col">
+            <p class="who-this__col-text">A sector view sharp enough to see the company that can be bought before the auction begins.</p>
+          </div>
+          <div class="who-this__col">
+            <p class="who-this__col-text">The network and standing to reach the seller directly &mdash; and to be received as the preferred custodian of the business.</p>
+          </div>
+          <div class="who-this__col">
+            <p class="who-this__col-text">The conviction to run the company for the next five to seven years and carry the outcome themselves.</p>
+          </div>
+        </div>
+
+        <!-- ARCHETYPE LINE — commented out pending Henrik's confirmation of sectors / size band / geography. Restore once specifics are signed off.
+        <p style="font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); margin-top: 32px; max-width: 64ch;">Industrial, B2B services and healthcare operators across the Nordics, DACH and the UK; &euro;30&ndash;250m enterprise value; succession or carve-out situations.</p>
+        -->
+
+        <div class="pullquote" style="margin: 56px 0 0; padding-left: 0; border-left: none;">
+          <p>You do not get paid to develop a view. <em>You get paid for the view you already have.</em></p>
+        </div>
+      </div>
+
+      <!-- What you earn as the deal-maker -->
+      <div class="reveal" style="margin-top: 120px;">
+        <div class="rule"></div>
+        <p class="eyebrow" style="margin-bottom: 28px;">The economics</p>
+        <h3 class="block-heading" style="max-width: 22ch;">What you earn as <em>the deal-maker.</em></h3>
+        <p class="block-lede" style="max-width: 64ch;">With VCG, you and I share the private-equity origination fee 50/50. The exact fee is deal-dependent, but the larger the deal, the larger the fee. We keep half in cash and reinvest the other half into the company together. We negotiate further equity and options for you, the executive, as part of any board or operator package.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- The method · For PE firms (merged) -->
+    <section class="fb fb--method">
+    <div class="fb__media" aria-hidden="true" style="background-image:url('/preview/media/light/morning.jpg')">
+      <video class="fb__video" muted loop playsinline preload="none" poster="/preview/media/light/morning.jpg" tabindex="-1">
+        <source src="/preview/media/light/morning.webm" type="video/webm">
+        <source src="/preview/media/light/morning.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="fb__tint" aria-hidden="true"></div>
+    <div class="container">
+      <div class="narrow" style="padding: 0;">
+        <p class="eyebrow reveal" style="margin-bottom: 24px;">How it works</p>
+        <h2 class="section__title reveal d1" id="method-heading" style="max-width: 24ch;"><em>Lead with the operator.</em> Then shape the role.</h2>
+      </div>
+    </div>
+  </section>
+  <section class="section section--paper-soft" id="method" aria-labelledby="method-heading">
+    <div class="container">
+      <div class="narrow" style="padding: 0;">
+<div class="reveal d2" style="margin-top: 8px;">
+          <p class="block-lede" style="max-width: 62ch;">Standard PE works backwards. Firm finds target. Firm builds thesis. Firm hires manager to execute.</p>
+          <p class="block-lede" style="max-width: 62ch; margin-top: 12px;">VCG inverts the sequence. The operator's view is the deal. The role follows, usually as chairman, sometimes as CEO.</p>
+          <p class="block-lede" style="max-width: 62ch; margin-top: 24px;">Every VCG deal arrives as a <em style="font-style: italic; color: var(--accent);">Value Catalyst Plan</em>: the operator's deal, written down before the PE firm signs.</p>
+          <p class="block-lede" style="max-width: 62ch; margin-top: 24px;">VCG matches each Value Catalyst Plan to the absolute best PE firm whose mandate fits the operator's thesis.</p>
+        </div>
+
+        <!-- The inversion — the page's single narrative moment -->
+        <div class="nl-inversion reveal d3" aria-label="Standard PE sequence versus the VCG sequence">
+          <div class="nl-inv-row nl-inv-row--std">
+            <span class="nl-inv-label">Standard PE</span>
+            <div class="nl-inv-cells">
+              <span class="nl-inv-cell">Firm finds target</span>
+              <span class="nl-inv-arr" aria-hidden="true">&rarr;</span>
+              <span class="nl-inv-cell">Firm builds thesis</span>
+              <span class="nl-inv-arr" aria-hidden="true">&rarr;</span>
+              <span class="nl-inv-cell">Firm hires manager</span>
+            </div>
+          </div>
+          <div class="nl-inv-row nl-inv-row--vcg">
+            <span class="nl-inv-label">VCG</span>
+            <div class="nl-inv-cells">
+              <span class="nl-inv-cell">Operator&rsquo;s view</span>
+              <span class="nl-inv-arr" aria-hidden="true">&rarr;</span>
+              <span class="nl-inv-cell">The deal, written down</span>
+              <span class="nl-inv-arr" aria-hidden="true">&rarr;</span>
+              <span class="nl-inv-cell">Capital arrives aligned</span>
+            </div>
+          </div>
+          <p class="nl-inv-verdict">The operator&rsquo;s view is the deal. <em>The role follows.</em></p>
+        </div>
+
+        <!-- What we do -->
+        <div class="reveal d3" style="margin-top: 48px;">
+          <p class="audience__subhead">What we do</p>
+          <ul class="audience__list" style="margin-top: 12px; max-width: 60ch;">
+            <li>We write the Plan with you.</li>
+            <li>We choose and approach the PE firms.</li>
+            <li>We sit with you through term-sheet and into the role.</li>
+            <li>We back you throughout the role, and prove it by investing with you in the target company.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Thesis card (the artefact made visible) -->
+      <div class="reveal" style="margin-top: 64px;">
+        <div class="thesis-block" style="display: grid; grid-template-columns: 1fr 1.1fr; gap: 64px; align-items: center;">
+          <div>
+            <p style="font-size: 19px; line-height: 1.62; color: var(--ink); max-width: 42ch;">Your deal, written down before any PE firm sees it.</p>
+          </div>
+          <div class="thesis-card" style="justify-self: center;">
+            <span class="thesis-card__corner">VCG · Q3 2026</span>
+            <p class="thesis-card__head">Value Catalyst Plan · Working draft</p>
+            <div class="thesis-card__row">
+              <span class="thesis-card__label">Sector</span>
+              <span class="thesis-card__value"><span class="redact">redacted segment</span></span>
+            </div>
+            <div class="thesis-card__row">
+              <span class="thesis-card__label">Geography</span>
+              <span class="thesis-card__value">Nordics, expanding DACH</span>
+            </div>
+            <div class="thesis-card__row">
+              <span class="thesis-card__label">Target type</span>
+              <span class="thesis-card__value">Family-owned · €50–150m revenue · single-asset succession</span>
+            </div>
+            <div class="thesis-card__row">
+              <span class="thesis-card__label">Operator</span>
+              <span class="thesis-card__value"><span class="redact">named senior executive</span></span>
+            </div>
+            <div class="thesis-card__row">
+              <span class="thesis-card__label">Role</span>
+              <span class="thesis-card__value">CEO · meaningful equity rollover</span>
+            </div>
+            <div class="thesis-card__row">
+              <span class="thesis-card__label">PE fit</span>
+              <span class="thesis-card__value">3 firms identified · mandate-matched</span>
+            </div>
+            <p class="thesis-card__foot">Confidential: NDA before specifics</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- What the PE counterparty gets (compressed, one paragraph) -->
+      <div class="narrow reveal d2" style="padding: 0; margin-top: 56px;">
+        <div style="background: var(--paper); border: 1px solid var(--rule); padding: 30px 34px;">
+          <p class="eyebrow eyebrow--ink" style="margin-bottom: 14px;">What your PE counterparty gets out of this</p>
+          <p style="font-size: 17px; line-height: 1.62; color: var(--ink); margin: 0; max-width: 64ch;">A sector-credible operator already driving the deal, and proprietary origination they would otherwise miss: even top-quartile firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup> We match your Plan to the one firm whose mandate fits it, so the capital arrives aligned rather than bolted on.</p>
+        </div>
+      </div>
+
+      <div class="narrow reveal d3" style="padding: 0; margin-top: 28px;">
+        <p class="pillars__footnote"><span aria-hidden="true">1.</span> <a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener">Sutton Place Strategies, <em>2024 Deal Origination Benchmark Report</em></a></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="section" id="about" aria-labelledby="about-heading">
+    <div class="container">
+      <div class="about__grid">
+        <aside class="about__meta reveal">
+          <div class="rule"></div>
+          <p class="eyebrow" style="margin-bottom: 28px;">About</p>
+          <div class="portrait">
+            <img src="/henrik.jpg" alt="Henrik Rammer, Founder of Value Catalyst Group" loading="lazy" width="280" height="280">
+          </div>
+          <p class="about__name">Henrik Rammer</p>
+          <p class="about__role">Founder</p>
+          <p class="about__linkedin"><a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer →</a></p>
+          <p style="margin-top: 20px;"><a href="#contact" class="cta-primary" style="font-size: 16px;">Talk to Henrik <span class="arr">→</span></a></p>
+        </aside>
+        <div class="about__body reveal d1">
+          <h2 class="section__title" id="about-heading" style="margin-bottom: 32px;">Henrik Rammer.</h2>
+          <p>20 years in PE and VC across the Nordics and Europe. Independent.</p>
+
+          <div class="creds">
+            <div class="creds__row">
+              <span class="creds__label">Education</span>
+              <span class="creds__value">
+                <a class="creds__logo-link" href="https://www.lse.ac.uk" target="_blank" rel="noopener" aria-label="London School of Economics">
+                  <img src="/logos/London_school_of_economics_logo_with_name.svg.png" alt="London School of Economics" loading="lazy">
+                </a>
+              </span>
+            </div>
+            <div class="creds__row">
+              <span class="creds__label">Career</span>
+              <span class="creds__value">
+                <a class="creds__logo-link" href="https://www.investcorp.com" target="_blank" rel="noopener" aria-label="Investcorp">
+                  <img src="/logos/Investcorp-logo.png" alt="Investcorp" loading="lazy">
+                </a>
+                <a class="creds__logo-link" href="https://www.triton-partners.com" target="_blank" rel="noopener" aria-label="Triton Partners">
+                  <img src="/logos/Triton-Logo-1.png" alt="Triton" loading="lazy">
+                </a>
+                <a class="creds__logo-link" href="https://www.axcel.dk" target="_blank" rel="noopener" aria-label="Axcel">
+                  <img src="/logos/Axcel_logo.svg.png" alt="Axcel" loading="lazy">
+                </a>
+              </span>
+            </div>
+            <div class="creds__row">
+              <span class="creds__label">Boards</span>
+              <span class="creds__value">
+                <a class="creds__logo-link" href="https://myoroface.com" target="_blank" rel="noopener" aria-label="Myoroface">
+                  <img src="/logos/iq_logo_myoroface_696x696.webp" alt="Myoroface" loading="lazy">
+                </a>
+                <a class="creds__logo-link" href="https://chordate.com" target="_blank" rel="noopener" aria-label="Chordate Medical">
+                  <img src="/logos/220620_chordate_logo_600x101px.png" alt="Chordate Medical" loading="lazy">
+                </a>
+                <a class="creds__logo-link" href="https://lgtlogistics.com" target="_blank" rel="noopener" aria-label="LGT Logistics">
+                  <img src="/logos/lgt-logistics.svg" alt="LGT Logistics" loading="lazy">
+                </a>
+              </span>
+            </div>
+            <div class="creds__row">
+              <span class="creds__label">Deals</span>
+              <span class="creds__value">
+                <span style="font-style: italic; color: var(--ink-soft); max-width: 52ch;">Currently working on a large-cap European medical-technology public-to-private with a serial founder.</span>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--ink" id="contact" aria-labelledby="contact-heading">
+    <div class="container">
+      <div class="contact__inner">
+        <div class="rule reveal" style="background: var(--nl-panel-accent);"></div>
+        <p class="eyebrow reveal" style="color: var(--nl-panel-accent); margin-bottom: 28px;">Contact</p>
+        <h2 class="reveal d1" id="contact-heading">I'd like to start <em>a conversation.</em></h2>
+        <p class="contact__para reveal d2">A strategic conversation about the deal you would build if you owned the process.</p>
+        <p class="contact__para reveal d2" style="margin-top: 18px;">20 minutes, NDA on request, no obligation. Bring your existing sector view or come with a question.</p>
+        <p class="contact__signoff reveal d2" style="font-family: 'Fraunces', Georgia, serif; font-style: italic; font-size: 22px; color: var(--nl-panel-accent); margin-top: 28px; letter-spacing: 0.01em; font-variation-settings: 'opsz' 72, 'SOFT' 30;">— Henrik</p>
+        <div class="contact__email-wrap reveal d3" style="margin-top: 40px;">
+          <a href="mailto:henrik@valuecatalyst.group" class="contact__email">Talk to Henrik <span class="arr" style="display:inline-block;">→</span></a>
+          <span class="contact__email-sub"><a href="mailto:henrik@valuecatalyst.group">henrik@valuecatalyst.group</a> · <a href="https://www.linkedin.com/in/henrikrammer" target="_blank" rel="noopener">linkedin.com/in/henrikrammer</a></span>
+          <p style="margin-top: 22px; font-size: 16px; line-height: 1.6; color: var(--nl-panel-soft); max-width: 60ch;">Call one: your sector view. Call two: targets and PE fit, under NDA. From there, if there is a workable deal, we develop a detailed case within weeks.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="vcg-mark vcg-mark--reversed" aria-label="Value Catalyst Group">
+          <span class="vcg-mark__rule" aria-hidden="true"></span>
+          <span class="vcg-mark__body">
+            <span class="vcg-mark__word">Value <em>Catalyst</em> Group</span>
+          </span>
+        </div>
+      </div>
+      <span class="footer__copy">© 2026 · Stockholm</span>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    const onScroll = () => {
+      if (window.scrollY > 24) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    };
+    onScroll();
+    window.addEventListener('scroll', onScroll, { passive: true });
+
+    // Mobile nav toggle
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      const open = links.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    links.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        links.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // Reveal on scroll
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    } else {
+      document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+    }
+
+    // Smooth-scroll with nav offset
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', function(e) {
+        const href = this.getAttribute('href');
+        if (href === '#' || href === '#top') {
+          e.preventDefault();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+          return;
+        }
+        const target = document.querySelector(href);
+        if (target) {
+          e.preventDefault();
+          const offset = nav.offsetHeight;
+          const y = target.getBoundingClientRect().top + window.pageYOffset - offset + 2;
+          window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
