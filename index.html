@@ -96,6 +96,34 @@
       max-width: var(--max); margin: 0 auto; padding: 0 32px;
       height: 68px; display: flex; align-items: center; justify-content: space-between;
     }
+
+    /* ── Nordic-light film system (integrated, no tabs) ── */
+    /* Each film is a full-bleed, muted background wash behind a section.
+       Playback is ping-pong (forward→backward→forward) so the loop is seamless. */
+    .film-band { position: relative; }
+    .film-band__media { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
+    .film-band__media video {
+      width: 100%; height: 100%; object-fit: cover;
+      /* ping-pong handles the seamless loop; we keep it playing continuously */
+      opacity: 0.72;
+    }
+    .film-band--ink .film-band__media video { opacity: 0.5; }
+    /* veil: thin warm paper (or ink on dark sections) — enough to keep text legible,
+       light enough to let the Nordic-light atmosphere read through */
+    .film-band__veil { position: absolute; inset: 0; z-index: 1; }
+    .film-band--light .film-band__veil {
+      background: linear-gradient(180deg, rgba(245,241,234,0.52) 0%, rgba(245,241,234,0.18) 45%, rgba(245,241,234,0.86) 100%);
+    }
+    .film-band--ink .film-band__veil {
+      background: linear-gradient(180deg, rgba(26,22,18,0.55) 0%, rgba(26,22,18,0.66) 55%, rgba(26,22,18,0.90) 100%);
+    }
+    .film-band > .container, .film-band > .hero__content { position: relative; z-index: 2; }
+    @media (prefers-reduced-motion: reduce) {
+      .film-band__media video { display: none; }
+      .film-band__veil { background: var(--paper) !important; }
+      .film-band--ink .film-band__veil { background: var(--ink) !important; }
+    }
+
     /* ── VCG mark ──────────────────────────────────── */
     .vcg-mark {
       display: inline-flex; align-items: stretch; gap: 16px;
@@ -155,6 +183,7 @@
     .hero {
       padding: 184px 0 120px;
       position: relative;
+      overflow: hidden;
     }
     .hero__eyebrow { margin-bottom: 40px; }
     .hero h1 {
@@ -1282,7 +1311,11 @@
   </nav>
 
   <!-- Hero -->
-  <header class="hero" id="top">
+  <header class="hero film-band film-band--light" id="top">
+    <div class="film-band__media" aria-hidden="true">
+      <video src="films/morning.webm" poster="films/morning.jpg" muted playsinline preload="auto" data-pingpong></video>
+    </div>
+    <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
       <p class="eyebrow hero__eyebrow reveal">Independent · Confidential · For the executive</p>
       <h1 class="reveal d1"><em>For the few</em> who can originate the deal.</h1>
@@ -1346,7 +1379,11 @@
   </section>
 
   <!-- For executives -->
-  <section class="section" id="executives" aria-labelledby="exec-heading">
+  <section class="section film-band film-band--light" id="executives" aria-labelledby="exec-heading">
+    <div class="film-band__media" aria-hidden="true">
+      <video src="films/bluehour.webm" poster="films/bluehour.jpg" muted playsinline preload="auto" data-pingpong></video>
+    </div>
+    <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
 
       <!-- Section opening (full-width head, then full-width row table) -->
@@ -1542,7 +1579,11 @@
   </section>
 
   <!-- Contact -->
-  <section class="section section--ink" id="contact" aria-labelledby="contact-heading">
+  <section class="section section--ink film-band film-band--ink" id="contact" aria-labelledby="contact-heading">
+    <div class="film-band__media" aria-hidden="true">
+      <video src="films/night.webm" muted playsinline preload="auto" data-pingpong></video>
+    </div>
+    <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
       <div class="contact__inner">
         <div class="rule reveal" style="background: #B8C7BC;"></div>
@@ -1613,6 +1654,41 @@
     } else {
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
+
+    // Nordic-light films — seamless ping-pong playback
+    // Each film oscillates forward → backward → forward so the loop has no hard cut.
+    // Morning is pre-trimmed to start at second 1 (done at encode time).
+    // Sole driver is a manual-scrub rAF loop: it sets video.currentTime each frame, so
+    // playback works even when the browser blocks autoplay. Native `loop` is removed
+    // from the <video> tags, so nothing competes with this loop. (Ambient, slow-moving
+    // footage means per-frame seeking is smooth and battery-friendly enough.)
+    document.querySelectorAll('video[data-pingpong]').forEach(video => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      video.loop = false;
+      video.defaultMuted = true; video.muted = true;
+      // Keep the video paused — we drive it purely by seeking. This is fully
+      // deterministic and works even where autoplay is blocked (the film always
+      // moves because we set currentTime explicitly every frame).
+      video.pause();
+      const D = () => (video.duration || 10);
+      let t = 0, dir = 1, last = null;
+      const step = (now) => {
+        requestAnimationFrame(step);
+        if (!last) { last = now; return; }
+        const dt = (now - last) / 1000;
+        last = now;
+        t += dir * dt;
+        if (t >= D() - 0.01) { t = D(); dir = -1; }   // forward complete → reverse
+        else if (t <= 0)      { t = 0;  dir = 1; }    // backward complete → forward
+        try {
+          if (Math.abs(video.currentTime - t) > 0.025) video.currentTime = t;
+        } catch (e) {}
+      };
+      if (video.readyState >= 1) requestAnimationFrame(step);
+      else video.addEventListener('loadedmetadata', () => { last = null; requestAnimationFrame(step); }, { once: true });
+      // pause seeking work when the tab is hidden
+      document.addEventListener('visibilitychange', () => { if (document.hidden) { last = null; } });
+    });
 
     // Smooth-scroll with nav offset
     document.querySelectorAll('a[href^="#"]').forEach(a => {
