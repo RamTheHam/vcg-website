@@ -118,6 +118,15 @@
       background: linear-gradient(180deg, rgba(26,22,18,0.55) 0%, rgba(26,22,18,0.66) 55%, rgba(26,22,18,0.90) 100%);
     }
     .film-band > .container, .film-band > .hero__content { position: relative; z-index: 2; }
+    /* Blue hour needs its full horizon: show the complete film above the copy,
+       not cropped behind the entire (much taller) executives section. */
+    #executives.film-band { padding-top: 0; }
+    #executives .film-band__media {
+      position: relative; inset: auto; aspect-ratio: 16 / 9;
+      max-width: var(--max); margin: 0 auto 64px; background: var(--ink);
+    }
+    #executives .film-band__media video { object-fit: contain; opacity: 1; display: block; }
+    #executives > .film-band__veil { display: none; }
     .film-toggle {
       position: fixed; right: 16px; bottom: 16px; z-index: 100;
       min-height: 44px; padding: 10px 14px; border: 1px solid var(--ink);

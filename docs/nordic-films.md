@@ -14,7 +14,7 @@
 
 Local branch: `implement/nordic-films`.
 
-Preserves the August film placement, original video files and all existing website copy. Adds the films directory to the production Docker image. Encodes forward/reverse cycles into new `*-loop.mp4` and `*-loop.webm` files rather than seeking on every animation frame. Source footage is 9 seconds (morning, previously trimmed) and 10 seconds (bluehour/night); complete forward/reverse cycles are 18 and 20 seconds respectively. No audio tracks.
+Preserves the August section assignments, original video files and all existing website copy. Following Henrik's review, blue hour is shown uncropped at 16:9 above the Executives text, without a pale veil; morning and night remain background films. Adds the films directory to the production Docker image. Encodes forward/reverse cycles into new `*-loop.mp4` and `*-loop.webm` files rather than seeking on every animation frame. Source footage is 9 seconds (morning, previously trimmed) and 10 seconds (bluehour/night); complete forward/reverse cycles are 18 and 20 seconds respectively. No audio tracks.
 
 Replaces screenshot-based poster images with actual frames from the films. Sources attach only to visible videos. Offscreen and hidden-tab playback pauses. Reduced-motion and supported save-data preferences suppress video loading on initial load. A keyboard-accessible control pauses/resumes background films. Autoplay rejection leaves a still and offers explicit playback. MP4 is provided after WebM as a compatibility fallback.
 
