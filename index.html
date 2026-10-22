@@ -118,26 +118,37 @@
       background: linear-gradient(180deg, rgba(26,22,18,0.55) 0%, rgba(26,22,18,0.66) 55%, rgba(26,22,18,0.90) 100%);
     }
     .film-band > .container, .film-band > .hero__content { position: relative; z-index: 2; }
-    /* Blue hour needs its full horizon: show the complete film above the copy,
-       not cropped behind the entire (much taller) executives section. */
-    #executives.film-band { padding-top: 0; }
-    #executives .film-band__media {
-      position: relative; inset: auto; aspect-ratio: 16 / 9;
-      max-width: var(--max); margin: 0 auto 64px; background: var(--ink);
+    /* Portrait scenes extend behind the copy, not in a separate picture strip. */
+    .film-band--ambient {
+      --ink: #fff8ed; --ink-soft: #eee6db; --accent: #efdfbf;
+      --rule: rgba(255,248,237,0.28);
+      background: #26333b; color: var(--ink); overflow: clip;
     }
-    #executives .film-band__media video { object-fit: contain; opacity: 1; display: block; }
-    #executives > .film-band__veil { display: none; }
-    .film-toggle {
-      position: fixed; right: 16px; bottom: 16px; z-index: 100;
-      min-height: 44px; padding: 10px 14px; border: 1px solid var(--ink);
-      background: var(--paper); color: var(--ink); font: inherit;
-      font-size: 12px; cursor: pointer;
+    .film-band--ambient .film-band__media video { opacity: 1; object-position: center top; }
+    .film-band--ambient .film-band__veil {
+      background: linear-gradient(90deg, rgba(12,22,28,0.64), rgba(12,22,28,0.32));
     }
-    .film-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+    .film-band--ambient > .container { text-shadow: 0 1px 12px rgba(0,0,0,0.25); }
+    .film-band--ambient .thesis-card, .film-band--ambient .paper-panel {
+      --ink: #1A1612; --ink-soft: #5A534A; --accent: #1E4A3A; --rule: #D9D2C3;
+      color: var(--ink); text-shadow: none;
+    }
+
+    @media (max-width: 700px) {
+      .film-band--ambient .film-band__media { overflow: visible; }
+      .film-band--ambient .film-band__media video {
+        position: sticky; top: 0; display: block; height: 100svh;
+        object-fit: cover; object-position: center top;
+      }
+
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .film-band__media video { display: none; }
       .film-band__veil { background: var(--paper) !important; }
       .film-band--ink .film-band__veil { background: var(--ink) !important; }
+      .film-band--ambient .film-band__media video { display: block; }
+      .film-band--ambient .film-band__veil { background: rgba(12,22,28,0.64) !important; }
     }
 
     /* ── VCG mark ──────────────────────────────────── */
@@ -1398,11 +1409,11 @@
   </section>
 
   <!-- For executives -->
-  <section class="section film-band film-band--light" id="executives" aria-labelledby="exec-heading">
+  <section class="section film-band film-band--ambient" id="executives" aria-labelledby="exec-heading">
     <div class="film-band__media" aria-hidden="true">
-      <video poster="films/bluehour-frame.jpg" muted playsinline loop preload="none" data-film>
-        <source data-src="films/bluehour-loop.webm" type="video/webm">
-        <source data-src="films/bluehour-loop.mp4" type="video/mp4">
+      <video poster="films/bluehour-portrait.jpg" muted playsinline loop preload="none" data-film data-playback-rate="0.5">
+        <source data-src="films/bluehour-portrait-loop.webm" type="video/webm">
+        <source data-src="films/bluehour-portrait-loop.mp4" type="video/mp4">
       </video>
     </div>
     <div class="film-band__veil" aria-hidden="true"></div>
@@ -1443,11 +1454,16 @@
         </div>
       </div>
 
-      <!-- What you earn as the deal-maker -->
-      <div class="reveal" style="margin-top: 120px;">
+    </div>
+  </section>
+
+  <!-- Off-white breathing space between the winter and autumn films. -->
+  <section class="section section--paper-soft" id="economics" aria-labelledby="economics-heading">
+    <div class="container">
+      <div class="reveal">
         <div class="rule"></div>
         <p class="eyebrow" style="margin-bottom: 28px;">The economics</p>
-        <h3 class="block-heading" style="max-width: 22ch;">What you earn as <em>the deal-maker.</em></h3>
+        <h3 class="block-heading" id="economics-heading" style="max-width: 22ch;">What you earn as <em>the deal-maker.</em></h3>
         <p class="block-lede" style="max-width: 64ch;">With VCG, you and I share the private-equity origination fee 50/50. The exact fee is deal-dependent, but the larger the deal, the larger the fee. We keep half in cash and reinvest the other half into the company together. We negotiate further equity and options for you, the executive, as part of any board or operator package.</p>
       </div>
 
@@ -1455,7 +1471,14 @@
   </section>
 
   <!-- The method · For PE firms (merged) -->
-  <section class="section section--paper-soft" id="method" aria-labelledby="method-heading">
+  <section class="section film-band film-band--ambient" id="method" aria-labelledby="method-heading">
+    <div class="film-band__media" aria-hidden="true">
+      <video poster="films/autumn.jpg" muted playsinline loop preload="none" data-film data-playback-rate="0.5">
+        <source data-src="films/autumn-loop.webm" type="video/webm">
+        <source data-src="films/autumn-loop.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
       <div class="narrow" style="padding: 0;">
         <div class="rule reveal"></div>
@@ -1520,7 +1543,7 @@
 
       <!-- What the PE counterparty gets (compressed, one paragraph) -->
       <div class="narrow reveal d2" style="padding: 0; margin-top: 56px;">
-        <div style="background: var(--paper); border: 1px solid var(--rule); padding: 30px 34px;">
+        <div class="paper-panel" style="background: var(--paper); border: 1px solid var(--rule); padding: 30px 34px;">
           <p class="eyebrow eyebrow--ink" style="margin-bottom: 14px;">What your PE counterparty gets out of this</p>
           <p style="font-size: 17px; line-height: 1.62; color: var(--ink); margin: 0; max-width: 64ch;">A sector-credible operator already driving the deal, and proprietary origination they would otherwise miss: even top-quartile firms see less than 40% of available deal flow.<sup class="pillar__cite"><a href="https://suttonplacestrategies.com/wp-content/uploads/2024/10/SPS_2024_DOBR-Summary-Statistics.pdf" target="_blank" rel="noopener" aria-label="Source: Sutton Place Strategies, 2024 Deal Origination Benchmark Report">1</a></sup> We match your Plan to the one firm whose mandate fits it, so the capital arrives aligned rather than bolted on.</p>
         </div>
@@ -1641,7 +1664,7 @@
     </div>
   </footer>
 
-  <button id="filmToggle" class="film-toggle" type="button" aria-pressed="false" hidden>Pause background films</button>
+
   <script>
     // Nav scroll state
     const nav = document.getElementById('nav');
@@ -1684,18 +1707,15 @@
     // The forward/reverse cycle is encoded in each file: native playback, no scrubbing.
     // Sources attach only when visible; no video downloads for reduced motion/save-data.
     const films = [...document.querySelectorAll('video[data-film]')];
-    const filmToggle = document.getElementById('filmToggle');
+
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     const connection = navigator.connection;
-    let filmsPaused = false;
+
     const visibleFilms = new Set();
     const motionDisabled = () => reducedMotion.matches || !!connection?.saveData;
     const updateFilms = () => {
-      filmToggle.hidden = motionDisabled();
-      filmToggle.textContent = filmsPaused ? 'Play background films' : 'Pause background films';
-      filmToggle.setAttribute('aria-pressed', String(filmsPaused));
       films.forEach(video => {
-        if (motionDisabled() || filmsPaused || document.hidden || !visibleFilms.has(video)) {
+        if (motionDisabled() || document.hidden || !visibleFilms.has(video)) {
           video.pause();
           return;
         }
@@ -1705,16 +1725,12 @@
           video.load();
         }
         video.muted = true;
-        video.play().catch(() => {
-          // Autoplay may be denied. Keep a still and offer an explicit play action.
-          if (!filmsPaused && visibleFilms.has(video) && !document.hidden && !motionDisabled()) {
-            filmsPaused = true;
-            updateFilms();
-          }
-        });
+        video.playbackRate = Number(video.dataset.playbackRate) || 1;
+        // If the browser refuses autoplay, the poster remains; no visible controls.
+        video.play().catch(() => {});
       });
     };
-    filmToggle.addEventListener('click', () => { filmsPaused = !filmsPaused; updateFilms(); });
+
     reducedMotion.addEventListener('change', updateFilms);
     connection?.addEventListener('change', updateFilms);
     document.addEventListener('visibilitychange', updateFilms);
@@ -1728,8 +1744,6 @@
       }, { threshold: 0 });
       films.forEach(video => filmObserver.observe(video));
       updateFilms();
-    } else {
-      filmToggle.hidden = true; // Poster-only fallback in older browsers.
     }
 
     // Smooth-scroll with nav offset
