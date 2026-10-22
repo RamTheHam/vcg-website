@@ -104,7 +104,7 @@
     .film-band__media { position: absolute; inset: 0; overflow: hidden; z-index: 0; }
     .film-band__media video {
       width: 100%; height: 100%; object-fit: cover;
-      /* ping-pong handles the seamless loop; we keep it playing continuously */
+      /* Forward/reverse cycle is encoded into the files for native playback. */
       opacity: 0.72;
     }
     .film-band--ink .film-band__media video { opacity: 0.5; }
@@ -118,6 +118,13 @@
       background: linear-gradient(180deg, rgba(26,22,18,0.55) 0%, rgba(26,22,18,0.66) 55%, rgba(26,22,18,0.90) 100%);
     }
     .film-band > .container, .film-band > .hero__content { position: relative; z-index: 2; }
+    .film-toggle {
+      position: fixed; right: 16px; bottom: 16px; z-index: 100;
+      min-height: 44px; padding: 10px 14px; border: 1px solid var(--ink);
+      background: var(--paper); color: var(--ink); font: inherit;
+      font-size: 12px; cursor: pointer;
+    }
+    .film-toggle:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
     @media (prefers-reduced-motion: reduce) {
       .film-band__media video { display: none; }
       .film-band__veil { background: var(--paper) !important; }
@@ -1313,7 +1320,10 @@
   <!-- Hero -->
   <header class="hero film-band film-band--light" id="top">
     <div class="film-band__media" aria-hidden="true">
-      <video src="films/morning.webm" poster="films/morning.jpg" muted playsinline preload="auto" data-pingpong></video>
+      <video poster="films/morning-frame.jpg" muted playsinline loop preload="none" data-film>
+        <source data-src="films/morning-loop.webm" type="video/webm">
+        <source data-src="films/morning-loop.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
@@ -1381,7 +1391,10 @@
   <!-- For executives -->
   <section class="section film-band film-band--light" id="executives" aria-labelledby="exec-heading">
     <div class="film-band__media" aria-hidden="true">
-      <video src="films/bluehour.webm" poster="films/bluehour.jpg" muted playsinline preload="auto" data-pingpong></video>
+      <video poster="films/bluehour-frame.jpg" muted playsinline loop preload="none" data-film>
+        <source data-src="films/bluehour-loop.webm" type="video/webm">
+        <source data-src="films/bluehour-loop.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
@@ -1581,7 +1594,10 @@
   <!-- Contact -->
   <section class="section section--ink film-band film-band--ink" id="contact" aria-labelledby="contact-heading">
     <div class="film-band__media" aria-hidden="true">
-      <video src="films/night.webm" muted playsinline preload="auto" data-pingpong></video>
+      <video poster="films/night.jpg" muted playsinline loop preload="none" data-film>
+        <source data-src="films/night-loop.webm" type="video/webm">
+        <source data-src="films/night-loop.mp4" type="video/mp4">
+      </video>
     </div>
     <div class="film-band__veil" aria-hidden="true"></div>
     <div class="container">
@@ -1616,6 +1632,7 @@
     </div>
   </footer>
 
+  <button id="filmToggle" class="film-toggle" type="button" aria-pressed="false" hidden>Pause background films</button>
   <script>
     // Nav scroll state
     const nav = document.getElementById('nav');
@@ -1655,40 +1672,56 @@
       document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
     }
 
-    // Nordic-light films — seamless ping-pong playback
-    // Each film oscillates forward → backward → forward so the loop has no hard cut.
-    // Morning is pre-trimmed to start at second 1 (done at encode time).
-    // Sole driver is a manual-scrub rAF loop: it sets video.currentTime each frame, so
-    // playback works even when the browser blocks autoplay. Native `loop` is removed
-    // from the <video> tags, so nothing competes with this loop. (Ambient, slow-moving
-    // footage means per-frame seeking is smooth and battery-friendly enough.)
-    document.querySelectorAll('video[data-pingpong]').forEach(video => {
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      video.loop = false;
-      video.defaultMuted = true; video.muted = true;
-      // Keep the video paused — we drive it purely by seeking. This is fully
-      // deterministic and works even where autoplay is blocked (the film always
-      // moves because we set currentTime explicitly every frame).
-      video.pause();
-      const D = () => (video.duration || 10);
-      let t = 0, dir = 1, last = null;
-      const step = (now) => {
-        requestAnimationFrame(step);
-        if (!last) { last = now; return; }
-        const dt = (now - last) / 1000;
-        last = now;
-        t += dir * dt;
-        if (t >= D() - 0.01) { t = D(); dir = -1; }   // forward complete → reverse
-        else if (t <= 0)      { t = 0;  dir = 1; }    // backward complete → forward
-        try {
-          if (Math.abs(video.currentTime - t) > 0.025) video.currentTime = t;
-        } catch (e) {}
-      };
-      if (video.readyState >= 1) requestAnimationFrame(step);
-      else video.addEventListener('loadedmetadata', () => { last = null; requestAnimationFrame(step); }, { once: true });
-      // pause seeking work when the tab is hidden
-      document.addEventListener('visibilitychange', () => { if (document.hidden) { last = null; } });
-    });
+    // The forward/reverse cycle is encoded in each file: native playback, no scrubbing.
+    // Sources attach only when visible; no video downloads for reduced motion/save-data.
+    const films = [...document.querySelectorAll('video[data-film]')];
+    const filmToggle = document.getElementById('filmToggle');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const connection = navigator.connection;
+    let filmsPaused = false;
+    const visibleFilms = new Set();
+    const motionDisabled = () => reducedMotion.matches || !!connection?.saveData;
+    const updateFilms = () => {
+      filmToggle.hidden = motionDisabled();
+      filmToggle.textContent = filmsPaused ? 'Play background films' : 'Pause background films';
+      filmToggle.setAttribute('aria-pressed', String(filmsPaused));
+      films.forEach(video => {
+        if (motionDisabled() || filmsPaused || document.hidden || !visibleFilms.has(video)) {
+          video.pause();
+          return;
+        }
+        if (!video.dataset.attached) {
+          video.querySelectorAll('source').forEach(source => { source.src = source.dataset.src; });
+          video.dataset.attached = 'true';
+          video.load();
+        }
+        video.muted = true;
+        video.play().catch(() => {
+          // Autoplay may be denied. Keep a still and offer an explicit play action.
+          if (!filmsPaused && visibleFilms.has(video) && !document.hidden && !motionDisabled()) {
+            filmsPaused = true;
+            updateFilms();
+          }
+        });
+      });
+    };
+    filmToggle.addEventListener('click', () => { filmsPaused = !filmsPaused; updateFilms(); });
+    reducedMotion.addEventListener('change', updateFilms);
+    connection?.addEventListener('change', updateFilms);
+    document.addEventListener('visibilitychange', updateFilms);
+    if ('IntersectionObserver' in window) {
+      const filmObserver = new IntersectionObserver(entries => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (isIntersecting) visibleFilms.add(target);
+          else visibleFilms.delete(target);
+        });
+        updateFilms();
+      }, { threshold: 0 });
+      films.forEach(video => filmObserver.observe(video));
+      updateFilms();
+    } else {
+      filmToggle.hidden = true; // Poster-only fallback in older browsers.
+    }
 
     // Smooth-scroll with nav offset
     document.querySelectorAll('a[href^="#"]').forEach(a => {
