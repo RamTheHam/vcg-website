@@ -33,6 +33,16 @@ class FilmDeliveryTests(unittest.TestCase):
         self.assertLess(ids.index('economics'), ids.index('method'))
         self.assertTrue(any(not s['films'] for s in parser.sections[ids.index('method')+1:ids.index('contact')]))
 
+    def test_autumn_ends_before_the_plan_example(self):
+        html = (ROOT / 'index.html').read_text(encoding='utf-8')
+        method = html.split('id="method"', 1)[1].split('</section>', 1)[0]
+        self.assertNotIn('Your deal, written down', method)
+        self.assertIn('We write the Plan with you.', method)
+        self.assertIn('class="section section--paper-soft" id="plan-example"', html)
+        example = html.split('id="plan-example"', 1)[1].split('</section>', 1)[0]
+        self.assertIn('Your deal, written down', example)
+        self.assertNotIn('<video', example)
+
     def test_no_visible_film_control(self):
         from html.parser import HTMLParser
         class Controls(HTMLParser):
