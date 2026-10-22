@@ -1,0 +1,36 @@
+{
+  "budget_usd": 5,
+  "successful_cost_usd": 1.856,
+  "image_model": "replicate.image-gen.gpt-image-2",
+  "video_model": "replicate.video-gen.veo-3.1-fast",
+  "references": {
+    "winter": {"prediction_id":"cbxmwashs5rmr0d1cfeb4sxs64", "file":"films/masters/bluehour-portrait.png", "cost_usd":0.128},
+    "autumn": {"prediction_id":"tb3wadhm2xrmr0d1cfe9rsmezc", "file":"films/masters/autumn.png", "cost_usd":0.128}
+  },
+  "videos": [
+    {
+      "section":"executives",
+      "file":"films/masters/bluehour-portrait.mp4",
+      "prediction_id":"p8d8azzvfdrmt0d1cft9y6phbr",
+      "cost_usd":0.8,
+      "duration":8,
+      "resolution":"720p",
+      "aspect_ratio":"9:16",
+      "generate_audio":false,
+      "prompt":"An almost-still living Nordic winter landscape painting. Preserve this supplied portrait composition, blue-hour colours, moon, snow, trees, water and rocks exactly. A completely locked tripod camera: absolutely NO pan, zoom, tilt, dolly, reframing or camera motion. The ONLY noticeable movement is extremely slow gentle drift of thin clouds across the sky, subtle enough to notice only after watching a few seconds. A faint natural shimmer in the water is permitted. Moon, horizon, trees, rocks and snow remain completely fixed. Stable exposure and lighting. Scandinavia circa 1900, contemplative and subdued, calm before the storm. No snowfall, weather change, dramatic effects, people, animals, new objects, text or logos. One continuous eight-second shot, almost a still painting but softly alive."
+    },
+    {
+      "section":"method",
+      "file":"films/masters/autumn.mp4",
+      "prediction_id":"q5axzdzp79rmr0d1cfs8c35b24",
+      "cost_usd":0.8,
+      "duration":8,
+      "resolution":"1080p",
+      "aspect_ratio":"9:16",
+      "generate_audio":false,
+      "prompt":"An almost-still living Nordic autumn landscape painting. Preserve the supplied portrait image composition, colours, weathered pier, birches, boathouse and island exactly. Stockholm archipelago circa 1900, no people. Camera completely locked on a tripod: NO zoom, pan, tilt, dolly or reframing. The ONLY noticeable movement is very small, slow, gentle ripples on the water, delicately shifting the reflections. Not waves, not a breeze blowing the whole scene. Trees, pier, horizon, buildings and rocks remain perfectly fixed. Muted ochre, sage and pewter, stable soft overcast light, historic painterly realism. Calm and contemplative, motion subtle enough to notice only after watching for a few seconds. No new objects, boats, animals, falling leaves, rain, text or logos. One continuous eight-second shot."
+    }
+  ],
+  "delivery": {"resolution":"720x1280", "encoded_speed":0.5, "browser_speed":0.5, "loop":"forward-reverse", "audio":false},
+  "failed_refunded_predictions":["pg0em7n849rmw0d1cfr9e97fhr","v9sfcn6mddrmr0d1cfr9xf87jr","19jwvp5vdhrmy0d1cfs8rchrmc"]
+}
