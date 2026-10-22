@@ -14,7 +14,7 @@
 
 Local branch: `refine/ambient-films`, following the earlier integration merged in PR #1.
 
-Preserves all original visible website copy and recovered source films. Final order: morning hero; off-white figures/Principal Gap; portrait winter behind For Executives; off-white Economics; autumn behind How It Works; off-white About; night behind Contact. Portrait scenes sit behind the text, not above it. On narrow screens they stay in the viewport while their section scrolls to avoid extreme cropping. Paper cards retain dark text on off-white.
+Preserves all original visible website copy and recovered source films. Final order: morning hero; off-white figures/Principal Gap; portrait winter behind For Executives; off-white Economics; autumn behind the How It Works introduction and What We Do list only; off-white from “Your deal, written down before any PE firm sees it” through the plan example and About; night behind Contact. Portrait scenes sit behind the text, not above it. On narrow screens they stay in the viewport while their section scrolls to avoid extreme cropping. Paper cards retain dark text on off-white.
 
 The production Docker image includes films. Native forward/reverse WebM and MP4 cycles avoid seeking on every animation frame. Morning and night retain their original pacing. New portrait loops are encoded at half-speed and played at 0.5x again: quarter-speed source motion, a 32-second file and a 64-second displayed cycle. No audio tracks. Retained generation masters in `films/masters/` are excluded from the Docker build context. Reproduce delivery files with `python scripts/encode-ambient-films.py autumn bluehour-portrait`.
 
